@@ -22,7 +22,6 @@ namespace Attendance_Management_System.Forms
                 emailMsgLBL.Text = "";
                 return;
             }
-
             int index = UsersRepo.CheckUserCredentials(email, password);
 
             emailMsgLBL.Text = index.ToString();

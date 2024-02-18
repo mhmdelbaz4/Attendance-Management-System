@@ -15,16 +15,5 @@ public static class StudentsRepo
 
 
 
-    public static List<AttendanceItem> getAttendance(int id)
-    {
-        //logic
-
-
-
-        return;
-
-
-
-    }
 
 }
