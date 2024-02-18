@@ -10,7 +10,13 @@ public static class UsersRepo
 
     static UsersRepo()
     {
-        path = @"";
+        path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\..\..\..\", "attendance.xml"));
         xmlReader = XmlReader.Create(path);
+    }
+
+    public static int CheckUserCredentials(string email, string password)
+    {
+        
+        return 0;
     }
 }
