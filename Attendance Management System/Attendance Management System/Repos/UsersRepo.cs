@@ -16,6 +16,8 @@ public static class UsersRepo
 
     public static int CheckUserCredentials(string email, string password)
     {
+        path = "../../../../../attendance.xml";
+        xmlReader = XmlReader.Create(path);
         
         return 0;
     }
