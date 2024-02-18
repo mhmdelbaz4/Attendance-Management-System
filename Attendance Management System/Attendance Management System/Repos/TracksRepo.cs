@@ -9,7 +9,7 @@ public class TracksRepo
 
     static TracksRepo()
     {
-        path = @"D:\ITI\Projects\Attendance-Management-System\Attendance Management System\attendance.xml";
+        path = Directory.GetParent("./../../../..")?.FullName + "/xml/attendance.xml";
         xmlReader = XmlReader.Create(path);
     }
 

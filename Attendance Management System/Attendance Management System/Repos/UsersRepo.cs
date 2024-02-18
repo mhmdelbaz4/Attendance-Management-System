@@ -10,13 +10,8 @@ public static class UsersRepo
 
     static UsersRepo()
     {
-       path = Directory.GetParent("./../../../..")?.FullName + "/xml/attendance.xml"; ;
+       path = Directory.GetParent("./../../../..")?.FullName + "/xml/attendance.xml";
        xmlReader = XmlReader.Create(path);
     }
 
-
-    public static bool isexists()
-    {
-        return File.Exists(path);
-    }
 }

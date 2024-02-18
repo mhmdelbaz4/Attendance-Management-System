@@ -9,7 +9,7 @@ public static class StudentsRepo
     private static XmlReader xmlReader;
     static StudentsRepo()
     {
-        path = @"D:\ITI\Projects\Attendance-Management-System\Attendance Management System\attendance.xml";
+        path = Directory.GetParent("./../../../..")?.FullName + "/xml/attendance.xml";
         xmlReader = XmlReader.Create(path);
     }
 
