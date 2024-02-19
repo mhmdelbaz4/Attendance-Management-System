@@ -15,3 +15,26 @@ D:\ITI\Projects\Attendance-Management-System\Attendance Management System\Attend
 D:\ITI\Projects\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.pdb
 D:\ITI\Projects\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.genruntimeconfig.cache
 D:\ITI\Projects\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\ref\Attendance Management System.dll
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Forms.Admin.resources
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Forms.Login.resources
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Forms.Teacher.resources
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.csproj.GenerateResource.cache
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.AssemblyInfoInputs.cache
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.AssemblyInfo.cs
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.csproj.CoreCompileInputs.cache
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.sourcelink.json
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.dll
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\refint\Attendance Management System.dll
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.pdb
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\bin\Debug\net8.0-windows\Attendance Management System.exe
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\bin\Debug\net8.0-windows\Attendance Management System.deps.json
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\bin\Debug\net8.0-windows\Attendance Management System.runtimeconfig.json
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\bin\Debug\net8.0-windows\Attendance Management System.dll
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\bin\Debug\net8.0-windows\Attendance Management System.pdb
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.genruntimeconfig.cache
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\ref\Attendance Management System.dll
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Forms.newStudent.resources
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Properties.Resources.resources
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Forms._ٍٍStudentF.resources
+C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Forms.Studentff.resources
