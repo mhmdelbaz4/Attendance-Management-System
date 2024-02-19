@@ -12,7 +12,7 @@ namespace Attendance_Management_System.Models
         public static XmlDocument ReadAllDocument()
         {
             XmlDocument XmlDoc = new XmlDocument();
-            XmlDoc.Load( "../../../../attendance.xml");
+            XmlDoc.Load(Directory.GetParent("./../../../..")?.FullName + "/xml/attendance.xml");
             return XmlDoc;
         }
 
