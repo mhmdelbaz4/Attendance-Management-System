@@ -13,5 +13,4 @@ public static class UsersRepo
        path = Directory.GetParent("./../../../..")?.FullName + "/xml/attendance.xml";
        xmlReader = XmlReader.Create(path);
     }
-
 }
