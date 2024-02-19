@@ -71,56 +71,17 @@ namespace Attendance_Management_System.Forms
             }
 
 
-
-
-
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
 
-        }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-      
 
         private void ExitBTN_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void passwordInput_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void emailInput_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -139,5 +100,7 @@ namespace Attendance_Management_System.Forms
             }
 
         }
+
+
     }
 }

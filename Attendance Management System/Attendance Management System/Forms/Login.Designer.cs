@@ -64,7 +64,6 @@
             passwordInput.PasswordChar = '*';
             passwordInput.Size = new Size(329, 32);
             passwordInput.TabIndex = 2;
-            passwordInput.TextChanged += passwordInput_TextChanged;
             // 
             // loginBtn
             // 
@@ -150,7 +149,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(387, 550);
             panel2.TabIndex = 9;
-            panel2.Paint += panel2_Paint;
             // 
             // errorMsg
             // 
@@ -164,7 +162,6 @@
             errorMsg.TabIndex = 10;
             errorMsg.Text = "email not found";
             errorMsg.Visible = false;
-            errorMsg.Click += label3_Click;
             // 
             // panel8
             // 
@@ -174,7 +171,6 @@
             panel8.Name = "panel8";
             panel8.Size = new Size(150, 97);
             panel8.TabIndex = 9;
-            panel8.Paint += panel8_Paint;
             // 
             // label2
             // 
@@ -187,7 +183,6 @@
             label2.Size = new Size(88, 47);
             label2.TabIndex = 8;
             label2.Text = "Login";
-            label2.Click += label2_Click;
             // 
             // panel5
             // 
@@ -260,7 +255,6 @@
             close.Name = "close";
             close.Size = new Size(51, 52);
             close.TabIndex = 5;
-            close.Paint += panel3_Paint;
             close.Click += ExitBTN_Click;
             // 
             // Login
@@ -275,7 +269,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Login";
             Text = "Login";
-            Load += Login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
