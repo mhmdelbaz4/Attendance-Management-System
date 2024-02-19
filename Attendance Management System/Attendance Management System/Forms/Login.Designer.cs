@@ -46,7 +46,7 @@
             panel4 = new Panel();
             panel6 = new Panel();
             emailInput = new TextBox();
-            closeBtn = new Panel();
+            close = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel5.SuspendLayout();
@@ -134,7 +134,6 @@
             welcome.Size = new Size(246, 35);
             welcome.TabIndex = 0;
             welcome.Text = "welcome to attendance ";
-            welcome.Click += label1_Click;
             // 
             // panel2
             // 
@@ -144,7 +143,7 @@
             panel2.Controls.Add(label2);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
-            panel2.Controls.Add(closeBtn);
+            panel2.Controls.Add(close);
             panel2.Controls.Add(loginBtn);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(363, 0);
@@ -253,15 +252,16 @@
             emailInput.Size = new Size(329, 32);
             emailInput.TabIndex = 2;
             // 
-            // closeBtn
+            // close
             // 
-            closeBtn.BackgroundImage = (Image)resources.GetObject("closeBtn.BackgroundImage");
-            closeBtn.BackgroundImageLayout = ImageLayout.Center;
-            closeBtn.Location = new Point(336, 0);
-            closeBtn.Name = "closeBtn";
-            closeBtn.Size = new Size(51, 52);
-            closeBtn.TabIndex = 5;
-            closeBtn.Paint += panel3_Paint;
+            close.BackgroundImage = (Image)resources.GetObject("close.BackgroundImage");
+            close.BackgroundImageLayout = ImageLayout.Center;
+            close.Location = new Point(336, 0);
+            close.Name = "close";
+            close.Size = new Size(51, 52);
+            close.TabIndex = 5;
+            close.Paint += panel3_Paint;
+            close.Click += ExitBTN_Click;
             // 
             // Login
             // 
@@ -298,7 +298,7 @@
         private Panel panel2;
         private Label welcome;
         private Label label1;
-        private Panel closeBtn;
+        private Panel close;
         private Label label2;
         private Panel panel5;
         private TextBox emailInput;

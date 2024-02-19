@@ -67,15 +67,6 @@ namespace Attendance_Management_System.Forms
                     this.Hide();
                 }
 
-                else
-                {
-
-                    // Invalid login
-                    errorMsg.Text = "Invalid login";
-                    errorMsg.Visible = true;
-                    return;
-
-                }
 
             }
 
@@ -95,14 +86,11 @@ namespace Attendance_Management_System.Forms
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void ExitBTN_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void passwordInput_TextChanged(object sender, EventArgs e)
@@ -127,7 +115,6 @@ namespace Attendance_Management_System.Forms
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void label3_Click(object sender, EventArgs e)
