@@ -46,6 +46,8 @@
             logout = new PictureBox();
             dateAndTime = new System.Windows.Forms.Timer(components);
             dateAndTimeLbl = new Label();
+            userControlAddStudent1 = new UserControlAddStudent();
+            panel1 = new Panel();
             sidebar.SuspendLayout();
             sidebarHoverContainer.SuspendLayout();
             sidebarHeader.SuspendLayout();
@@ -210,9 +212,9 @@
             // 
             navbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             navbar.BackColor = Color.FromArgb(39, 55, 77);
-            navbar.Location = new Point(298, 50);
+            navbar.Location = new Point(296, 50);
             navbar.Name = "navbar";
-            navbar.Size = new Size(902, 85);
+            navbar.Size = new Size(904, 85);
             navbar.TabIndex = 1;
             // 
             // minimize
@@ -251,18 +253,37 @@
             dateAndTimeLbl.Location = new Point(346, 9);
             dateAndTimeLbl.Name = "dateAndTimeLbl";
             dateAndTimeLbl.Size = new Size(60, 28);
-            dateAndTimeLbl.TabIndex = 4;
+            dateAndTimeLbl.TabIndex = 1;
             dateAndTimeLbl.Text = "date";
+            // 
+            // userControlAddStudent1
+            // 
+            userControlAddStudent1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            userControlAddStudent1.Location = new Point(296, 135);
+            userControlAddStudent1.Name = "userControlAddStudent1";
+            userControlAddStudent1.Size = new Size(904, 585);
+            userControlAddStudent1.TabIndex = 4;
+            userControlAddStudent1.Visible = false;
+            // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(298, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(902, 135);
+            panel1.TabIndex = 0;
             // 
             // Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
-            Controls.Add(dateAndTimeLbl);
+            Controls.Add(navbar);
             Controls.Add(logout);
             Controls.Add(minimize);
-            Controls.Add(navbar);
+            Controls.Add(dateAndTimeLbl);
+            Controls.Add(panel1);
+            Controls.Add(userControlAddStudent1);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -298,5 +319,7 @@
         private Button addStudentBtn;
         private System.Windows.Forms.Timer dateAndTime;
         private Label dateAndTimeLbl;
+        private UserControlAddStudent userControlAddStudent1;
+        private Panel panel1;
     }
 }
