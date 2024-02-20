@@ -28,47 +28,116 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
             dataGridView1 = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Name = new DataGridViewTextBoxColumn();
+            Attendance = new DataGridViewTextBoxColumn();
+            TeacherID = new DataGridViewTextBoxColumn();
+            Date = new DataGridViewTextBoxColumn();
+            State = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(539, 131);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(150, 104);
-            listBox1.TabIndex = 0;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.BackgroundColor = SystemColors.Info;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(47, 47);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Name, Attendance, TeacherID, Date, State });
+            dataGridView1.Location = new Point(189, 12);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(300, 188);
+            dataGridView1.Size = new Size(1148, 609);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Name
+            // 
+            Name.HeaderText = "Name";
+            Name.MinimumWidth = 6;
+            Name.Name = "Name";
+            // 
+            // Attendance
+            // 
+            Attendance.HeaderText = "TrackName";
+            Attendance.MinimumWidth = 6;
+            Attendance.Name = "Attendance";
+            // 
+            // TeacherID
+            // 
+            TeacherID.HeaderText = "TeacherID";
+            TeacherID.MinimumWidth = 6;
+            TeacherID.Name = "TeacherID";
+            // 
+            // Date
+            // 
+            Date.HeaderText = "Date";
+            Date.MinimumWidth = 6;
+            Date.Name = "Date";
+            // 
+            // State
+            // 
+            State.HeaderText = "State";
+            State.MinimumWidth = 6;
+            State.Name = "State";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(28, 143);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Student Data";
+            label1.Click += label1_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
+            pictureBox1.Image = Properties.Resources.student;
+            pictureBox1.Location = new Point(3, 143);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(171, 207);
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
             // 
             // Studentff
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1349, 623);
+            Controls.Add(pictureBox1);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Controls.Add(listBox1);
-            Name = "Studentff";
-            Text = "Studentff";
+           // Name = "Studentff";
+            Text = "Student";
             Load += Studentff_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private ListBox listBox1;
         private DataGridView dataGridView1;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn Attendance;
+        private DataGridViewTextBoxColumn TeacherID;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn State;
     }
 }

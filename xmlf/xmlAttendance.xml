@@ -4,26 +4,26 @@
 		<students>
 			<student>
 				<id>1</id>
-				<name>mohamed</name>
+				<name>hassan</name>
 				<birthDate>2002-02-12</birthDate>
 				<email>mo3456@gmail.com</email>
 				<mobileNo>01023412345</mobileNo>
 				<trackName>OS</trackName>
 				<attendance>
 					<item>
-						<teacherID>4</teacherID>
+						<teacherID>45</teacherID>
 						<date>2020-12-01</date>
 						<state>absent</state>
 					</item>
 					<item>
-						<teacherID>4</teacherID>
+						<teacherID>5</teacherID>
 						<date>2020-12-11</date>
-						<state>absent</state>
+						<state>attendant</state>
 					</item>
 				</attendance>
 			</student>
 			<student>
-				<id>8</id>
+				<id>4</id>
 				<name>mohamed</name>
 				<birthDate>2002-02-12</birthDate>
 				<email>amira@gmail.com</email>
@@ -31,12 +31,12 @@
 				<trackName>OS</trackName>
 				<attendance>
 					<item>
-						<teacherID>47</teacherID>
+						<teacherID>45</teacherID>
 						<date>2020-12-01</date>
 						<state>absent</state>
 					</item>
 					<item>
-						 <teacherID>56</teacherID>
+						<teacherID>5</teacherID>
 						<date>2020-12-11</date>
 						<state>absent</state>
 					</item>
@@ -54,7 +54,7 @@
 				<salary>4000</salary>
 				<tracks>
 					<trackName>PD</trackName>
-					 <trackName>OS</trackName>
+					<trackName>OS</trackName>
 				</tracks>
 			</teacher>
 			<teacher>
@@ -93,7 +93,7 @@
 			</admin>
 		</admins>
 	</users>
-		<tracks>
+	<tracks>
 		<track>
 			<trackName>OS</trackName>
 			<teachers>
@@ -106,7 +106,7 @@
 			<teachers>
 				<teacherID>5</teacherID>
 				<teacherID>45</teacherID>
-			</teachers>	
+			</teachers>
 		</track>
 	</tracks>
 </AttendanceSystem>

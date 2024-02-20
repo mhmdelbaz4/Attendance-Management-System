@@ -34,7 +34,5 @@ C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Managemen
 C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\bin\Debug\net8.0-windows\Attendance Management System.pdb
 C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance Management System.genruntimeconfig.cache
 C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\ref\Attendance Management System.dll
-C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Forms.newStudent.resources
 C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Properties.Resources.resources
-C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Forms._ٍٍStudentF.resources
 C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\Attendance Management System\obj\Debug\net8.0-windows\Attendance_Management_System.Forms.Studentff.resources
