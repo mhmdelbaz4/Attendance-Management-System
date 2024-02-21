@@ -156,7 +156,7 @@
             errorMsg.BackColor = Color.LightGray;
             errorMsg.Font = new Font("Rockwell", 12F);
             errorMsg.ForeColor = Color.Red;
-            errorMsg.Location = new Point(109, 335);
+            errorMsg.Location = new Point(118, 335);
             errorMsg.Name = "errorMsg";
             errorMsg.Size = new Size(151, 22);
             errorMsg.TabIndex = 10;
