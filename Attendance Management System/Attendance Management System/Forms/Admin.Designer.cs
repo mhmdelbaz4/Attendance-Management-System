@@ -48,6 +48,7 @@
             dateAndTimeLbl = new Label();
             userControlAddStudent1 = new UserControlAddStudent();
             panel1 = new Panel();
+            headerGap = new Panel();
             sidebar.SuspendLayout();
             sidebarHoverContainer.SuspendLayout();
             sidebarHeader.SuspendLayout();
@@ -258,10 +259,11 @@
             // 
             // userControlAddStudent1
             // 
-            userControlAddStudent1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            userControlAddStudent1.Location = new Point(296, 135);
+            userControlAddStudent1.BackColor = Color.FromArgb(221, 230, 237);
+            userControlAddStudent1.Dock = DockStyle.Fill;
+            userControlAddStudent1.Location = new Point(298, 136);
             userControlAddStudent1.Name = "userControlAddStudent1";
-            userControlAddStudent1.Size = new Size(904, 585);
+            userControlAddStudent1.Size = new Size(902, 584);
             userControlAddStudent1.TabIndex = 4;
             userControlAddStudent1.Visible = false;
             // 
@@ -273,17 +275,27 @@
             panel1.Size = new Size(902, 135);
             panel1.TabIndex = 0;
             // 
+            // headerGap
+            // 
+            headerGap.BackColor = SystemColors.Window;
+            headerGap.Dock = DockStyle.Top;
+            headerGap.Location = new Point(298, 135);
+            headerGap.Name = "headerGap";
+            headerGap.Size = new Size(902, 1);
+            headerGap.TabIndex = 5;
+            // 
             // Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
+            Controls.Add(userControlAddStudent1);
+            Controls.Add(headerGap);
             Controls.Add(navbar);
             Controls.Add(logout);
             Controls.Add(minimize);
             Controls.Add(dateAndTimeLbl);
             Controls.Add(panel1);
-            Controls.Add(userControlAddStudent1);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -321,5 +333,6 @@
         private Label dateAndTimeLbl;
         private UserControlAddStudent userControlAddStudent1;
         private Panel panel1;
+        private Panel headerGap;
     }
 }

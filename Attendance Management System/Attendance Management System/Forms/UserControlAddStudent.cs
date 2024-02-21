@@ -21,7 +21,7 @@ namespace Attendance_Management_System.Forms
 
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
-             errorMsg.Visible = false;
+            errorMsg.Visible = false;
 
             // validate the input fields
             if (string.IsNullOrEmpty(StudentNameInput.Text) || string.IsNullOrEmpty(emailInput.Text) ||
@@ -53,14 +53,14 @@ namespace Attendance_Management_System.Forms
                 //validate password length
                 if (password.Length < 8)
                 {
-                    
+
                     MessageBox.Show("Password must be at least 8 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 if (name.Length < 3)
                 {
-                    
+
                     MessageBox.Show("Name must be at least 3 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
 

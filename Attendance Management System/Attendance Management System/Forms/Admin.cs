@@ -85,6 +85,13 @@ namespace Attendance_Management_System.Forms
             foreach (XmlNode track in tracks)
             {
                 userControlAddStudent1.trackComboBox.Items.Add(track.InnerText);
+                userControlAddStudent1.TrackEditComboBox.Items.Add(track.InnerText);
+            }
+
+            if (userControlAddStudent1.trackComboBox.Items.Count > 0)
+            {
+                userControlAddStudent1.trackComboBox.SelectedIndex = 0;
+                userControlAddStudent1.TrackEditComboBox.SelectedIndex = 0;
             }
         }
 
