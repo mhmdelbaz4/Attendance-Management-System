@@ -21,6 +21,8 @@ namespace Attendance_Management_System.Forms
 
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
+             errorMsg.Visible = false;
+
             // validate the input fields
             if (string.IsNullOrEmpty(StudentNameInput.Text) || string.IsNullOrEmpty(emailInput.Text) ||
                  string.IsNullOrEmpty(passwordInput.Text) ||
@@ -39,6 +41,36 @@ namespace Attendance_Management_System.Forms
                 // create unique id for the student based on time and date + random number + machine name
                 string id = DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(100, 999) + Environment.MachineName;
 
+                //validate email regex (@gmail.com) errorMsg
+
+                if (!email.Contains("@gmail.com"))
+                {
+                    //using messagebox to show error message
+                    MessageBox.Show("Invalid email", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                //validate password length
+                if (password.Length < 8)
+                {
+                    
+                    MessageBox.Show("Password must be at least 8 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (name.Length < 3)
+                {
+                    
+                    MessageBox.Show("Name must be at least 3 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+
+                if (trackComboBox.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a track", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
 
                 // add student to students inside users inside root (xml)

@@ -124,11 +124,12 @@
             trackComboBox.Font = new Font("Rockwell", 16.2F);
             trackComboBox.ForeColor = Color.FromArgb(39, 55, 77);
             trackComboBox.FormattingEnabled = true;
-            trackComboBox.Items.AddRange(new object[] { "--Select Track--" });
+            trackComboBox.Items.AddRange(new object[] {});
             trackComboBox.Location = new Point(142, 258);
             trackComboBox.Name = "trackComboBox";
             trackComboBox.Size = new Size(337, 39);
             trackComboBox.TabIndex = 17;
+            trackComboBox.Text = "--Select Track--";
             // 
             // passwordInput
             // 
@@ -305,7 +306,7 @@
         private Panel panel1;
         private Label emailLabel;
         private Button addStudentBtn;
-        private ComboBox trackComboBox;
+        public ComboBox trackComboBox;
         private TabPage updateAndDeleteStudent;
         private Label errorMsg;
     }

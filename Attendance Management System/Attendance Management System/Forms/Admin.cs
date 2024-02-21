@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Attendance_Management_System.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Attendance_Management_System.Forms
 {
@@ -79,6 +81,11 @@ namespace Attendance_Management_System.Forms
         {
             moveSideBarPanel(addStudentBtn);
             userControlAddStudent1.Visible = true;
+            XmlNodeList tracks = XMLControl.GetMultipleNodes("//tracks/track/name");
+            foreach (XmlNode track in tracks)
+            {
+                userControlAddStudent1.trackComboBox.Items.Add(track.InnerText);
+            }
         }
 
         private void addClassBtn_Click(object sender, EventArgs e)
