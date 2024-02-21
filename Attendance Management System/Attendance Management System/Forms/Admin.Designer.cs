@@ -102,7 +102,7 @@
             addClassBtn.Name = "addClassBtn";
             addClassBtn.Size = new Size(288, 67);
             addClassBtn.TabIndex = 8;
-            addClassBtn.Text = "         Add Class";
+            addClassBtn.Text = "      Track";
             addClassBtn.UseVisualStyleBackColor = true;
             addClassBtn.Click += addClassBtn_Click;
             // 
@@ -118,7 +118,7 @@
             addStudentBtn.Name = "addStudentBtn";
             addStudentBtn.Size = new Size(288, 67);
             addStudentBtn.TabIndex = 7;
-            addStudentBtn.Text = "         Add Student";
+            addStudentBtn.Text = "       Student";
             addStudentBtn.UseVisualStyleBackColor = true;
             addStudentBtn.Click += addStudentBtn_Click;
             // 
@@ -134,7 +134,7 @@
             addTeacherBtn.Name = "addTeacherBtn";
             addTeacherBtn.Size = new Size(288, 67);
             addTeacherBtn.TabIndex = 6;
-            addTeacherBtn.Text = "         Add Teacher";
+            addTeacherBtn.Text = "        Teacher";
             addTeacherBtn.UseVisualStyleBackColor = true;
             addTeacherBtn.Click += addTeacherBtn_Click;
             // 
