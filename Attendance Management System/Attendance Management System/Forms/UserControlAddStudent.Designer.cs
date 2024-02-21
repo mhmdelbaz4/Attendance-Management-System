@@ -33,14 +33,14 @@
             errorMsg = new Label();
             addStudentBtn = new Button();
             trackComboBox = new ComboBox();
-            textBox2 = new TextBox();
+            passwordInput = new TextBox();
             panel2 = new Panel();
-            studentPasswordInput = new Label();
+            passwordLabel = new Label();
             panel3 = new Panel();
-            studentTrackInput = new Label();
-            textBox1 = new TextBox();
+            trackLabel = new Label();
+            emailInput = new TextBox();
             panel1 = new Panel();
-            StudentEmailInput = new Label();
+            emailLabel = new Label();
             StudentNameInput = new TextBox();
             namePanel = new Panel();
             nameLabel = new Label();
@@ -69,14 +69,14 @@
             addStudentTabPage.Controls.Add(errorMsg);
             addStudentTabPage.Controls.Add(addStudentBtn);
             addStudentTabPage.Controls.Add(trackComboBox);
-            addStudentTabPage.Controls.Add(textBox2);
+            addStudentTabPage.Controls.Add(passwordInput);
             addStudentTabPage.Controls.Add(panel2);
-            addStudentTabPage.Controls.Add(studentPasswordInput);
+            addStudentTabPage.Controls.Add(passwordLabel);
             addStudentTabPage.Controls.Add(panel3);
-            addStudentTabPage.Controls.Add(studentTrackInput);
-            addStudentTabPage.Controls.Add(textBox1);
+            addStudentTabPage.Controls.Add(trackLabel);
+            addStudentTabPage.Controls.Add(emailInput);
             addStudentTabPage.Controls.Add(panel1);
-            addStudentTabPage.Controls.Add(StudentEmailInput);
+            addStudentTabPage.Controls.Add(emailLabel);
             addStudentTabPage.Controls.Add(StudentNameInput);
             addStudentTabPage.Controls.Add(namePanel);
             addStudentTabPage.Controls.Add(nameLabel);
@@ -130,15 +130,15 @@
             trackComboBox.Size = new Size(337, 39);
             trackComboBox.TabIndex = 17;
             // 
-            // textBox2
+            // passwordInput
             // 
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Rockwell Condensed", 16F);
-            textBox2.ForeColor = Color.FromArgb(38, 80, 115);
-            textBox2.Location = new Point(790, 263);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(335, 32);
-            textBox2.TabIndex = 15;
+            passwordInput.BorderStyle = BorderStyle.None;
+            passwordInput.Font = new Font("Rockwell Condensed", 16F);
+            passwordInput.ForeColor = Color.FromArgb(38, 80, 115);
+            passwordInput.Location = new Point(790, 263);
+            passwordInput.Name = "passwordInput";
+            passwordInput.Size = new Size(335, 32);
+            passwordInput.TabIndex = 15;
             // 
             // panel2
             // 
@@ -149,16 +149,16 @@
             panel2.Size = new Size(337, 2);
             panel2.TabIndex = 16;
             // 
-            // studentPasswordInput
+            // passwordLabel
             // 
-            studentPasswordInput.AutoSize = true;
-            studentPasswordInput.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            studentPasswordInput.ForeColor = Color.FromArgb(39, 55, 77);
-            studentPasswordInput.Location = new Point(792, 217);
-            studentPasswordInput.Name = "studentPasswordInput";
-            studentPasswordInput.Size = new Size(147, 31);
-            studentPasswordInput.TabIndex = 14;
-            studentPasswordInput.Text = "Password:";
+            passwordLabel.AutoSize = true;
+            passwordLabel.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordLabel.ForeColor = Color.FromArgb(39, 55, 77);
+            passwordLabel.Location = new Point(792, 217);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new Size(147, 31);
+            passwordLabel.TabIndex = 14;
+            passwordLabel.Text = "Password:";
             // 
             // panel3
             // 
@@ -169,26 +169,26 @@
             panel3.Size = new Size(337, 2);
             panel3.TabIndex = 13;
             // 
-            // studentTrackInput
+            // trackLabel
             // 
-            studentTrackInput.AutoSize = true;
-            studentTrackInput.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            studentTrackInput.ForeColor = Color.FromArgb(39, 55, 77);
-            studentTrackInput.Location = new Point(144, 217);
-            studentTrackInput.Name = "studentTrackInput";
-            studentTrackInput.Size = new Size(96, 31);
-            studentTrackInput.TabIndex = 11;
-            studentTrackInput.Text = "Track:";
+            trackLabel.AutoSize = true;
+            trackLabel.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            trackLabel.ForeColor = Color.FromArgb(39, 55, 77);
+            trackLabel.Location = new Point(144, 217);
+            trackLabel.Name = "trackLabel";
+            trackLabel.Size = new Size(96, 31);
+            trackLabel.TabIndex = 11;
+            trackLabel.Text = "Track:";
             // 
-            // textBox1
+            // emailInput
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Rockwell Condensed", 16F);
-            textBox1.ForeColor = Color.FromArgb(38, 80, 115);
-            textBox1.Location = new Point(783, 166);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(335, 32);
-            textBox1.TabIndex = 9;
+            emailInput.BorderStyle = BorderStyle.None;
+            emailInput.Font = new Font("Rockwell Condensed", 16F);
+            emailInput.ForeColor = Color.FromArgb(38, 80, 115);
+            emailInput.Location = new Point(783, 166);
+            emailInput.Name = "emailInput";
+            emailInput.Size = new Size(335, 32);
+            emailInput.TabIndex = 9;
             // 
             // panel1
             // 
@@ -199,16 +199,16 @@
             panel1.Size = new Size(337, 2);
             panel1.TabIndex = 10;
             // 
-            // StudentEmailInput
+            // emailLabel
             // 
-            StudentEmailInput.AutoSize = true;
-            StudentEmailInput.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            StudentEmailInput.ForeColor = Color.FromArgb(39, 55, 77);
-            StudentEmailInput.Location = new Point(785, 120);
-            StudentEmailInput.Name = "StudentEmailInput";
-            StudentEmailInput.Size = new Size(95, 31);
-            StudentEmailInput.TabIndex = 8;
-            StudentEmailInput.Text = "Email:";
+            emailLabel.AutoSize = true;
+            emailLabel.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            emailLabel.ForeColor = Color.FromArgb(39, 55, 77);
+            emailLabel.Location = new Point(785, 120);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new Size(95, 31);
+            emailLabel.TabIndex = 8;
+            emailLabel.Text = "Email:";
             // 
             // StudentNameInput
             // 
@@ -296,14 +296,14 @@
         private Label nameLabel;
         private TextBox StudentNameInput;
         private Panel namePanel;
-        private TextBox textBox2;
+        private TextBox passwordInput;
         private Panel panel2;
-        private Label studentPasswordInput;
+        private Label passwordLabel;
         private Panel panel3;
-        private Label studentTrackInput;
-        private TextBox textBox1;
+        private Label trackLabel;
+        private TextBox emailInput;
         private Panel panel1;
-        private Label StudentEmailInput;
+        private Label emailLabel;
         private Button addStudentBtn;
         private ComboBox trackComboBox;
         private TabPage updateAndDeleteStudent;

@@ -22,19 +22,19 @@ namespace Attendance_Management_System.Forms
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
             // validate the input fields
-            if (string.IsNullOrEmpty(StudentNameInput.Text) || string.IsNullOrEmpty(studentPasswordInput.Text) ||
-                 string.IsNullOrEmpty(StudentEmailInput.Text) ||
-                  trackComboBox.SelectedIndex == -1 )
+            if (string.IsNullOrEmpty(StudentNameInput.Text) || string.IsNullOrEmpty(emailInput.Text) ||
+                 string.IsNullOrEmpty(passwordInput.Text) ||
+                  trackComboBox.SelectedIndex == -1)
 
             {
                 MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-               // add student to students inside users inside root (xml)
+                // add student to students inside users inside root (xml)
                 string name = StudentNameInput.Text;
-                string password = studentPasswordInput.Text;
-                string email = StudentEmailInput.Text;
+                string password = passwordInput.Text;
+                string email = emailInput.Text;
                 string track = trackComboBox.SelectedItem.ToString();
                 // create unique id for the student based on time and date + random number + machine name
                 string id = DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(100, 999) + Environment.MachineName;
@@ -44,11 +44,60 @@ namespace Attendance_Management_System.Forms
                 // add student to students inside users inside root (xml)
 
                 //get students node
-                 XmlDocument doc = 
-                 XMLControl.ReadAllDocument();
+                XmlDocument doc = XMLControl.ReadAllDocument();
+                XmlNode? students = doc.SelectSingleNode("//students");
 
-            }   
-          
+                // create student node
+                XmlNode student = doc.CreateElement("student");
+
+                // create id node
+                XmlNode idNode = doc.CreateElement("id");
+                idNode.InnerText = id;
+                student.AppendChild(idNode);
+
+                // create name node
+                XmlNode nameNode = doc.CreateElement("name");
+                nameNode.InnerText = name;
+                student.AppendChild(nameNode);
+
+                // create password node
+                XmlNode passwordNode = doc.CreateElement("password");
+                passwordNode.InnerText = password;
+                student.AppendChild(passwordNode);
+
+                // create email node
+                XmlNode emailNode = doc.CreateElement("email");
+                emailNode.InnerText = email;
+                student.AppendChild(emailNode);
+
+                // create track node
+                XmlNode trackNode = doc.CreateElement("track");
+                trackNode.InnerText = track;
+                student.AppendChild(trackNode);
+
+                //create attendance node
+                XmlNode attendanceNode = doc.CreateElement("attendance");
+                student.AppendChild(attendanceNode);
+
+                students?.AppendChild(student);
+
+                // save the document
+                doc.Save(XMLControl.GetXMLPath());
+
+                // show success message
+                MessageBox.Show("Student added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // clear the input fields
+                StudentNameInput.Text = "";
+                passwordInput.Text = "";
+                emailInput.Text = "";
+                trackComboBox.SelectedIndex = -1;
+
+
+            }
+
         }
+
+      
     }
 }
