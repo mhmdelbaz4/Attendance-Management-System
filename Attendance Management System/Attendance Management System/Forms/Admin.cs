@@ -20,7 +20,7 @@ namespace Attendance_Management_System.Forms
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            this.TopMost = true; // this will set it on top of everything, including the taskbar
+            //this.TopMost = true; // this will set it on top of everything, including the taskbar
             this.FormBorderStyle = FormBorderStyle.None; // remove the title bar
             this.WindowState = FormWindowState.Maximized; // maximize it to fill the entire screen.
 
