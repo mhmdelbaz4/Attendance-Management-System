@@ -103,7 +103,7 @@ namespace Attendance_Management_System.Forms
                 student.AppendChild(emailNode);
 
                 // create track node
-                XmlNode trackNode = doc.CreateElement("track");
+                XmlNode trackNode = doc.CreateElement("trackName");
                 trackNode.InnerText = track;
                 student.AppendChild(trackNode);
 
