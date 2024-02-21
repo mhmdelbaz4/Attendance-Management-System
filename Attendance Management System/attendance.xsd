@@ -51,11 +51,17 @@
 			<xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="passwordType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z][A-Za-z0-9]{5,}"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<!-- Global elements -->
 	<xs:element name="id" type="xs:integer"/>
 	<xs:element name="trackName" type="trackType"/>
 	<xs:element name="name" type="xs:string"/>
 	<xs:element name="email" type="emailType"/>
+	<xs:element name="password" type="passwordType"/>
 	<xs:element name="birthDate" type="xs:date"/>
 	<xs:element name="mobileNo" type="mobileType"/>
 	<!-- Definition of user data group -->
@@ -83,6 +89,7 @@
 													<xs:element ref="id"/>
 													<xs:group ref="userData"/>
 													<xs:element ref="email"/>
+													<xs:element ref="password"/>
 													<xs:element ref="mobileNo"/>
 													<xs:element ref="trackName"/>
 													<xs:element name="attendance">
@@ -99,14 +106,16 @@
 																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
-													</xs:element><!--end of item-->
+													</xs:element>
+													<!--end of item-->
 												</xs:sequence>
 											</xs:complexType>
 											<xs:unique name="teacherIDUniqueness">
-												<xs:selector xpath="item"></xs:selector>
-												<xs:field xpath="teacherID"></xs:field>
+												<xs:selector xpath="item"/>
+												<xs:field xpath="teacherID"/>
 											</xs:unique>
-										</xs:element><!--end of attendance-->
+										</xs:element>
+										<!--end of attendance-->
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -120,6 +129,7 @@
 													<xs:element ref="id"/>
 													<xs:group ref="userData"/>
 													<xs:element ref="email"/>
+													<xs:element ref="password"/>
 													<xs:element ref="mobileNo"/>
 													<xs:element name="hiringDate" type="xs:date"/>
 													<xs:element name="salary" type="xs:integer"/>
@@ -157,6 +167,7 @@
 													<xs:element ref="id"/>
 													<xs:group ref="userData"/>
 													<xs:element ref="email"/>
+													<xs:element ref="password"/>
 													<xs:element ref="mobileNo"/>
 													<xs:element name="startDate" type="xs:date"/>
 													<xs:element name="role" type="adminRole"/>
@@ -168,6 +179,7 @@
 							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
+					<!--uniqueness values for all users : students, teachers,admins-->
 					<xs:unique name="uniqueUserIDs">
 						<xs:selector xpath=".//id"/>
 						<xs:field xpath="."/>
@@ -178,6 +190,10 @@
 					</xs:unique>
 					<xs:unique name="uniqueUserMobiles">
 						<xs:selector xpath=".//mobileNo"/>
+						<xs:field xpath="."/>
+					</xs:unique>
+						<xs:unique name="uniqueUserPassword">
+						<xs:selector xpath=".//password"/>
 						<xs:field xpath="."/>
 					</xs:unique>
 				</xs:element>
@@ -223,17 +239,15 @@
 			<xs:selector xpath="tracks/track/teachers/teacherID"/>
 			<xs:field xpath="."/>
 		</xs:keyref>
-	  <!-- Define the key reference for teacher ID in attendance of student and teacher elemnent id -->
-	  <!--does not work-->
-	  <xs:key name="teacherIDKeyT">
-    <xs:selector xpath="users/teachers/teacher/id"/>
-    <xs:field xpath="."/>
-</xs:key>
-
-<xs:keyref name="teacherIDRefAttendance" refer="teacherIDKeyT">
-    <xs:selector xpath="users/students/student/attendance/item/teacherID"/>
-    <xs:field xpath="."/>
-</xs:keyref>
-
+		<!-- Define the key reference for teacher ID in attendance of student and teacher elemnent id -->
+		<!--does not work-->
+		<xs:key name="teacherIDKeyT">
+			<xs:selector xpath="users/teachers/teacher"/>
+			<xs:field xpath="id"/>
+		</xs:key>
+		<xs:keyref name="teacherIDRefAttendance" refer="teacherIDKeyT">
+			<xs:selector xpath="users/students/student/attendance/item/teacherID"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
 	</xs:element>
 </xs:schema>

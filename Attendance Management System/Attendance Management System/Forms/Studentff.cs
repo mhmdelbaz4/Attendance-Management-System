@@ -20,40 +20,36 @@ namespace Attendance_Management_System.Forms
         {
             InitializeComponent();
         }
-
         private void Studentff_Load(object sender, EventArgs e)
         {
+            var studentList = StudentsRepo.GetStudents(@"../../../../attendance.xml");
 
-            var studentList = StudentsRepo.GetStudents(@"C:\Users\T.B\Desktop\attendance repo\Attendance-Management-System\xmlf\attendance.xml");
-            int studentId = 1; // Example student ID
-            Student student = StudentsRepo.getStudentByID(studentId, studentList);
-            // this is   a way for listbox in lecture
-            /* listBox1.Items.Add(new Student() { Name = "amira", ID = 1});
-              listBox1.Items.Add(new Student() { Name = "ali", ID = 2 });
-              listBox1.Items.Add(new Student() { Name = "mohamed", ID = 3 });
-              listBox1.Items.Add(new Student() { Name = "hgf", ID = 4 });*/
+         
+                int studentId = 20; // Example student ID
+                Student student = StudentsRepo.getStudentByID(studentId, studentList);
+            
+
             if (student != null)
-            {
-
-                //  listBox1.Items.Add(student);: calling listBox1
-                //Bind student data to the DataGridView
-                /* dataGridView1.DataSource = new List<Student> { student };// this way doesnt display the AttendaceHistory as it list
-                in student , it displays all elemnts except stateDate,TeacherID*/
-                // in dataGridView1.DataSource = new List<Student>: i dont  add any columns , this way make everything
-                // so i used this way :
-                //first i added column to grid
-                foreach (var attendanceItem in student.AttendaceHistory)
                 {
-                    // Add a row for each attendance dataGridView1
-                    // then i add values to rows
-                    dataGridView1.Rows.Add(student.ID, student.Name, student.TrackName, attendanceItem.TeacherID, attendanceItem.Date, attendanceItem.State);
+                    // Bind student data to the DataGridView
+                    foreach (var attendanceItem in student.AttendaceHistory)
+                    {
+                        dataGridView1.Rows.Add(student.ID, student.Name, student.TrackName, attendanceItem.TeacherID, attendanceItem.Date, attendanceItem.State);
+                    }
+                }
+                else
+                {
+                   
+                    MessageBox.Show("Student not found.");
+                    this.Close();
                 }
             }
-            else
-            {
-                MessageBox.Show("Student not found.");
-            }
-        }
+          
+    
+
+
+
+
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -69,6 +65,8 @@ namespace Attendance_Management_System.Forms
         {
 
         }
+
+       
     }
 }
 

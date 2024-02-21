@@ -37,6 +37,7 @@
             State = new DataGridViewTextBoxColumn();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            colorDialog1 = new ColorDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -120,7 +121,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-           // Name = "Studentff";
+            //Name = "Studentff";
             Text = "Student";
             Load += Studentff_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -139,5 +140,6 @@
         private DataGridViewTextBoxColumn TeacherID;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn State;
+        private ColorDialog colorDialog1;
     }
 }
