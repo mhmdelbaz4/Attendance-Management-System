@@ -419,7 +419,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
+# XMl
+Xml/
 ### VisualStudio ###
 
 # User-specific files
