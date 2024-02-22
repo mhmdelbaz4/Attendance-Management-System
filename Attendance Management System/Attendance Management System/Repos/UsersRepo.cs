@@ -10,7 +10,7 @@ public static class UsersRepo
 
     static UsersRepo()
     {
-        path = @"";
-        xmlReader = XmlReader.Create(path);
+       path = Directory.GetParent("./../../../..")?.FullName + "/xml/attendance.xml";
+       xmlReader = XmlReader.Create(path);
     }
 }

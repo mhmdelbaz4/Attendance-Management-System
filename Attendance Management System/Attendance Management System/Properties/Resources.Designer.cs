@@ -63,19 +63,9 @@ namespace Attendance_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap red {
+        internal static System.Drawing.Bitmap logout {
             get {
-                object obj = ResourceManager.GetObject("red", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap student {
-            get {
-                object obj = ResourceManager.GetObject("student", resourceCulture);
+                object obj = ResourceManager.GetObject("logout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

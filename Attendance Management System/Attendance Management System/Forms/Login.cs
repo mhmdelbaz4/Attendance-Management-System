@@ -1,4 +1,5 @@
-﻿using Attendance_Management_System.Repos;
+﻿﻿using System.Xml;
+using Attendance_Management_System.Repos;
 using Attendance_Management_System.Models;
 
 namespace Attendance_Management_System.Forms
@@ -17,21 +18,89 @@ namespace Attendance_Management_System.Forms
 
             if (String.IsNullOrWhiteSpace(email))
             {
-                emailMsgLBL.Text = "Email is required";
-                emailMsgLBL.Visible = false;
-                emailMsgLBL.Text = "";
+                errorMsg.Text = "Email is required";
+                errorMsg.Visible = true;
                 return;
             }
 
-          //  int index = UsersRepo.CheckUserCredentials(email, password);
+            XmlNode? userNode = XMLControl.GetNode("//*", "email", email);
 
-           // emailMsgLBL.Text = index.ToString();
+            if (userNode == null)
+            {
+                errorMsg.Text = "Email is not registered";
+                errorMsg.Visible = true;
+                return;
+            }
+            else
+            {
+                if (userNode.SelectSingleNode("password").InnerText != password)
+                {
+                    errorMsg.Text = "Password is incorrect";
+                    errorMsg.Visible = true;
+                    return;
+                }
+
+                //create user (admin, teacher, student) object depending on the role node name
+
+                if (userNode.Name == "student")
+                {
+                    // create student form
+                    Student student = new Student();
+                    student.Show();
+                    this.Hide();
+
+
+                }
+                else if (userNode.Name == "teacher")
+                {
+                    // Login teacher
+                    Teacher teacher = new Teacher();
+                    teacher.Show();
+                    this.Hide();
+
+                }
+                else if (userNode.Name == "admin")
+                {
+                    // Login admin
+                    Admin admin = new Admin();
+                    admin.Show();
+                    this.Hide();
+                }
+
+
+            }
+
 
         }
 
-        private void Login_Load(object sender, EventArgs e)
+
+
+
+        private void ExitBTN_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
+
+
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //opened / closed eye
+            //check if password is visible
+            if (passwordInput.PasswordChar == '*')
+            {
+                passwordInput.PasswordChar = '\0';
+                showPasswordBtn.Image = Image.FromFile(@"../../../../assets/icons8-eye-50.png");
+            }
+            else
+            {
+                passwordInput.PasswordChar = '*';
+                showPasswordBtn.Image = Image.FromFile(@"../../../../assets/icons8-closed-eye-50.png");
+
+            }
 
         }
+
+
     }
 }

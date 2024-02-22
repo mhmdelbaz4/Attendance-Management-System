@@ -13,12 +13,7 @@ internal static class Program
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-        Application.Run(new Studentff());
-        /*var studentList = StudentsRepo.GetStudents(@"C:\Users\T.B\Desktop\attendance repo\Attendance-Management-System\xmlf\attendance.xml");
+        Application.Run(new Admin());
 
-        // Example: Displaying a specific student's data in the DataGridView
-        int studentId = 1; // Example student ID
-        Student student = StudentsRepo.getStudentByID(studentId, studentList);
-        Console.WriteLine(student);*/
     }
 }
