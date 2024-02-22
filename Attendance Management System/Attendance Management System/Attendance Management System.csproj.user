@@ -20,6 +20,9 @@
     <Compile Update="UserControls\AdminTeacherCRUD.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\reportsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\TeacherMarkAttendance.cs">
       <SubType>UserControl</SubType>
     </Compile>
