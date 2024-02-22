@@ -90,6 +90,8 @@
             tabStudent.Controls.Add(addStudentTabPage);
             tabStudent.Controls.Add(searchStudent);
             tabStudent.Controls.Add(updateAndDeleteStudent);
+            tabStudent.Cursor = Cursors.Hand;
+            tabStudent.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabStudent.Location = new Point(0, 18);
             tabStudent.Name = "tabStudent";
             tabStudent.SelectedIndex = 0;
@@ -119,9 +121,9 @@
             addStudentTabPage.Location = new Point(4, 4);
             addStudentTabPage.Name = "addStudentTabPage";
             addStudentTabPage.Padding = new Padding(5);
-            addStudentTabPage.Size = new Size(1280, 629);
+            addStudentTabPage.Size = new Size(1280, 618);
             addStudentTabPage.TabIndex = 0;
-            addStudentTabPage.Text = "add student";
+            addStudentTabPage.Text = "   ➕";
             addStudentTabPage.UseVisualStyleBackColor = true;
             addStudentTabPage.Click += addStudentTabPage_Click;
             // 
@@ -318,9 +320,9 @@
             searchStudent.Location = new Point(4, 4);
             searchStudent.Name = "searchStudent";
             searchStudent.Padding = new Padding(3);
-            searchStudent.Size = new Size(1280, 629);
+            searchStudent.Size = new Size(1280, 618);
             searchStudent.TabIndex = 1;
-            searchStudent.Text = "search student";
+            searchStudent.Text = "   🔍";
             searchStudent.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
@@ -423,7 +425,7 @@
             dataGridStudent.ShowCellErrors = false;
             dataGridStudent.ShowEditingIcon = false;
             dataGridStudent.ShowRowErrors = false;
-            dataGridStudent.Size = new Size(1257, 455);
+            dataGridStudent.Size = new Size(1257, 444);
             dataGridStudent.TabIndex = 0;
             dataGridStudent.CellClick += selectStudent;
             // 
@@ -477,9 +479,9 @@
             updateAndDeleteStudent.ForeColor = Color.FromArgb(39, 55, 77);
             updateAndDeleteStudent.Location = new Point(4, 4);
             updateAndDeleteStudent.Name = "updateAndDeleteStudent";
-            updateAndDeleteStudent.Size = new Size(1280, 629);
+            updateAndDeleteStudent.Size = new Size(1280, 618);
             updateAndDeleteStudent.TabIndex = 2;
-            updateAndDeleteStudent.Text = "update and delete student";
+            updateAndDeleteStudent.Text = "♻️| 🗑️ ";
             // 
             // deleteBtn
             // 
