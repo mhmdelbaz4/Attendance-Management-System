@@ -173,9 +173,9 @@
             ClassLabel.ForeColor = Color.AliceBlue;
             ClassLabel.Location = new Point(76, 113);
             ClassLabel.Name = "ClassLabel";
-            ClassLabel.Size = new Size(141, 38);
+            ClassLabel.Size = new Size(129, 38);
             ClassLabel.TabIndex = 1;
-            ClassLabel.Text = "Classes:";
+            ClassLabel.Text = "Tracks:";
             // 
             // pictureBox3
             // 
