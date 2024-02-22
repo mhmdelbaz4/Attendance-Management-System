@@ -421,6 +421,7 @@
             dataGridStudent.ShowRowErrors = false;
             dataGridStudent.Size = new Size(1257, 455);
             dataGridStudent.TabIndex = 0;
+            dataGridStudent.CellClick += selectStudent;
             // 
             // IdCol
             // 
@@ -490,6 +491,7 @@
             deleteBtn.TabIndex = 35;
             deleteBtn.Text = "Delete Student";
             deleteBtn.UseVisualStyleBackColor = false;
+            deleteBtn.Click += deleteBtn_Click;
             // 
             // editErrorMsg
             // 
@@ -519,6 +521,7 @@
             updateBtn.TabIndex = 33;
             updateBtn.Text = "Upadte Student";
             updateBtn.UseVisualStyleBackColor = false;
+            updateBtn.Click += updateBtn_Click;
             // 
             // TrackEditComboBox
             // 
@@ -675,6 +678,7 @@
 
         #endregion
 
+        private string selectedStudentId = "";
         private TabControl tabStudent;
         private TabPage addStudentTabPage;
         private TabPage searchStudent;

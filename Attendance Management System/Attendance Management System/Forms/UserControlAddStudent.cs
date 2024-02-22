@@ -19,6 +19,7 @@ namespace Attendance_Management_System.Forms
             InitializeComponent();
         }
 
+
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
             errorMsg.Visible = false;
@@ -34,12 +35,12 @@ namespace Attendance_Management_System.Forms
             else
             {
                 // add student to students inside users inside root (xml)
-                string name = StudentNameInput.Text;
-                string password = passwordInput.Text;
-                string email = emailInput.Text;
-                string track = trackComboBox.SelectedItem.ToString();
+                string name = StudentNameInput.Text.Trim().ToLower();
+                string password = passwordInput.Text.Trim();
+                string email = emailInput.Text.Trim().ToLower();
+                string track = trackComboBox.SelectedItem.ToString().Trim().ToLower();
                 // create unique id for the student based on time and date + random number + machine name
-                string id = DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(100, 999) + Environment.MachineName;
+                string id = DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(100, 999);
 
                 //validate email regex (@gmail.com) errorMsg
 
@@ -190,7 +191,7 @@ namespace Attendance_Management_System.Forms
 
             // get students from xml based on the search value and search by
             XmlNodeList students = XMLControl.GetMultipleNodes($"//students/student[contains({searchBy},'{searchValue}')]");
-         
+
             //clear the datagridview
             dataGridStudent.Rows.Clear();
 
@@ -204,6 +205,113 @@ namespace Attendance_Management_System.Forms
                 dataGridStudent.Rows.Add(id, name, email, track);
             }
 
+        }
+
+        private void selectStudent(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dataGridStudent.Rows[e.RowIndex];
+
+            selectedStudentId = row.Cells[0].Value.ToString();
+
+            // set the values to the input fields
+            string name = row.Cells[1].Value.ToString();
+            string email = row.Cells[2].Value.ToString();
+            string track = row.Cells[3].Value.ToString();
+
+            nameEditInput.Text = name;
+            emailEditInputt.Text = email;
+            TrackEditComboBox.SelectedItem = track;
+
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedStudentId == "") return;
+
+            // get the values from the input fields
+            string name = nameEditInput.Text.Trim().ToLower();
+            string email = emailEditInputt.Text.Trim().ToLower();
+            string track = TrackEditComboBox.SelectedItem.ToString().ToLower();
+            string password = passwordEditInput.Text.Trim();
+
+            // validate the input fields
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
+                track == "")
+            {
+                MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+
+                //read the xml
+                XmlDocument doc = XMLControl.ReadAllDocument();
+
+                // get the student node from the xml
+                XmlNode? student = doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']");
+
+                if (student != null)
+                {
+                    // update the values
+                    student.SelectSingleNode("name").InnerText = name;
+                    student.SelectSingleNode("email").InnerText = email;
+                    student.SelectSingleNode("trackName").InnerText = track;
+                    student.SelectSingleNode("password").InnerText = password;
+
+                    // save the document
+                    doc.Save(XMLControl.GetXMLPath());
+
+
+                    // show success message
+                    MessageBox.Show("Student updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // clear the input fields
+                    nameEditInput.Text = "";
+                    emailEditInputt.Text = "";
+                    passwordEditInput.Text = "";
+                    TrackEditComboBox.SelectedIndex = -1;
+                    tabStudent.SelectedIndex = 1;
+
+                }
+            }
+
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+
+            if (selectedStudentId == "") return;
+
+            if (MessageBox.Show("Are you sure you want to delete this student?", "Delete", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //read the xml
+                XmlDocument doc = XMLControl.ReadAllDocument();
+
+                // get the student node from the xml
+                XmlNode? student = doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']");
+
+                if (student != null)
+                {
+                    // remove the student node
+                    student.ParentNode?.RemoveChild(student);
+
+                    // save the document
+                    doc.Save(XMLControl.GetXMLPath());
+
+                    // show success message
+                    MessageBox.Show("Student deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // clear the input fields
+                    nameEditInput.Text = "";
+                    emailEditInputt.Text = "";
+                    passwordEditInput.Text = "";
+                    TrackEditComboBox.SelectedIndex = -1;
+                    tabStudent.SelectedIndex = 1;
+                }
+            }
         }
     }
 }
