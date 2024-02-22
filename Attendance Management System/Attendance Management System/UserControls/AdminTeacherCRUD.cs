@@ -16,5 +16,25 @@ namespace Attendance_Management_System.UserControls
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }
