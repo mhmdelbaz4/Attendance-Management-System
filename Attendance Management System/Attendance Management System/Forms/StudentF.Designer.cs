@@ -1,6 +1,6 @@
 ﻿namespace Attendance_Management_System.Forms
 {
-    partial class Studentff
+    partial class StudentF
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             TeacherID = new DataGridViewTextBoxColumn();
             Date = new DataGridViewTextBoxColumn();
             State = new DataGridViewTextBoxColumn();
+            labelNotFound = new Label(); // Add label for "Student not found" message
             label1 = new Label();
             pictureBox1 = new PictureBox();
             colorDialog1 = new ColorDialog();
@@ -93,6 +94,18 @@
             State.MinimumWidth = 6;
             State.Name = "State";
             // 
+            // labelNotFound
+            // 
+            labelNotFound.AutoSize = true;
+            labelNotFound.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
+            labelNotFound.Location = new Point(500, 200); // Adjust the location as needed
+            labelNotFound.Name = "labelNotFound";
+            labelNotFound.Size = new Size(200, 40);
+            labelNotFound.ForeColor = Color.Blue;
+            labelNotFound.Text = "Student not found";
+            labelNotFound.Visible = false; // Initially hide the label
+            Controls.Add(labelNotFound);
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -140,6 +153,7 @@
         private DataGridViewTextBoxColumn TeacherID;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn State;
+        private Label labelNotFound; // Add label for "Student not found" message
         private ColorDialog colorDialog1;
     }
 }
