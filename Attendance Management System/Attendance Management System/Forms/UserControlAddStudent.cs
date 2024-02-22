@@ -232,7 +232,7 @@ namespace Attendance_Management_System.Forms
             //get password from xml
             XmlDocument doc = XMLControl.ReadAllDocument();
             string password = doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']/password").InnerText;
-            passwordEditInput.Text = password;  
+            passwordEditInput.Text = password;
 
             // switch to the edit tab
             tabStudent.SelectedIndex = 2;
@@ -331,6 +331,11 @@ namespace Attendance_Management_System.Forms
                     selectedStudentId = "";
                 }
             }
+        }
+
+        private void addStudentTabPage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

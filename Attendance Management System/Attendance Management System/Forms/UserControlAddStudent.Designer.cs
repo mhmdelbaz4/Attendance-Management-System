@@ -123,6 +123,7 @@
             addStudentTabPage.TabIndex = 0;
             addStudentTabPage.Text = "add student";
             addStudentTabPage.UseVisualStyleBackColor = true;
+            addStudentTabPage.Click += addStudentTabPage_Click;
             // 
             // errorMsg
             // 
@@ -547,7 +548,7 @@
             passwordEditInput.Location = new Point(799, 276);
             passwordEditInput.Name = "passwordEditInput";
             passwordEditInput.PasswordChar = '*';
-            passwordEditInput.PlaceholderText = "********";
+            passwordEditInput.PlaceholderText = "  * * * * * * * * ";
             passwordEditInput.Size = new Size(335, 32);
             passwordEditInput.TabIndex = 30;
             // 
