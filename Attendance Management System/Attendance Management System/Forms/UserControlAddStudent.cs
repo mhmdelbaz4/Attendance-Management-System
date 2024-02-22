@@ -130,6 +130,81 @@ namespace Attendance_Management_System.Forms
 
         }
 
-      
+        private void handleIndexChange(object sender, EventArgs e)
+        {
+            //if selected is second tab then reload students from xml to display in the datagridview
+
+            Console.WriteLine(tabStudent.SelectedIndex);
+            if (tabStudent.SelectedIndex == 0)
+            {
+                //if there are tracks in the combobox then set the selected index to 0
+                if (trackComboBox.Items.Count > 0)
+                {
+                    trackComboBox.SelectedIndex = 0;
+                }
+            }
+
+            if (tabStudent.SelectedIndex == 1)
+            {
+                // set default search by id
+                searchByComboBox.SelectedIndex = 0;
+
+                //get students from xml
+                XmlNodeList students = XMLControl.GetMultipleNodes("//students/student");
+                //clear the datagridview
+                dataGridStudent.Rows.Clear();
+                //add students to the datagridview
+                foreach (XmlNode student in students)
+                {
+                    string id = student.SelectSingleNode("id").InnerText;
+                    string name = student.SelectSingleNode("name").InnerText;
+                    string email = student.SelectSingleNode("email").InnerText;
+                    string track = student.SelectSingleNode("trackName").InnerText;
+                    dataGridStudent.Rows.Add(id, name, email, track);
+                }
+            }
+
+            if (tabStudent.SelectedIndex == 2)
+            {
+                // if there are tracks in the combobox then set the selected index to 0
+                if (TrackEditComboBox.Items.Count > 0)
+                {
+                    TrackEditComboBox.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void search(object sender, EventArgs e)
+        {
+            // get the search value
+            string searchValue = searchInput.Text.Trim().ToLower();
+
+            // get the search by value
+            string searchBy = searchByComboBox.SelectedItem.ToString();
+
+            if (searchBy == "track")
+            {
+                searchBy = "trackName";
+                searchValue = searchValue.ToUpper();
+            }
+
+            // get students from xml based on the search value and search by
+            XmlNodeList students = XMLControl.GetMultipleNodes($"//students/student[contains({searchBy},'{searchValue}')]");
+         
+            //clear the datagridview
+            dataGridStudent.Rows.Clear();
+
+            //add students to the datagridview
+            foreach (XmlNode student in students)
+            {
+                string id = student.SelectSingleNode("id").InnerText;
+                string name = student.SelectSingleNode("name").InnerText;
+                string email = student.SelectSingleNode("email").InnerText;
+                string track = student.SelectSingleNode("trackName").InnerText;
+                dataGridStudent.Rows.Add(id, name, email, track);
+            }
+
+        }
     }
 }
+

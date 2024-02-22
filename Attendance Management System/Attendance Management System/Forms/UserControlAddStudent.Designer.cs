@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlAddStudent));
-            tabAddStudent = new TabControl();
+            tabStudent = new TabControl();
             addStudentTabPage = new TabPage();
             errorMsg = new Label();
             addStudentBtn = new Button();
@@ -51,7 +51,7 @@
             searchByComboBox = new ComboBox();
             panel5 = new Panel();
             searchBy = new Label();
-            textBox1 = new TextBox();
+            searchInput = new TextBox();
             panel4 = new Panel();
             searchLabel = new Label();
             dataGridStudent = new DataGridView();
@@ -60,6 +60,7 @@
             EmailCol = new DataGridViewTextBoxColumn();
             TrackCol = new DataGridViewTextBoxColumn();
             updateAndDeleteStudent = new TabPage();
+            deleteBtn = new Button();
             editErrorMsg = new Label();
             updateBtn = new Button();
             TrackEditComboBox = new ComboBox();
@@ -74,8 +75,7 @@
             nameEditInput = new TextBox();
             panel9 = new Panel();
             nameEditLabel = new Label();
-            deleteBtn = new Button();
-            tabAddStudent.SuspendLayout();
+            tabStudent.SuspendLayout();
             addStudentTabPage.SuspendLayout();
             searchStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -83,18 +83,19 @@
             updateAndDeleteStudent.SuspendLayout();
             SuspendLayout();
             // 
-            // tabAddStudent
+            // tabStudent
             // 
-            tabAddStudent.Alignment = TabAlignment.Bottom;
-            tabAddStudent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            tabAddStudent.Controls.Add(addStudentTabPage);
-            tabAddStudent.Controls.Add(searchStudent);
-            tabAddStudent.Controls.Add(updateAndDeleteStudent);
-            tabAddStudent.Location = new Point(0, 18);
-            tabAddStudent.Name = "tabAddStudent";
-            tabAddStudent.SelectedIndex = 0;
-            tabAddStudent.Size = new Size(1288, 662);
-            tabAddStudent.TabIndex = 0;
+            tabStudent.Alignment = TabAlignment.Bottom;
+            tabStudent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            tabStudent.Controls.Add(addStudentTabPage);
+            tabStudent.Controls.Add(searchStudent);
+            tabStudent.Controls.Add(updateAndDeleteStudent);
+            tabStudent.Location = new Point(0, 18);
+            tabStudent.Name = "tabStudent";
+            tabStudent.SelectedIndex = 0;
+            tabStudent.Size = new Size(1288, 662);
+            tabStudent.TabIndex = 0;
+            tabStudent.SelectedIndexChanged += handleIndexChange;
             // 
             // addStudentTabPage
             // 
@@ -304,7 +305,7 @@
             searchStudent.Controls.Add(searchByComboBox);
             searchStudent.Controls.Add(panel5);
             searchStudent.Controls.Add(searchBy);
-            searchStudent.Controls.Add(textBox1);
+            searchStudent.Controls.Add(searchInput);
             searchStudent.Controls.Add(panel4);
             searchStudent.Controls.Add(searchLabel);
             searchStudent.Controls.Add(dataGridStudent);
@@ -337,8 +338,6 @@
             searchByComboBox.ForeColor = Color.FromArgb(39, 55, 77);
             searchByComboBox.FormattingEnabled = true;
             searchByComboBox.Items.AddRange(new object[] { "id", "name", "email", "track" });
-            //set the default value to id
-            searchByComboBox.SelectedIndex = 0;
             searchByComboBox.Location = new Point(840, 93);
             searchByComboBox.Name = "searchByComboBox";
             searchByComboBox.Size = new Size(337, 39);
@@ -366,16 +365,17 @@
             searchBy.TabIndex = 18;
             searchBy.Text = "Search By:";
             // 
-            // textBox1
+            // searchInput
             // 
-            textBox1.Anchor = AnchorStyles.Top;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Rockwell Condensed", 16F);
-            textBox1.ForeColor = Color.FromArgb(38, 80, 115);
-            textBox1.Location = new Point(64, 100);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(335, 32);
-            textBox1.TabIndex = 9;
+            searchInput.Anchor = AnchorStyles.Top;
+            searchInput.BorderStyle = BorderStyle.None;
+            searchInput.Font = new Font("Rockwell Condensed", 16F);
+            searchInput.ForeColor = Color.FromArgb(38, 80, 115);
+            searchInput.Location = new Point(64, 100);
+            searchInput.Name = "searchInput";
+            searchInput.Size = new Size(335, 32);
+            searchInput.TabIndex = 9;
+            searchInput.TextChanged += search;
             // 
             // panel4
             // 
@@ -476,6 +476,21 @@
             updateAndDeleteStudent.TabIndex = 2;
             updateAndDeleteStudent.Text = "update and delete student";
             // 
+            // deleteBtn
+            // 
+            deleteBtn.Anchor = AnchorStyles.Top;
+            deleteBtn.BackColor = Color.FromArgb(218, 12, 12);
+            deleteBtn.FlatAppearance.BorderSize = 0;
+            deleteBtn.FlatStyle = FlatStyle.Flat;
+            deleteBtn.Font = new Font("Rockwell", 16.2F);
+            deleteBtn.ForeColor = Color.AliceBlue;
+            deleteBtn.Location = new Point(697, 434);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(226, 56);
+            deleteBtn.TabIndex = 35;
+            deleteBtn.Text = "Delete Student";
+            deleteBtn.UseVisualStyleBackColor = false;
+            // 
             // editErrorMsg
             // 
             editErrorMsg.Anchor = AnchorStyles.Top;
@@ -516,7 +531,6 @@
             TrackEditComboBox.Name = "TrackEditComboBox";
             TrackEditComboBox.Size = new Size(337, 39);
             TrackEditComboBox.TabIndex = 32;
-            TrackEditComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // passwordEditInput
             // 
@@ -639,30 +653,15 @@
             nameEditLabel.TabIndex = 21;
             nameEditLabel.Text = "Name:";
             // 
-            // deleteBtn
-            // 
-            deleteBtn.Anchor = AnchorStyles.Top;
-            deleteBtn.BackColor = Color.FromArgb(218, 12, 12);
-            deleteBtn.FlatAppearance.BorderSize = 0;
-            deleteBtn.FlatStyle = FlatStyle.Flat;
-            deleteBtn.Font = new Font("Rockwell", 16.2F);
-            deleteBtn.ForeColor = Color.AliceBlue;
-            deleteBtn.Location = new Point(697, 434);
-            deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(226, 56);
-            deleteBtn.TabIndex = 35;
-            deleteBtn.Text = "Delete Student";
-            deleteBtn.UseVisualStyleBackColor = false;
-            // 
             // UserControlAddStudent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 230, 237);
-            Controls.Add(tabAddStudent);
+            Controls.Add(tabStudent);
             Name = "UserControlAddStudent";
             Size = new Size(1288, 740);
-            tabAddStudent.ResumeLayout(false);
+            tabStudent.ResumeLayout(false);
             addStudentTabPage.ResumeLayout(false);
             addStudentTabPage.PerformLayout();
             searchStudent.ResumeLayout(false);
@@ -676,7 +675,7 @@
 
         #endregion
 
-        private TabControl tabAddStudent;
+        private TabControl tabStudent;
         private TabPage addStudentTabPage;
         private TabPage searchStudent;
         private Label addStudentHeading;
@@ -700,7 +699,7 @@
         private DataGridViewTextBoxColumn NameCol;
         private DataGridViewTextBoxColumn EmailCol;
         private DataGridViewTextBoxColumn TrackCol;
-        private TextBox textBox1;
+        private TextBox searchInput;
         private Panel panel4;
         private Label searchLabel;
         public ComboBox searchByComboBox;
