@@ -38,7 +38,7 @@ namespace Attendance_Management_System.Forms
                 string name = StudentNameInput.Text.Trim().ToLower();
                 string password = passwordInput.Text.Trim();
                 string email = emailInput.Text.Trim().ToLower();
-                string track = trackComboBox.SelectedItem.ToString().Trim().ToLower();
+                string track = trackComboBox.SelectedItem.ToString().Trim();
                 // create unique id for the student based on time and date + random number + machine name
                 string id = DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(100, 999);
 
@@ -135,7 +135,6 @@ namespace Attendance_Management_System.Forms
         {
             //if selected is second tab then reload students from xml to display in the datagridview
 
-            Console.WriteLine(tabStudent.SelectedIndex);
             if (tabStudent.SelectedIndex == 0)
             {
                 //if there are tracks in the combobox then set the selected index to 0
@@ -167,6 +166,12 @@ namespace Attendance_Management_System.Forms
 
             if (tabStudent.SelectedIndex == 2)
             {
+                //check if there is student selected
+                if (selectedStudentId == "")
+                {
+                    MessageBox.Show("Please select a student to edit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tabStudent.SelectedIndex = 1;
+                }
                 // if there are tracks in the combobox then set the selected index to 0
                 if (TrackEditComboBox.Items.Count > 0)
                 {
@@ -224,6 +229,14 @@ namespace Attendance_Management_System.Forms
             emailEditInputt.Text = email;
             TrackEditComboBox.SelectedItem = track;
 
+            //get password from xml
+            XmlDocument doc = XMLControl.ReadAllDocument();
+            string password = doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']/password").InnerText;
+            passwordEditInput.Text = password;  
+
+            // switch to the edit tab
+            tabStudent.SelectedIndex = 2;
+
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -274,6 +287,9 @@ namespace Attendance_Management_System.Forms
                     TrackEditComboBox.SelectedIndex = -1;
                     tabStudent.SelectedIndex = 1;
 
+                    //  clear the selected student id
+                    selectedStudentId = "";
+
                 }
             }
 
@@ -310,6 +326,9 @@ namespace Attendance_Management_System.Forms
                     passwordEditInput.Text = "";
                     TrackEditComboBox.SelectedIndex = -1;
                     tabStudent.SelectedIndex = 1;
+
+                    //  clear the selected student id
+                    selectedStudentId = "";
                 }
             }
         }

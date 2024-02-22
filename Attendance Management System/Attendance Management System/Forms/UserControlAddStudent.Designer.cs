@@ -543,6 +543,7 @@
             passwordEditInput.ForeColor = Color.FromArgb(38, 80, 115);
             passwordEditInput.Location = new Point(799, 276);
             passwordEditInput.Name = "passwordEditInput";
+            passwordEditInput.PasswordChar = '*';
             passwordEditInput.Size = new Size(335, 32);
             passwordEditInput.TabIndex = 30;
             // 
