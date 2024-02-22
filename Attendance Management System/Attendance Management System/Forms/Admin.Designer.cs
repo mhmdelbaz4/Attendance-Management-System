@@ -48,6 +48,7 @@ namespace Attendance_Management_System.Forms
             logout = new PictureBox();
             dateAndTime = new System.Windows.Forms.Timer(components);
             dateAndTimeLbl = new Label();
+            userControlAddStudent1 = new UserControlAddStudent();
             panel1 = new Panel();
             adminTeachercrud = new AdminTeacherCRUD();
             sidebar.SuspendLayout();
@@ -258,6 +259,16 @@ namespace Attendance_Management_System.Forms
             dateAndTimeLbl.TabIndex = 1;
             dateAndTimeLbl.Text = "date";
             // 
+            // userControlAddStudent1
+            // 
+            userControlAddStudent1.BackColor = Color.FromArgb(221, 230, 237);
+            userControlAddStudent1.Dock = DockStyle.Fill;
+            userControlAddStudent1.Location = new Point(298, 136);
+            userControlAddStudent1.Name = "userControlAddStudent1";
+            userControlAddStudent1.Size = new Size(902, 584);
+            userControlAddStudent1.TabIndex = 4;
+            userControlAddStudent1.Visible = false;
+            // 
             // panel1
             // 
             panel1.Dock = DockStyle.Top;
@@ -283,6 +294,7 @@ namespace Attendance_Management_System.Forms
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
+            Controls.Add(userControlAddStudent1);
             Controls.Add(adminTeachercrud);
             Controls.Add(navbar);
             Controls.Add(logout);

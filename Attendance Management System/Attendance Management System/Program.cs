@@ -1,4 +1,7 @@
-using Attendance_Management_System.Forms;
+﻿using Attendance_Management_System.Forms;
+using Attendance_Management_System.Models;
+using Attendance_Management_System.Repos;
+using Admin = Attendance_Management_System.Forms.Admin;
 
 internal static class Program
 {

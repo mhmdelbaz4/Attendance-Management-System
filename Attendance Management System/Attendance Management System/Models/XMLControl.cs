@@ -109,5 +109,8 @@ namespace Attendance_Management_System.Models
                 XmlDoc.Save(Directory.GetParent("./../../../..")?.FullName + "/xml/attendance.xml");
             }
         }
+
+        
+
     }
 }
