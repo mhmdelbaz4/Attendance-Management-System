@@ -31,8 +31,8 @@
             AdminTeacherCRUDTab = new TabControl();
             AddTeacher = new TabPage();
             validationLabel = new Label();
-            submitBtn = new Button();
-            birthDateTimePicker = new DateTimePicker();
+            SaveBtn = new Button();
+            HiringDateDateTimePicker = new DateTimePicker();
             HDlabel = new Label();
             BirthDateDateTimePicker = new DateTimePicker();
             BDlabel = new Label();
@@ -83,8 +83,8 @@
             // 
             AddTeacher.BackColor = Color.White;
             AddTeacher.Controls.Add(validationLabel);
-            AddTeacher.Controls.Add(submitBtn);
-            AddTeacher.Controls.Add(birthDateTimePicker);
+            AddTeacher.Controls.Add(SaveBtn);
+            AddTeacher.Controls.Add(HiringDateDateTimePicker);
             AddTeacher.Controls.Add(HDlabel);
             AddTeacher.Controls.Add(BirthDateDateTimePicker);
             AddTeacher.Controls.Add(BDlabel);
@@ -119,34 +119,34 @@
             validationLabel.Text = "msg";
             validationLabel.Visible = false;
             // 
-            // submitBtn
+            // SaveBtn
             // 
-            submitBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            submitBtn.BackColor = Color.FromArgb(39, 55, 77);
-            submitBtn.FlatAppearance.BorderSize = 0;
-            submitBtn.Font = new Font("Century Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            submitBtn.ForeColor = Color.White;
-            submitBtn.Location = new Point(135, 390);
-            submitBtn.Name = "submitBtn";
-            submitBtn.Size = new Size(106, 50);
-            submitBtn.TabIndex = 18;
-            submitBtn.Text = "Submit";
-            submitBtn.TextAlign = ContentAlignment.MiddleLeft;
-            submitBtn.UseVisualStyleBackColor = false;
+            SaveBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            SaveBtn.BackColor = Color.FromArgb(39, 55, 77);
+            SaveBtn.FlatAppearance.BorderSize = 0;
+            SaveBtn.Font = new Font("Century Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SaveBtn.ForeColor = Color.White;
+            SaveBtn.Location = new Point(135, 390);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(106, 50);
+            SaveBtn.TabIndex = 8;
+            SaveBtn.Text = "Save";
+            SaveBtn.UseVisualStyleBackColor = false;
+            SaveBtn.Click += submitBtn_Click;
             // 
-            // birthDateTimePicker
+            // HiringDateDateTimePicker
             // 
-            birthDateTimePicker.CalendarMonthBackground = Color.White;
-            birthDateTimePicker.CalendarTitleBackColor = Color.DarkGray;
-            birthDateTimePicker.CalendarTrailingForeColor = Color.DarkGray;
-            birthDateTimePicker.Format = DateTimePickerFormat.Short;
-            birthDateTimePicker.Location = new Point(534, 284);
-            birthDateTimePicker.MaxDate = new DateTime(2024, 2, 22, 0, 0, 0, 0);
-            birthDateTimePicker.MinDate = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            birthDateTimePicker.Name = "birthDateTimePicker";
-            birthDateTimePicker.Size = new Size(270, 32);
-            birthDateTimePicker.TabIndex = 17;
-            birthDateTimePicker.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            HiringDateDateTimePicker.CalendarMonthBackground = Color.White;
+            HiringDateDateTimePicker.CalendarTitleBackColor = Color.DarkGray;
+            HiringDateDateTimePicker.CalendarTrailingForeColor = Color.DarkGray;
+            HiringDateDateTimePicker.Format = DateTimePickerFormat.Short;
+            HiringDateDateTimePicker.Location = new Point(534, 284);
+            HiringDateDateTimePicker.MaxDate = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            HiringDateDateTimePicker.MinDate = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            HiringDateDateTimePicker.Name = "HiringDateDateTimePicker";
+            HiringDateDateTimePicker.Size = new Size(270, 32);
+            HiringDateDateTimePicker.TabIndex = 6;
+            HiringDateDateTimePicker.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
             // 
             // HDlabel
             // 
@@ -171,7 +171,7 @@
             BirthDateDateTimePicker.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
             BirthDateDateTimePicker.Name = "BirthDateDateTimePicker";
             BirthDateDateTimePicker.Size = new Size(270, 32);
-            BirthDateDateTimePicker.TabIndex = 15;
+            BirthDateDateTimePicker.TabIndex = 5;
             BirthDateDateTimePicker.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
             // 
             // BDlabel
@@ -208,7 +208,7 @@
             SalarytextBox.MaxLength = 6;
             SalarytextBox.Name = "SalarytextBox";
             SalarytextBox.Size = new Size(270, 32);
-            SalarytextBox.TabIndex = 11;
+            SalarytextBox.TabIndex = 7;
             // 
             // Mobilelabel
             // 
@@ -230,7 +230,7 @@
             MobileNomaskedTextBox.Mask = "000 000000000";
             MobileNomaskedTextBox.Name = "MobileNomaskedTextBox";
             MobileNomaskedTextBox.Size = new Size(270, 32);
-            MobileNomaskedTextBox.TabIndex = 9;
+            MobileNomaskedTextBox.TabIndex = 4;
             MobileNomaskedTextBox.Text = "000000000000";
             MobileNomaskedTextBox.MaskInputRejected += maskedTextBox1_MaskInputRejected;
             // 
@@ -245,7 +245,7 @@
             EmailtextBox.Name = "EmailtextBox";
             EmailtextBox.PlaceholderText = "omar@gmail.com";
             EmailtextBox.Size = new Size(270, 32);
-            EmailtextBox.TabIndex = 8;
+            EmailtextBox.TabIndex = 2;
             EmailtextBox.TextChanged += textBox2_TextChanged;
             // 
             // Emaillabel
@@ -271,7 +271,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.PlaceholderText = "xxxxxxxx";
             passwordTextBox.Size = new Size(270, 32);
-            passwordTextBox.TabIndex = 6;
+            passwordTextBox.TabIndex = 3;
             passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // passwordlabel
@@ -294,11 +294,11 @@
             nametextBox.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             nametextBox.ForeColor = Color.Black;
             nametextBox.Location = new Point(135, 100);
-            nametextBox.MaxLength = 50;
+            nametextBox.MaxLength = 30;
             nametextBox.Name = "nametextBox";
             nametextBox.PlaceholderText = "omar";
             nametextBox.Size = new Size(270, 32);
-            nametextBox.TabIndex = 2;
+            nametextBox.TabIndex = 1;
             // 
             // namelbl
             // 
@@ -481,9 +481,9 @@
         private TextBox SalarytextBox;
         private Label BDlabel;
         private DateTimePicker BirthDateDateTimePicker;
-        private DateTimePicker birthDateTimePicker;
+        private DateTimePicker HiringDateDateTimePicker;
         private Label HDlabel;
-        private Button submitBtn;
+        private Button SaveBtn;
         private Label validationLabel;
         private TabPage tabPage1;
         private Label label2;
