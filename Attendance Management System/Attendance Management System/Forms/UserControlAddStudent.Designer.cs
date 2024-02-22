@@ -174,6 +174,7 @@
             passwordInput.ForeColor = Color.FromArgb(38, 80, 115);
             passwordInput.Location = new Point(796, 263);
             passwordInput.Name = "passwordInput";
+            passwordInput.PlaceholderText = "  * * * * * * * * ";
             passwordInput.Size = new Size(335, 32);
             passwordInput.TabIndex = 15;
             // 
@@ -229,6 +230,7 @@
             emailInput.ForeColor = Color.FromArgb(38, 80, 115);
             emailInput.Location = new Point(789, 166);
             emailInput.Name = "emailInput";
+            emailInput.PlaceholderText = "email@gmail.com";
             emailInput.Size = new Size(335, 32);
             emailInput.TabIndex = 9;
             // 
@@ -262,6 +264,7 @@
             StudentNameInput.ForeColor = Color.FromArgb(38, 80, 115);
             StudentNameInput.Location = new Point(141, 166);
             StudentNameInput.Name = "StudentNameInput";
+            StudentNameInput.PlaceholderText = "name";
             StudentNameInput.Size = new Size(335, 32);
             StudentNameInput.TabIndex = 2;
             // 
@@ -544,6 +547,7 @@
             passwordEditInput.Location = new Point(799, 276);
             passwordEditInput.Name = "passwordEditInput";
             passwordEditInput.PasswordChar = '*';
+            passwordEditInput.PlaceholderText = "********";
             passwordEditInput.Size = new Size(335, 32);
             passwordEditInput.TabIndex = 30;
             // 
@@ -599,6 +603,7 @@
             emailEditInputt.ForeColor = Color.FromArgb(38, 80, 115);
             emailEditInputt.Location = new Point(792, 179);
             emailEditInputt.Name = "emailEditInputt";
+            emailEditInputt.PlaceholderText = "email@gmail.com";
             emailEditInputt.Size = new Size(335, 32);
             emailEditInputt.TabIndex = 25;
             // 
@@ -632,6 +637,7 @@
             nameEditInput.ForeColor = Color.FromArgb(38, 80, 115);
             nameEditInput.Location = new Point(144, 179);
             nameEditInput.Name = "nameEditInput";
+            nameEditInput.PlaceholderText = "student name";
             nameEditInput.Size = new Size(335, 32);
             nameEditInput.TabIndex = 22;
             // 
