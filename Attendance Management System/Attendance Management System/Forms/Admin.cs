@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Attendance_Management_System.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Attendance_Management_System.Forms
 {
@@ -20,9 +22,10 @@ namespace Attendance_Management_System.Forms
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            this.TopMost = true; // this will set it on top of everything, including the taskbar
+            //this.TopMost = true; // this will set it on top of everything, including the taskbar
             this.FormBorderStyle = FormBorderStyle.None; // remove the title bar
             this.WindowState = FormWindowState.Maximized; // maximize it to fill the entire screen.
+
         }
 
         private void logout_Click(object sender, EventArgs e)
@@ -33,6 +36,7 @@ namespace Attendance_Management_System.Forms
                 this.Hide();
                 Login login = new Login();
                 login.Show();
+                dateAndTime.Stop();
             }
 
         }
@@ -57,31 +61,43 @@ namespace Attendance_Management_System.Forms
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(dashboardBtn);
+            userControlAddStudent1.Visible = false; // hide add student user control
         }
 
         private void attendanceBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(attendanceBtn);
+            userControlAddStudent1.Visible = false;
         }
 
         private void addTeacherBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(addTeacherBtn);
+            userControlAddStudent1.Visible = false;
+
         }
 
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(addStudentBtn);
+            userControlAddStudent1.Visible = true;
+            XmlNodeList tracks = XMLControl.GetMultipleNodes("//tracks/track/name");
+            foreach (XmlNode track in tracks)
+            {
+                userControlAddStudent1.trackComboBox.Items.Add(track.InnerText);
+            }
         }
 
         private void addClassBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(addClassBtn);
+            userControlAddStudent1.Visible = false;
         }
 
         private void reports_Click(object sender, EventArgs e)
         {
             moveSideBarPanel( reports);
+            userControlAddStudent1.Visible = false;
         }
     }
 }
