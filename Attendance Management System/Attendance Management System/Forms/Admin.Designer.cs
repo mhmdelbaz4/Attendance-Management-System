@@ -48,6 +48,7 @@ namespace Attendance_Management_System.Forms
             logout = new PictureBox();
             dateAndTime = new System.Windows.Forms.Timer(components);
             dateAndTimeLbl = new Label();
+            userControlAddStudent1 = new UserControlAddStudent();
             panel1 = new Panel();
             adminTeachercrud = new AdminTeacherCRUD();
             sidebar.SuspendLayout();
