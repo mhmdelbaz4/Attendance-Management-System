@@ -1,4 +1,6 @@
-﻿namespace Attendance_Management_System.Forms
+﻿using Attendance_Management_System.UserControls;
+
+namespace Attendance_Management_System.Forms
 {
     partial class Admin
     {
@@ -46,8 +48,8 @@
             logout = new PictureBox();
             dateAndTime = new System.Windows.Forms.Timer(components);
             dateAndTimeLbl = new Label();
-            userControlAddStudent1 = new UserControlAddStudent();
             panel1 = new Panel();
+            adminTeachercrud = new AdminTeacherCRUD();
             sidebar.SuspendLayout();
             sidebarHoverContainer.SuspendLayout();
             sidebarHeader.SuspendLayout();
@@ -136,7 +138,7 @@
             addTeacherBtn.TabIndex = 6;
             addTeacherBtn.Text = "        Teacher";
             addTeacherBtn.UseVisualStyleBackColor = true;
-            addTeacherBtn.Click += addTeacherBtn_Click;
+            addTeacherBtn.Click += TeacherBtn_Click;
             // 
             // attendanceBtn
             // 
@@ -256,15 +258,6 @@
             dateAndTimeLbl.TabIndex = 1;
             dateAndTimeLbl.Text = "date";
             // 
-            // userControlAddStudent1
-            // 
-            userControlAddStudent1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            userControlAddStudent1.Location = new Point(296, 135);
-            userControlAddStudent1.Name = "userControlAddStudent1";
-            userControlAddStudent1.Size = new Size(904, 585);
-            userControlAddStudent1.TabIndex = 4;
-            userControlAddStudent1.Visible = false;
-            // 
             // panel1
             // 
             panel1.Dock = DockStyle.Top;
@@ -273,17 +266,29 @@
             panel1.Size = new Size(902, 135);
             panel1.TabIndex = 0;
             // 
+            // adminTeachercrud
+            // 
+            adminTeachercrud.BackColor = Color.White;
+            adminTeachercrud.Dock = DockStyle.Fill;
+            adminTeachercrud.Font = new Font("Century Gothic", 12F);
+            adminTeachercrud.Location = new Point(298, 135);
+            adminTeachercrud.Margin = new Padding(0);
+            adminTeachercrud.Name = "adminTeachercrud";
+            adminTeachercrud.Size = new Size(902, 585);
+            adminTeachercrud.TabIndex = 4;
+            adminTeachercrud.Visible = false;
+            // 
             // Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
+            Controls.Add(adminTeachercrud);
             Controls.Add(navbar);
             Controls.Add(logout);
             Controls.Add(minimize);
             Controls.Add(dateAndTimeLbl);
             Controls.Add(panel1);
-            Controls.Add(userControlAddStudent1);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -320,6 +325,8 @@
         private System.Windows.Forms.Timer dateAndTime;
         private Label dateAndTimeLbl;
         private UserControlAddStudent userControlAddStudent1;
+        private AdminTeacherCRUD adminTeacherCRUD;
         private Panel panel1;
+        private AdminTeacherCRUD adminTeachercrud;
     }
 }
