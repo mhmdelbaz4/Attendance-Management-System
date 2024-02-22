@@ -119,7 +119,7 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.None;
-            pictureBox1.Image = Properties.Resources.student;
+            //pictureBox1.Image = Properties.Resources.studentF;edit this picture
             pictureBox1.Location = new Point(3, 143);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(171, 207);

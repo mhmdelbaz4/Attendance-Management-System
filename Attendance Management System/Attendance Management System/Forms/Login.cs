@@ -45,7 +45,7 @@ namespace Attendance_Management_System.Forms
                 if (userNode.Name == "student")
                 {
                     // create student form
-                    Student student = new Student();
+                    StudentF student = new StudentF();
                     student.Show();
                     this.Hide();
 
