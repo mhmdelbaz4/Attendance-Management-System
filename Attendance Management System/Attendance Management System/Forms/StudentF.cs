@@ -14,9 +14,9 @@ using Attendance_Management_System.Repos;
 
 namespace Attendance_Management_System.Forms
 {
-    public partial class Studentff : Form
+    public partial class StudentF : Form
     {
-        public Studentff()
+        public StudentF()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace Attendance_Management_System.Forms
             var studentList = StudentsRepo.GetStudents(@"../../../../attendance.xml");
 
          
-                int studentId = 20; // Example student ID
+                int studentId = 30; // Example student ID
                 Student student = StudentsRepo.getStudentByID(studentId, studentList);
             
 
@@ -39,10 +39,27 @@ namespace Attendance_Management_System.Forms
                 }
                 else
                 {
-                   
-                    MessageBox.Show("Student not found.");
-                    this.Close();
-                }
+                dataGridView1.Rows.Add("Student not found.", "", "", "", "", "");
+
+                /* MessageBox.Show("Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 using (Form messageForm = new Form())
+                 {
+                     messageForm.Size = new Size(400, 200);
+                     messageForm.StartPosition = FormStartPosition.CenterScreen;
+                     Label label = new Label();
+                     label.Text = "Student not found.";
+                     label.Location = new Point(20, 20);
+                     messageForm.Controls.Add(label);
+                     messageForm.ShowDialog();
+                 }
+                 this.Close();*/
+                // Clear existing rows
+                dataGridView1.Visible = false;
+
+                // Show a message or perform any other actions as needed
+                labelNotFound.Visible = true;
+
+            }
             }
           
     
