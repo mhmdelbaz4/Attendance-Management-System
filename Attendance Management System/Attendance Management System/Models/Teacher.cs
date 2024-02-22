@@ -6,11 +6,5 @@ public class Teacher :User
 
     public int Salary { get; set; }
 
-    public List<string>? Courses { get; set; } // js ,xml ,html
-
-    public Dictionary<string,string>? TracksCourses { get; set; }
-
-    // pd xml
-    // js os
-
+    public List<string>? TracksNames{ get; set; }
 }

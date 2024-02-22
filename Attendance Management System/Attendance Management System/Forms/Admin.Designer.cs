@@ -1,4 +1,6 @@
-﻿namespace Attendance_Management_System.Forms
+﻿using Attendance_Management_System.UserControls;
+
+namespace Attendance_Management_System.Forms
 {
     partial class Admin
     {
@@ -46,9 +48,8 @@
             logout = new PictureBox();
             dateAndTime = new System.Windows.Forms.Timer(components);
             dateAndTimeLbl = new Label();
-            userControlAddStudent1 = new UserControlAddStudent();
             panel1 = new Panel();
-            headerGap = new Panel();
+            adminTeachercrud = new AdminTeacherCRUD();
             sidebar.SuspendLayout();
             sidebarHoverContainer.SuspendLayout();
             sidebarHeader.SuspendLayout();
@@ -137,7 +138,7 @@
             addTeacherBtn.TabIndex = 6;
             addTeacherBtn.Text = "        Teacher";
             addTeacherBtn.UseVisualStyleBackColor = true;
-            addTeacherBtn.Click += addTeacherBtn_Click;
+            addTeacherBtn.Click += TeacherBtn_Click;
             // 
             // attendanceBtn
             // 
@@ -275,14 +276,17 @@
             panel1.Size = new Size(902, 135);
             panel1.TabIndex = 0;
             // 
-            // headerGap
+            // adminTeachercrud
             // 
-            headerGap.BackColor = SystemColors.Window;
-            headerGap.Dock = DockStyle.Top;
-            headerGap.Location = new Point(298, 135);
-            headerGap.Name = "headerGap";
-            headerGap.Size = new Size(902, 1);
-            headerGap.TabIndex = 5;
+            adminTeachercrud.BackColor = Color.White;
+            adminTeachercrud.Dock = DockStyle.Fill;
+            adminTeachercrud.Font = new Font("Century Gothic", 12F);
+            adminTeachercrud.Location = new Point(298, 135);
+            adminTeachercrud.Margin = new Padding(0);
+            adminTeachercrud.Name = "adminTeachercrud";
+            adminTeachercrud.Size = new Size(902, 585);
+            adminTeachercrud.TabIndex = 4;
+            adminTeachercrud.Visible = false;
             // 
             // Admin
             // 
@@ -290,7 +294,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
             Controls.Add(userControlAddStudent1);
-            Controls.Add(headerGap);
+            Controls.Add(adminTeachercrud);
             Controls.Add(navbar);
             Controls.Add(logout);
             Controls.Add(minimize);
@@ -332,7 +336,8 @@
         private System.Windows.Forms.Timer dateAndTime;
         private Label dateAndTimeLbl;
         private UserControlAddStudent userControlAddStudent1;
+        private AdminTeacherCRUD adminTeacherCRUD;
         private Panel panel1;
-        private Panel headerGap;
+        private AdminTeacherCRUD adminTeachercrud;
     }
 }

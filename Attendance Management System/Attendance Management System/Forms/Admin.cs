@@ -1,4 +1,5 @@
 ﻿using Attendance_Management_System.Models;
+using Attendance_Management_System.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace Attendance_Management_System.Forms
         public Admin()
         {
             InitializeComponent();
+            hideAllAdminControls();
             dateAndTime.Start();
         }
 
@@ -43,7 +45,6 @@ namespace Attendance_Management_System.Forms
 
         private void minimize_Click(object sender, EventArgs e)
         {
-
             this.WindowState = FormWindowState.Minimized;
         }
 
@@ -70,11 +71,11 @@ namespace Attendance_Management_System.Forms
             userControlAddStudent1.Visible = false;
         }
 
-        private void addTeacherBtn_Click(object sender, EventArgs e)
+        private void TeacherBtn_Click(object sender, EventArgs e)
         {
-            moveSideBarPanel(addTeacherBtn);
-            userControlAddStudent1.Visible = false;
 
+            moveSideBarPanel(addTeacherBtn);
+            adminTeachercrud.Visible = true;
         }
 
         private void addStudentBtn_Click(object sender, EventArgs e)
@@ -103,8 +104,15 @@ namespace Attendance_Management_System.Forms
 
         private void reports_Click(object sender, EventArgs e)
         {
-            moveSideBarPanel( reports);
+            moveSideBarPanel(reports);
             userControlAddStudent1.Visible = false;
+        }
+
+
+        // add admin controls here
+        private void hideAllAdminControls()
+        {
+            adminTeachercrud.Visible = false;
         }
     }
 }
