@@ -126,8 +126,6 @@ namespace Attendance_Management_System.Forms
         // add admin controls here
         private void hideAllAdminControls()
         {
-            userControlAddStudent1.Visible = false;
-            adminMainDashboard1.Visible = false;
             adminTeachercrud.Visible = false;
 
         }
@@ -148,7 +146,6 @@ namespace Attendance_Management_System.Forms
             //get the total number of tracks
             int totalTracks = XMLControl.GetMultipleNodes("//tracks/track").Count;
             adminMainDashboard1.noClasses.Text = totalTracks.ToString();
-            userControlAddStudent1.Visible=false;
         }
        
 
