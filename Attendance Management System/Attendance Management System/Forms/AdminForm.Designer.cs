@@ -2,7 +2,7 @@
 
 namespace Attendance_Management_System.Forms
 {
-    partial class Admin
+    partial class AdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace Attendance_Management_System.Forms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             sidebar = new Panel();
             reports = new Button();
             addClassBtn = new Button();
@@ -51,10 +51,14 @@ namespace Attendance_Management_System.Forms
             userControlAddStudent1 = new UserControlAddStudent();
             panel1 = new Panel();
             adminTeachercrud = new AdminTeacherCRUD();
+            adminMainDashboard1 = new AdminMainDashboard();
+            welcomeLabel = new Label();
+            adminName = new Label();
             sidebar.SuspendLayout();
             sidebarHoverContainer.SuspendLayout();
             sidebarHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)adminLogo).BeginInit();
+            navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)minimize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             SuspendLayout();
@@ -215,6 +219,8 @@ namespace Attendance_Management_System.Forms
             // 
             navbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             navbar.BackColor = Color.FromArgb(39, 55, 77);
+            navbar.Controls.Add(adminName);
+            navbar.Controls.Add(welcomeLabel);
             navbar.Location = new Point(296, 50);
             navbar.Name = "navbar";
             navbar.Size = new Size(904, 85);
@@ -263,9 +269,9 @@ namespace Attendance_Management_System.Forms
             // 
             userControlAddStudent1.BackColor = Color.FromArgb(221, 230, 237);
             userControlAddStudent1.Dock = DockStyle.Fill;
-            userControlAddStudent1.Location = new Point(298, 136);
+            userControlAddStudent1.Location = new Point(298, 135);
             userControlAddStudent1.Name = "userControlAddStudent1";
-            userControlAddStudent1.Size = new Size(902, 584);
+            userControlAddStudent1.Size = new Size(902, 585);
             userControlAddStudent1.TabIndex = 4;
             userControlAddStudent1.Visible = false;
             // 
@@ -289,11 +295,46 @@ namespace Attendance_Management_System.Forms
             adminTeachercrud.TabIndex = 4;
             adminTeachercrud.Visible = false;
             // 
-            // Admin
+            // adminMainDashboard1
+            // 
+            adminMainDashboard1.BackColor = Color.FromArgb(221, 230, 237);
+            adminMainDashboard1.Dock = DockStyle.Fill;
+            adminMainDashboard1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            adminMainDashboard1.Location = new Point(298, 135);
+            adminMainDashboard1.Name = "adminMainDashboard1";
+            adminMainDashboard1.Size = new Size(902, 585);
+            adminMainDashboard1.TabIndex = 5;
+            // 
+            // welcomeLabel
+            // 
+            welcomeLabel.AutoSize = true;
+            welcomeLabel.BackColor = Color.Transparent;
+            welcomeLabel.Font = new Font("Rockwell", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            welcomeLabel.ForeColor = Color.FromArgb(221, 230, 237);
+            welcomeLabel.Location = new Point(50, 28);
+            welcomeLabel.Name = "welcomeLabel";
+            welcomeLabel.Size = new Size(132, 28);
+            welcomeLabel.TabIndex = 2;
+            welcomeLabel.Text = "Welcome, ";
+            // 
+            // adminName
+            // 
+            adminName.AutoSize = true;
+            adminName.BackColor = Color.Transparent;
+            adminName.Font = new Font("Rockwell", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            adminName.ForeColor = Color.FromArgb(221, 230, 237);
+            adminName.Location = new Point(176, 28);
+            adminName.Name = "adminName";
+            adminName.Size = new Size(132, 28);
+            adminName.TabIndex = 3;
+            adminName.Text = "Welcome, ";
+            // 
+            // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
+            Controls.Add(adminMainDashboard1);
             Controls.Add(userControlAddStudent1);
             Controls.Add(adminTeachercrud);
             Controls.Add(navbar);
@@ -304,7 +345,7 @@ namespace Attendance_Management_System.Forms
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Admin";
+            Name = "AdminForm";
             Text = "Admin";
             WindowState = FormWindowState.Maximized;
             Load += Admin_Load;
@@ -312,6 +353,8 @@ namespace Attendance_Management_System.Forms
             sidebarHoverContainer.ResumeLayout(false);
             sidebarHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)adminLogo).EndInit();
+            navbar.ResumeLayout(false);
+            navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)minimize).EndInit();
             ((System.ComponentModel.ISupportInitialize)logout).EndInit();
             ResumeLayout(false);
@@ -340,5 +383,8 @@ namespace Attendance_Management_System.Forms
         private AdminTeacherCRUD adminTeacherCRUD;
         private Panel panel1;
         private AdminTeacherCRUD adminTeachercrud;
+        private AdminMainDashboard adminMainDashboard1;
+        private Label welcomeLabel;
+        public Label adminName;
     }
 }
