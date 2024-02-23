@@ -13,9 +13,9 @@ using System.Xml;
 
 namespace Attendance_Management_System.Forms
 {
-    public partial class Admin : Form
+    public partial class AdminForm : Form
     {
-        public Admin()
+        public AdminForm()
         {
             InitializeComponent();
             hideAllAdminControls();
@@ -30,6 +30,8 @@ namespace Attendance_Management_System.Forms
             hideAllAdminControls();// hide all the admin controls
             adminMainDashboard1.Visible = true;// show the main dashboard
             setDashboardNumbers();// set the dashboard numbers
+            adminName.Text = Session.currentUser?.Name;
+
 
         }
 

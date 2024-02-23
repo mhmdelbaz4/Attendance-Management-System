@@ -2,7 +2,7 @@
 
 namespace Attendance_Management_System.Forms
 {
-    partial class Admin
+    partial class AdminForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace Attendance_Management_System.Forms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             sidebar = new Panel();
             reports = new Button();
             addClassBtn = new Button();
@@ -52,10 +52,13 @@ namespace Attendance_Management_System.Forms
             panel1 = new Panel();
             adminTeachercrud = new AdminTeacherCRUD();
             adminMainDashboard1 = new AdminMainDashboard();
+            welcomeLabel = new Label();
+            adminName = new Label();
             sidebar.SuspendLayout();
             sidebarHoverContainer.SuspendLayout();
             sidebarHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)adminLogo).BeginInit();
+            navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)minimize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             SuspendLayout();
@@ -216,6 +219,8 @@ namespace Attendance_Management_System.Forms
             // 
             navbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             navbar.BackColor = Color.FromArgb(39, 55, 77);
+            navbar.Controls.Add(adminName);
+            navbar.Controls.Add(welcomeLabel);
             navbar.Location = new Point(296, 50);
             navbar.Name = "navbar";
             navbar.Size = new Size(904, 85);
@@ -300,7 +305,31 @@ namespace Attendance_Management_System.Forms
             adminMainDashboard1.Size = new Size(902, 585);
             adminMainDashboard1.TabIndex = 5;
             // 
-            // Admin
+            // welcomeLabel
+            // 
+            welcomeLabel.AutoSize = true;
+            welcomeLabel.BackColor = Color.Transparent;
+            welcomeLabel.Font = new Font("Rockwell", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            welcomeLabel.ForeColor = Color.FromArgb(221, 230, 237);
+            welcomeLabel.Location = new Point(50, 28);
+            welcomeLabel.Name = "welcomeLabel";
+            welcomeLabel.Size = new Size(132, 28);
+            welcomeLabel.TabIndex = 2;
+            welcomeLabel.Text = "Welcome, ";
+            // 
+            // adminName
+            // 
+            adminName.AutoSize = true;
+            adminName.BackColor = Color.Transparent;
+            adminName.Font = new Font("Rockwell", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            adminName.ForeColor = Color.FromArgb(221, 230, 237);
+            adminName.Location = new Point(176, 28);
+            adminName.Name = "adminName";
+            adminName.Size = new Size(132, 28);
+            adminName.TabIndex = 3;
+            adminName.Text = "Welcome, ";
+            // 
+            // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -316,7 +345,7 @@ namespace Attendance_Management_System.Forms
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Admin";
+            Name = "AdminForm";
             Text = "Admin";
             WindowState = FormWindowState.Maximized;
             Load += Admin_Load;
@@ -324,6 +353,8 @@ namespace Attendance_Management_System.Forms
             sidebarHoverContainer.ResumeLayout(false);
             sidebarHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)adminLogo).EndInit();
+            navbar.ResumeLayout(false);
+            navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)minimize).EndInit();
             ((System.ComponentModel.ISupportInitialize)logout).EndInit();
             ResumeLayout(false);
@@ -353,5 +384,7 @@ namespace Attendance_Management_System.Forms
         private Panel panel1;
         private AdminTeacherCRUD adminTeachercrud;
         private AdminMainDashboard adminMainDashboard1;
+        private Label welcomeLabel;
+        public Label adminName;
     }
 }
