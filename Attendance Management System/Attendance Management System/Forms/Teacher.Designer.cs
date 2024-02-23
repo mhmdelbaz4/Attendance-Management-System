@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Teacher));
             minimize = new PictureBox();
             logout = new PictureBox();
-            admin = new Admin();
+            admin = new AdminForm();
             panel1 = new Panel();
             panel2 = new Panel();
             ReportsBtn = new Button();
@@ -233,7 +233,7 @@
         private PictureBox closePictureBox;
         private PictureBox minimize;
         private PictureBox logout;
-        private Admin admin;
+        private AdminForm admin;
         private Panel panel1;
         private Panel panel2;
         private Label dateAndTimeLbl;
