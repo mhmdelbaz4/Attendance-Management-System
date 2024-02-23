@@ -127,7 +127,8 @@ namespace Attendance_Management_System.Forms
         private void hideAllAdminControls()
         {
             adminTeachercrud.Visible = false;
-
+            adminMainDashboard1.Visible = false;
+            userControlAddStudent1.Visible = false;
         }
 
 
