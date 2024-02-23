@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using Attendance_Management_System.Repos;
+using System.Text.RegularExpressions;
 
 namespace Attendance_Management_System;
 
@@ -53,6 +54,14 @@ public static class Validations
             return false;
         }
 
+
+        //uniqueness
+        if(UsersRepo.GetUserIDByEmail(email) != -1)
+        {
+            msg = "email is already exists";
+            return false;
+        }
+
         return true;
     }
 
@@ -72,10 +81,11 @@ public static class Validations
     }
 
 
+    // incorrect
     public static bool IsValidMobileNo(string mobileNo ,out string msg)
     {
         msg=string.Empty;
-        string pattern = @"^(011|010|012|015)\d{8}$";
+        string pattern = @"^(010|011|012|015)\d{8}$";
 
         if(String.IsNullOrEmpty(mobileNo))
         {
@@ -83,12 +93,17 @@ public static class Validations
             return false;
         }
 
-        if(! Regex.IsMatch(pattern,mobileNo))
+        if (Regex.IsMatch(pattern, mobileNo))
         {
             msg = "Mobile Number isn't correct.";
             return false;
         }
 
+        if (UsersRepo.GetUserIDByMobileNo(mobileNo) != -1)
+        {
+            msg = "Mobile Number is aleady exists.";
+            return false;
+        }
         return true;
     }
 

@@ -73,14 +73,15 @@ namespace Attendance_Management_System.Forms
 
         private void TeacherBtn_Click(object sender, EventArgs e)
         {
-
             moveSideBarPanel(addTeacherBtn);
+            hideAllAdminControls();
             adminTeachercrud.Visible = true;
         }
 
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(addStudentBtn);
+            hideAllAdminControls();
             userControlAddStudent1.Visible = true;
             XmlNodeList tracks = XMLControl.GetMultipleNodes("//tracks/track/name");
             foreach (XmlNode track in tracks)
@@ -113,6 +114,7 @@ namespace Attendance_Management_System.Forms
         private void hideAllAdminControls()
         {
             adminTeachercrud.Visible = false;
+            userControlAddStudent1.Visible=false;
         }
     }
 }
