@@ -227,7 +227,14 @@ namespace Attendance_Management_System.Forms
 
             nameEditInput.Text = name;
             emailEditInputt.Text = email;
-            TrackEditComboBox.SelectedItem = track;
+
+            //edit the track combobox by setting the selected item to the track of the student
+            //get the index of the track from the combobox and set it to the selected index
+            int index = TrackEditComboBox.Items.IndexOf(track);
+            TrackEditComboBox.SelectedIndex = index;
+            
+
+
 
             //get password from xml
             XmlDocument doc = XMLControl.ReadAllDocument();
@@ -246,7 +253,7 @@ namespace Attendance_Management_System.Forms
             // get the values from the input fields
             string name = nameEditInput.Text.Trim().ToLower();
             string email = emailEditInputt.Text.Trim().ToLower();
-            string track = TrackEditComboBox.SelectedItem.ToString().ToLower();
+            string track = TrackEditComboBox.SelectedItem.ToString();
             string password = passwordEditInput.Text.Trim();
 
             // validate the input fields
@@ -333,10 +340,7 @@ namespace Attendance_Management_System.Forms
             }
         }
 
-        private void addStudentTabPage_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
 

@@ -125,7 +125,6 @@
             addStudentTabPage.TabIndex = 0;
             addStudentTabPage.Text = "   ➕";
             addStudentTabPage.UseVisualStyleBackColor = true;
-            addStudentTabPage.Click += addStudentTabPage_Click;
             // 
             // errorMsg
             // 

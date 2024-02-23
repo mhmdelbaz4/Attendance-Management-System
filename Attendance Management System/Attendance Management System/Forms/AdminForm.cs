@@ -92,6 +92,11 @@ namespace Attendance_Management_System.Forms
             moveSideBarPanel(addStudentBtn);
             hideAllAdminControls();
             userControlAddStudent1.Visible = true;
+            //reset the track combobox for add student and edit student
+            userControlAddStudent1.trackComboBox.Items.Clear();
+            userControlAddStudent1.TrackEditComboBox.Items.Clear();
+
+            //get the tracks from the xml file
             XmlNodeList tracks = XMLControl.GetMultipleNodes("//tracks/track/name");
             foreach (XmlNode track in tracks)
             {
