@@ -332,6 +332,8 @@ namespace Attendance_Management_System.Forms
                     emailEditInputt.Text = "";
                     passwordEditInput.Text = "";
                     TrackEditComboBox.SelectedIndex = -1;
+
+                    // switch to the search tab
                     tabStudent.SelectedIndex = 1;
 
                     //  clear the selected student id
