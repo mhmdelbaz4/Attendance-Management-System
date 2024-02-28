@@ -46,6 +46,10 @@
       </student>
       <student>
         <id>20240222230501903</id>
+        <name>asdfasdfmm</name>
+        <password>asdfasdfsdfas</password>
+        <email>sadfas@gmail.com</email>
+        <id>20240222230501903</id>
         <name>asdfasdf</name>
         <password>asdfasdfsdfas</password>
         <email>sadfas@gmail.com</email>
@@ -81,6 +85,46 @@
           <trackName>PD</trackName>
           <trackName>OS</trackName>
         </tracks>
+      </teacher>
+      <teacher>
+        <id>847598625</id>
+        <name>mhmd</name>
+        <email>mhmdelba@gmail.com</email>
+        <password>123456a@</password>
+        <birthDate>1991-02-22</birthDate>
+        <mobileNo>01141600750</mobileNo>
+        <hiringDate>2024-02-22</hiringDate>
+        <salary>10000</salary>
+      </teacher>
+      <teacher>
+        <id>969860747</id>
+        <name>mhmd</name>
+        <email>mmsssssm@gmail.com</email>
+        <password>123456a@</password>
+        <birthDate>1999-02-22</birthDate>
+        <mobileNo>01141600899</mobileNo>
+        <hiringDate>2024-02-22</hiringDate>
+        <salary>10000</salary>
+      </teacher>
+      <teacher>
+        <id>853797705</id>
+        <name>mhmd</name>
+        <email>mhmdelbaz22@gmail.com</email>
+        <password>123456a@</password>
+        <birthDate>1990-02-22</birthDate>
+        <mobileNo>01141600100</mobileNo>
+        <hiringDate>2024-02-22</hiringDate>
+        <salary>10000</salary>
+      </teacher>
+      <teacher>
+        <id>436233789</id>
+        <name>osma</name>
+        <email>osmass@gmail.com</email>
+        <password>123456a@</password>
+        <birthDate>1991-02-22</birthDate>
+        <mobileNo>01141600452</mobileNo>
+        <hiringDate>2024-02-22</hiringDate>
+        <salary>10000</salary>
       </teacher>
     </teachers>
     <admins>

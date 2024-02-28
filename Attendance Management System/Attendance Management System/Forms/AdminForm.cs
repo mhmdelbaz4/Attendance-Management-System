@@ -81,7 +81,6 @@ namespace Attendance_Management_System.Forms
 
         private void TeacherBtn_Click(object sender, EventArgs e)
         {
-
             moveSideBarPanel(addTeacherBtn);
             hideAllAdminControls();
             adminTeachercrud.Visible = true;
@@ -130,12 +129,10 @@ namespace Attendance_Management_System.Forms
         // add admin controls here
         private void hideAllAdminControls()
         {
-            userControlAddStudent1.Visible = false;
-            adminMainDashboard1.Visible = false;
             adminTeachercrud.Visible = false;
             trackUserControl1.Visible = false;
-
-
+            adminMainDashboard1.Visible = false;
+            userControlAddStudent1.Visible = false;
         }
 
 

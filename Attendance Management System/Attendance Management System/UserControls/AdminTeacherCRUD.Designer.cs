@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminTeacherCRUD));
             AdminTeacherCRUDTab = new TabControl();
             AddTeacher = new TabPage();
             validationLabel = new Label();
-            submitBtn = new Button();
-            birthDateTimePicker = new DateTimePicker();
+            SaveBtn = new Button();
+            HiringDateDateTimePicker = new DateTimePicker();
             HDlabel = new Label();
             BirthDateDateTimePicker = new DateTimePicker();
             BDlabel = new Label();
@@ -47,44 +48,45 @@
             nametextBox = new TextBox();
             namelbl = new Label();
             TeacherRegisterLabel = new Label();
-            tabPage1 = new TabPage();
-            adminSearchTeacherGV = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
+            getSudentTab = new TabPage();
+            pictureBox1 = new PictureBox();
+            dataGridTeachers = new DataGridView();
+            IdCol = new DataGridViewTextBoxColumn();
             NameCol = new DataGridViewTextBoxColumn();
-            Email = new DataGridViewTextBoxColumn();
-            HiringDate = new DataGridViewTextBoxColumn();
-            MobileNo = new DataGridViewTextBoxColumn();
-            CRUDoptions = new DataGridViewTextBoxColumn();
-            comboBox1 = new ComboBox();
+            EmailCol = new DataGridViewTextBoxColumn();
+            MobileCol = new DataGridViewTextBoxColumn();
+            optionsCol = new DataGridViewTextBoxColumn();
+            searchByComboBox = new ComboBox();
             SearchtextBox = new TextBox();
             label2 = new Label();
             label1 = new Label();
             teacherSearchLbl = new Label();
             AdminTeacherCRUDTab.SuspendLayout();
             AddTeacher.SuspendLayout();
-            tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)adminSearchTeacherGV).BeginInit();
+            getSudentTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridTeachers).BeginInit();
             SuspendLayout();
             // 
             // AdminTeacherCRUDTab
             // 
             AdminTeacherCRUDTab.Alignment = TabAlignment.Bottom;
-            AdminTeacherCRUDTab.Anchor = AnchorStyles.None;
             AdminTeacherCRUDTab.Controls.Add(AddTeacher);
-            AdminTeacherCRUDTab.Controls.Add(tabPage1);
+            AdminTeacherCRUDTab.Controls.Add(getSudentTab);
+            AdminTeacherCRUDTab.Dock = DockStyle.Fill;
             AdminTeacherCRUDTab.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AdminTeacherCRUDTab.Location = new Point(0, 0);
             AdminTeacherCRUDTab.Name = "AdminTeacherCRUDTab";
             AdminTeacherCRUDTab.SelectedIndex = 0;
-            AdminTeacherCRUDTab.Size = new Size(942, 501);
+            AdminTeacherCRUDTab.Size = new Size(1288, 740);
             AdminTeacherCRUDTab.TabIndex = 1;
             // 
             // AddTeacher
             // 
             AddTeacher.BackColor = Color.White;
             AddTeacher.Controls.Add(validationLabel);
-            AddTeacher.Controls.Add(submitBtn);
-            AddTeacher.Controls.Add(birthDateTimePicker);
+            AddTeacher.Controls.Add(SaveBtn);
+            AddTeacher.Controls.Add(HiringDateDateTimePicker);
             AddTeacher.Controls.Add(HDlabel);
             AddTeacher.Controls.Add(BirthDateDateTimePicker);
             AddTeacher.Controls.Add(BDlabel);
@@ -103,58 +105,56 @@
             AddTeacher.Location = new Point(4, 4);
             AddTeacher.Name = "AddTeacher";
             AddTeacher.Padding = new Padding(3);
-            AddTeacher.Size = new Size(934, 465);
+            AddTeacher.Size = new Size(1280, 704);
             AddTeacher.TabIndex = 0;
             AddTeacher.Text = "Add Teacher";
             // 
             // validationLabel
             // 
-            validationLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             validationLabel.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             validationLabel.ForeColor = Color.Red;
-            validationLabel.Location = new Point(133, 353);
+            validationLabel.Location = new Point(735, 402);
             validationLabel.Name = "validationLabel";
-            validationLabel.Size = new Size(372, 23);
+            validationLabel.Size = new Size(300, 110);
             validationLabel.TabIndex = 19;
             validationLabel.Text = "msg";
             validationLabel.Visible = false;
             // 
-            // submitBtn
+            // SaveBtn
             // 
-            submitBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            submitBtn.BackColor = Color.FromArgb(39, 55, 77);
-            submitBtn.FlatAppearance.BorderSize = 0;
-            submitBtn.Font = new Font("Century Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            submitBtn.ForeColor = Color.White;
-            submitBtn.Location = new Point(135, 390);
-            submitBtn.Name = "submitBtn";
-            submitBtn.Size = new Size(106, 50);
-            submitBtn.TabIndex = 18;
-            submitBtn.Text = "Submit";
-            submitBtn.TextAlign = ContentAlignment.MiddleLeft;
-            submitBtn.UseVisualStyleBackColor = false;
+            SaveBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SaveBtn.BackColor = Color.FromArgb(39, 55, 77);
+            SaveBtn.FlatAppearance.BorderSize = 0;
+            SaveBtn.Font = new Font("Century Gothic", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SaveBtn.ForeColor = Color.White;
+            SaveBtn.Location = new Point(141, 598);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(106, 50);
+            SaveBtn.TabIndex = 8;
+            SaveBtn.Text = "Save";
+            SaveBtn.UseVisualStyleBackColor = false;
+            SaveBtn.Click += submitBtn_Click;
             // 
-            // birthDateTimePicker
+            // HiringDateDateTimePicker
             // 
-            birthDateTimePicker.CalendarMonthBackground = Color.White;
-            birthDateTimePicker.CalendarTitleBackColor = Color.DarkGray;
-            birthDateTimePicker.CalendarTrailingForeColor = Color.DarkGray;
-            birthDateTimePicker.Format = DateTimePickerFormat.Short;
-            birthDateTimePicker.Location = new Point(534, 284);
-            birthDateTimePicker.MaxDate = new DateTime(2024, 2, 22, 0, 0, 0, 0);
-            birthDateTimePicker.MinDate = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            birthDateTimePicker.Name = "birthDateTimePicker";
-            birthDateTimePicker.Size = new Size(270, 32);
-            birthDateTimePicker.TabIndex = 17;
-            birthDateTimePicker.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            HiringDateDateTimePicker.CalendarMonthBackground = Color.White;
+            HiringDateDateTimePicker.CalendarTitleBackColor = Color.DarkGray;
+            HiringDateDateTimePicker.CalendarTrailingForeColor = Color.DarkGray;
+            HiringDateDateTimePicker.Format = DateTimePickerFormat.Short;
+            HiringDateDateTimePicker.Location = new Point(735, 339);
+            HiringDateDateTimePicker.MaxDate = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            HiringDateDateTimePicker.MinDate = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            HiringDateDateTimePicker.Name = "HiringDateDateTimePicker";
+            HiringDateDateTimePicker.Size = new Size(300, 32);
+            HiringDateDateTimePicker.TabIndex = 6;
+            HiringDateDateTimePicker.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
             // 
             // HDlabel
             // 
-            HDlabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             HDlabel.BackColor = Color.White;
             HDlabel.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             HDlabel.ForeColor = Color.Black;
-            HDlabel.Location = new Point(534, 243);
+            HDlabel.Location = new Point(735, 291);
             HDlabel.Name = "HDlabel";
             HDlabel.Size = new Size(139, 40);
             HDlabel.TabIndex = 16;
@@ -166,21 +166,20 @@
             BirthDateDateTimePicker.CalendarTitleBackColor = Color.DarkGray;
             BirthDateDateTimePicker.CalendarTrailingForeColor = Color.DarkGray;
             BirthDateDateTimePicker.Format = DateTimePickerFormat.Short;
-            BirthDateDateTimePicker.Location = new Point(534, 190);
+            BirthDateDateTimePicker.Location = new Point(735, 229);
             BirthDateDateTimePicker.MaxDate = new DateTime(2024, 2, 22, 0, 0, 0, 0);
             BirthDateDateTimePicker.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
             BirthDateDateTimePicker.Name = "BirthDateDateTimePicker";
-            BirthDateDateTimePicker.Size = new Size(270, 32);
-            BirthDateDateTimePicker.TabIndex = 15;
+            BirthDateDateTimePicker.Size = new Size(300, 32);
+            BirthDateDateTimePicker.TabIndex = 5;
             BirthDateDateTimePicker.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
             // 
             // BDlabel
             // 
-            BDlabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BDlabel.BackColor = Color.White;
             BDlabel.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BDlabel.ForeColor = Color.Black;
-            BDlabel.Location = new Point(534, 147);
+            BDlabel.Location = new Point(735, 186);
             BDlabel.Name = "BDlabel";
             BDlabel.Size = new Size(139, 40);
             BDlabel.TabIndex = 13;
@@ -188,11 +187,10 @@
             // 
             // Salarylabel
             // 
-            Salarylabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Salarylabel.BackColor = Color.White;
             Salarylabel.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Salarylabel.ForeColor = Color.Black;
-            Salarylabel.Location = new Point(534, 336);
+            Salarylabel.Location = new Point(141, 396);
             Salarylabel.Name = "Salarylabel";
             Salarylabel.Size = new Size(75, 40);
             Salarylabel.TabIndex = 12;
@@ -200,23 +198,21 @@
             // 
             // SalarytextBox
             // 
-            SalarytextBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SalarytextBox.BackColor = Color.White;
             SalarytextBox.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SalarytextBox.ForeColor = Color.Black;
-            SalarytextBox.Location = new Point(534, 379);
+            SalarytextBox.Location = new Point(141, 439);
             SalarytextBox.MaxLength = 6;
             SalarytextBox.Name = "SalarytextBox";
             SalarytextBox.Size = new Size(270, 32);
-            SalarytextBox.TabIndex = 11;
+            SalarytextBox.TabIndex = 7;
             // 
             // Mobilelabel
             // 
-            Mobilelabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Mobilelabel.BackColor = Color.White;
             Mobilelabel.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Mobilelabel.ForeColor = Color.Black;
-            Mobilelabel.Location = new Point(534, 60);
+            Mobilelabel.Location = new Point(735, 95);
             Mobilelabel.Name = "Mobilelabel";
             Mobilelabel.Size = new Size(184, 29);
             Mobilelabel.TabIndex = 10;
@@ -226,35 +222,29 @@
             // 
             MobileNomaskedTextBox.BackColor = Color.White;
             MobileNomaskedTextBox.ForeColor = Color.Black;
-            MobileNomaskedTextBox.Location = new Point(534, 102);
-            MobileNomaskedTextBox.Mask = "000 000000000";
+            MobileNomaskedTextBox.Location = new Point(735, 138);
             MobileNomaskedTextBox.Name = "MobileNomaskedTextBox";
-            MobileNomaskedTextBox.Size = new Size(270, 32);
-            MobileNomaskedTextBox.TabIndex = 9;
-            MobileNomaskedTextBox.Text = "000000000000";
-            MobileNomaskedTextBox.MaskInputRejected += maskedTextBox1_MaskInputRejected;
+            MobileNomaskedTextBox.Size = new Size(300, 32);
+            MobileNomaskedTextBox.TabIndex = 4;
             // 
             // EmailtextBox
             // 
-            EmailtextBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             EmailtextBox.BackColor = Color.White;
             EmailtextBox.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             EmailtextBox.ForeColor = Color.Black;
-            EmailtextBox.Location = new Point(135, 190);
+            EmailtextBox.Location = new Point(141, 229);
             EmailtextBox.MaxLength = 50;
             EmailtextBox.Name = "EmailtextBox";
             EmailtextBox.PlaceholderText = "omar@gmail.com";
-            EmailtextBox.Size = new Size(270, 32);
-            EmailtextBox.TabIndex = 8;
-            EmailtextBox.TextChanged += textBox2_TextChanged;
+            EmailtextBox.Size = new Size(300, 32);
+            EmailtextBox.TabIndex = 2;
             // 
             // Emaillabel
             // 
-            Emaillabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Emaillabel.BackColor = Color.White;
             Emaillabel.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Emaillabel.ForeColor = Color.Black;
-            Emaillabel.Location = new Point(135, 147);
+            Emaillabel.Location = new Point(141, 186);
             Emaillabel.Name = "Emaillabel";
             Emaillabel.Size = new Size(75, 40);
             Emaillabel.TabIndex = 7;
@@ -262,51 +252,45 @@
             // 
             // passwordTextBox
             // 
-            passwordTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             passwordTextBox.BackColor = Color.White;
             passwordTextBox.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             passwordTextBox.ForeColor = Color.Black;
-            passwordTextBox.Location = new Point(133, 284);
+            passwordTextBox.Location = new Point(141, 339);
             passwordTextBox.MaxLength = 50;
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.PlaceholderText = "xxxxxxxx";
             passwordTextBox.Size = new Size(270, 32);
-            passwordTextBox.TabIndex = 6;
-            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
+            passwordTextBox.TabIndex = 3;
             // 
             // passwordlabel
             // 
-            passwordlabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             passwordlabel.BackColor = Color.White;
             passwordlabel.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             passwordlabel.ForeColor = Color.Black;
-            passwordlabel.Location = new Point(135, 243);
+            passwordlabel.Location = new Point(141, 291);
             passwordlabel.Name = "passwordlabel";
             passwordlabel.Size = new Size(184, 29);
             passwordlabel.TabIndex = 5;
             passwordlabel.Text = "Password";
-            passwordlabel.Click += label2_Click;
             // 
             // nametextBox
             // 
-            nametextBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             nametextBox.BackColor = SystemColors.Window;
             nametextBox.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             nametextBox.ForeColor = Color.Black;
-            nametextBox.Location = new Point(135, 100);
-            nametextBox.MaxLength = 50;
+            nametextBox.Location = new Point(141, 138);
+            nametextBox.MaxLength = 30;
             nametextBox.Name = "nametextBox";
             nametextBox.PlaceholderText = "omar";
-            nametextBox.Size = new Size(270, 32);
-            nametextBox.TabIndex = 2;
+            nametextBox.Size = new Size(300, 32);
+            nametextBox.TabIndex = 1;
             // 
             // namelbl
             // 
-            namelbl.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             namelbl.BackColor = Color.White;
             namelbl.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             namelbl.ForeColor = Color.Black;
-            namelbl.Location = new Point(133, 60);
+            namelbl.Location = new Point(141, 95);
             namelbl.Name = "namelbl";
             namelbl.Size = new Size(75, 40);
             namelbl.TabIndex = 3;
@@ -323,101 +307,127 @@
             TeacherRegisterLabel.TabIndex = 0;
             TeacherRegisterLabel.Text = "Teacher Register";
             // 
-            // tabPage1
+            // getSudentTab
             // 
-            tabPage1.Controls.Add(adminSearchTeacherGV);
-            tabPage1.Controls.Add(comboBox1);
-            tabPage1.Controls.Add(SearchtextBox);
-            tabPage1.Controls.Add(label2);
-            tabPage1.Controls.Add(label1);
-            tabPage1.Controls.Add(teacherSearchLbl);
-            tabPage1.Location = new Point(4, 4);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(934, 465);
-            tabPage1.TabIndex = 1;
-            tabPage1.Text = "Get Teacher";
-            tabPage1.UseVisualStyleBackColor = true;
+            getSudentTab.Controls.Add(pictureBox1);
+            getSudentTab.Controls.Add(dataGridTeachers);
+            getSudentTab.Controls.Add(searchByComboBox);
+            getSudentTab.Controls.Add(SearchtextBox);
+            getSudentTab.Controls.Add(label2);
+            getSudentTab.Controls.Add(label1);
+            getSudentTab.Controls.Add(teacherSearchLbl);
+            getSudentTab.Location = new Point(4, 4);
+            getSudentTab.Name = "getSudentTab";
+            getSudentTab.Padding = new Padding(3);
+            getSudentTab.Size = new Size(1280, 704);
+            getSudentTab.TabIndex = 1;
+            getSudentTab.Text = "Get Teacher";
+            getSudentTab.UseVisualStyleBackColor = true;
             // 
-            // adminSearchTeacherGV
+            // pictureBox1
             // 
-            adminSearchTeacherGV.BackgroundColor = Color.White;
-            adminSearchTeacherGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            adminSearchTeacherGV.Columns.AddRange(new DataGridViewColumn[] { ID, NameCol, Email, HiringDate, MobileNo, CRUDoptions });
-            adminSearchTeacherGV.Location = new Point(20, 124);
-            adminSearchTeacherGV.Name = "adminSearchTeacherGV";
-            adminSearchTeacherGV.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            adminSearchTeacherGV.RowHeadersWidth = 50;
-            adminSearchTeacherGV.ScrollBars = ScrollBars.Vertical;
-            adminSearchTeacherGV.Size = new Size(893, 335);
-            adminSearchTeacherGV.TabIndex = 6;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(569, 83);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(46, 32);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 22;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += search;
             // 
-            // ID
+            // dataGridTeachers
             // 
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.Width = 125;
+            dataGridTeachers.AllowUserToAddRows = false;
+            dataGridTeachers.AllowUserToDeleteRows = false;
+            dataGridTeachers.AllowUserToResizeColumns = false;
+            dataGridTeachers.AllowUserToResizeRows = false;
+            dataGridTeachers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            dataGridTeachers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridTeachers.BackgroundColor = Color.White;
+            dataGridTeachers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridTeachers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridTeachers.Columns.AddRange(new DataGridViewColumn[] { IdCol, NameCol, EmailCol, MobileCol, optionsCol });
+            dataGridTeachers.Location = new Point(6, 189);
+            dataGridTeachers.Name = "dataGridTeachers";
+            dataGridTeachers.ReadOnly = true;
+            dataGridTeachers.RowHeadersWidth = 51;
+            dataGridTeachers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridTeachers.ShowCellErrors = false;
+            dataGridTeachers.ShowEditingIcon = false;
+            dataGridTeachers.ShowRowErrors = false;
+            dataGridTeachers.Size = new Size(1257, 455);
+            dataGridTeachers.TabIndex = 6;
+            // 
+            // IdCol
+            // 
+            IdCol.FillWeight = 91.57755F;
+            IdCol.HeaderText = "Id";
+            IdCol.MinimumWidth = 6;
+            IdCol.Name = "IdCol";
+            IdCol.ReadOnly = true;
             // 
             // NameCol
             // 
+            NameCol.FillWeight = 91.57755F;
             NameCol.HeaderText = "Name";
             NameCol.MinimumWidth = 6;
             NameCol.Name = "NameCol";
-            NameCol.Width = 125;
+            NameCol.ReadOnly = true;
             // 
-            // Email
+            // EmailCol
             // 
-            Email.HeaderText = "Email";
-            Email.MinimumWidth = 6;
-            Email.Name = "Email";
-            Email.Width = 200;
+            EmailCol.FillWeight = 91.57755F;
+            EmailCol.HeaderText = "Email";
+            EmailCol.MinimumWidth = 6;
+            EmailCol.Name = "EmailCol";
+            EmailCol.ReadOnly = true;
             // 
-            // HiringDate
+            // MobileCol
             // 
-            HiringDate.HeaderText = "HiringDate";
-            HiringDate.MinimumWidth = 6;
-            HiringDate.Name = "HiringDate";
-            HiringDate.Width = 150;
+            MobileCol.FillWeight = 91.57755F;
+            MobileCol.HeaderText = "Mobile";
+            MobileCol.MinimumWidth = 6;
+            MobileCol.Name = "MobileCol";
+            MobileCol.ReadOnly = true;
             // 
-            // MobileNo
+            // optionsCol
             // 
-            MobileNo.HeaderText = "Mobile No.";
-            MobileNo.MinimumWidth = 6;
-            MobileNo.Name = "MobileNo";
-            MobileNo.Width = 150;
+            optionsCol.FillWeight = 20F;
+            optionsCol.HeaderText = "";
+            optionsCol.MaxInputLength = 50;
+            optionsCol.MinimumWidth = 6;
+            optionsCol.Name = "optionsCol";
+            optionsCol.ReadOnly = true;
             // 
-            // CRUDoptions
+            // searchByComboBox
             // 
-            CRUDoptions.HeaderText = "";
-            CRUDoptions.MinimumWidth = 6;
-            CRUDoptions.Name = "CRUDoptions";
-            CRUDoptions.Width = 125;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(542, 87);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(173, 31);
-            comboBox1.TabIndex = 5;
+            searchByComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            searchByComboBox.AutoCompleteCustomSource.AddRange(new string[] { "Id", "Name", "Email" });
+            searchByComboBox.FormattingEnabled = true;
+            searchByComboBox.Items.AddRange(new object[] { "Id", "Name", "Email", "Track" });
+            searchByComboBox.Location = new Point(807, 83);
+            searchByComboBox.Name = "searchByComboBox";
+            searchByComboBox.Size = new Size(173, 31);
+            searchByComboBox.TabIndex = 5;
+            searchByComboBox.SelectedValueChanged += search;
             // 
             // SearchtextBox
             // 
-            SearchtextBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SearchtextBox.ForeColor = Color.FromArgb(39, 55, 77);
-            SearchtextBox.Location = new Point(171, 86);
+            SearchtextBox.Location = new Point(329, 83);
             SearchtextBox.MaxLength = 50;
             SearchtextBox.Name = "SearchtextBox";
             SearchtextBox.Size = new Size(234, 32);
             SearchtextBox.TabIndex = 4;
+            SearchtextBox.TextChanged += search;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Rockwell", 13.8F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(39, 55, 77);
-            label2.Location = new Point(542, 44);
+            label2.Location = new Point(807, 37);
             label2.Name = "label2";
             label2.Size = new Size(131, 28);
             label2.TabIndex = 3;
@@ -428,7 +438,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Rockwell", 13.8F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(39, 55, 77);
-            label1.Location = new Point(171, 44);
+            label1.Location = new Point(329, 37);
             label1.Name = "label1";
             label1.Size = new Size(95, 28);
             label1.TabIndex = 2;
@@ -454,13 +464,15 @@
             Font = new Font("Century Gothic", 12F);
             Margin = new Padding(6, 5, 6, 5);
             Name = "AdminTeacherCRUD";
-            Size = new Size(942, 501);
+            Size = new Size(1288, 740);
+            Load += AdminTeacherCRUD_Load;
             AdminTeacherCRUDTab.ResumeLayout(false);
             AddTeacher.ResumeLayout(false);
             AddTeacher.PerformLayout();
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)adminSearchTeacherGV).EndInit();
+            getSudentTab.ResumeLayout(false);
+            getSudentTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridTeachers).EndInit();
             ResumeLayout(false);
         }
 
@@ -481,22 +493,22 @@
         private TextBox SalarytextBox;
         private Label BDlabel;
         private DateTimePicker BirthDateDateTimePicker;
-        private DateTimePicker birthDateTimePicker;
+        private DateTimePicker HiringDateDateTimePicker;
         private Label HDlabel;
-        private Button submitBtn;
+        private Button SaveBtn;
         private Label validationLabel;
-        private TabPage tabPage1;
+        private TabPage getSudentTab;
         private Label label2;
         private Label label1;
         private Label teacherSearchLbl;
-        private ComboBox comboBox1;
+        private ComboBox searchByComboBox;
         private TextBox SearchtextBox;
-        private DataGridView adminSearchTeacherGV;
-        private DataGridViewTextBoxColumn ID;
+        private DataGridView dataGridTeachers;
+        private DataGridViewTextBoxColumn IdCol;
         private DataGridViewTextBoxColumn NameCol;
-        private DataGridViewTextBoxColumn Email;
-        private DataGridViewTextBoxColumn HiringDate;
-        private DataGridViewTextBoxColumn MobileNo;
-        private DataGridViewTextBoxColumn CRUDoptions;
+        private DataGridViewTextBoxColumn EmailCol;
+        private DataGridViewTextBoxColumn MobileCol;
+        private DataGridViewTextBoxColumn optionsCol;
+        private PictureBox pictureBox1;
     }
 }

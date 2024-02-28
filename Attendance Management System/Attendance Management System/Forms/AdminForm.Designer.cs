@@ -138,7 +138,7 @@ namespace Attendance_Management_System.Forms
             addTeacherBtn.ForeColor = SystemColors.ControlLightLight;
             addTeacherBtn.Image = (Image)resources.GetObject("addTeacherBtn.Image");
             addTeacherBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            addTeacherBtn.Location = new Point(10, 296);
+            addTeacherBtn.Location = new Point(1, 296);
             addTeacherBtn.Name = "addTeacherBtn";
             addTeacherBtn.Size = new Size(288, 67);
             addTeacherBtn.TabIndex = 6;
@@ -313,7 +313,7 @@ namespace Attendance_Management_System.Forms
             adminTeachercrud.BackColor = Color.White;
             adminTeachercrud.Dock = DockStyle.Fill;
             adminTeachercrud.Font = new Font("Century Gothic", 12F);
-            adminTeachercrud.Location = new Point(298, 135);
+            adminTeachercrud.Location = new Point(0, 0);
             adminTeachercrud.Margin = new Padding(0);
             adminTeachercrud.Name = "adminTeachercrud";
             adminTeachercrud.Size = new Size(902, 585);
