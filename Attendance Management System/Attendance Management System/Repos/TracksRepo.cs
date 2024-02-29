@@ -43,7 +43,6 @@ public static class TracksRepo
 
     public static List<(string,string,bool)> getTrackAttendance(string date ,string trackName ,string teacherId)
     {
-
         List<(string, string, bool)> trackAttendance = new List<(string, string, bool)>();
 
         XmlNodeList studentNodes = xmlDoc.SelectNodes($"//student[trackName='{trackName}']");

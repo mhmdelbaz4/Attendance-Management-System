@@ -35,7 +35,6 @@
             panel1 = new Panel();
             controlsPanel = new Panel();
             ReportsBtn = new Button();
-            ClassesBtn = new Button();
             attendanceBtn = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
@@ -99,7 +98,6 @@
             // 
             controlsPanel.BackColor = Color.FromArgb(82, 109, 130);
             controlsPanel.Controls.Add(ReportsBtn);
-            controlsPanel.Controls.Add(ClassesBtn);
             controlsPanel.Controls.Add(attendanceBtn);
             controlsPanel.Location = new Point(3, 168);
             controlsPanel.Name = "controlsPanel";
@@ -115,29 +113,13 @@
             ReportsBtn.ForeColor = SystemColors.ControlLightLight;
             ReportsBtn.Image = (Image)resources.GetObject("ReportsBtn.Image");
             ReportsBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            ReportsBtn.Location = new Point(3, 122);
+            ReportsBtn.Location = new Point(0, 55);
             ReportsBtn.Name = "ReportsBtn";
             ReportsBtn.Size = new Size(298, 67);
             ReportsBtn.TabIndex = 7;
             ReportsBtn.Text = "Reports";
             ReportsBtn.UseVisualStyleBackColor = true;
             ReportsBtn.Click += ReportsBtn_Click;
-            // 
-            // ClassesBtn
-            // 
-            ClassesBtn.Dock = DockStyle.Top;
-            ClassesBtn.FlatAppearance.BorderSize = 0;
-            ClassesBtn.FlatStyle = FlatStyle.Flat;
-            ClassesBtn.Font = new Font("Rockwell", 13.8F);
-            ClassesBtn.ForeColor = SystemColors.ControlLightLight;
-            ClassesBtn.Image = (Image)resources.GetObject("ClassesBtn.Image");
-            ClassesBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            ClassesBtn.Location = new Point(0, 0);
-            ClassesBtn.Name = "ClassesBtn";
-            ClassesBtn.Size = new Size(298, 67);
-            ClassesBtn.TabIndex = 5;
-            ClassesBtn.Text = "Details";
-            ClassesBtn.UseVisualStyleBackColor = true;
             // 
             // attendanceBtn
             // 
@@ -147,7 +129,7 @@
             attendanceBtn.ForeColor = SystemColors.ControlLightLight;
             attendanceBtn.Image = (Image)resources.GetObject("attendanceBtn.Image");
             attendanceBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            attendanceBtn.Location = new Point(0, 60);
+            attendanceBtn.Location = new Point(-3, 0);
             attendanceBtn.Name = "attendanceBtn";
             attendanceBtn.Size = new Size(298, 67);
             attendanceBtn.TabIndex = 6;
@@ -317,7 +299,6 @@
         private Button attendanceBtn;
         private Button ReportsBtn;
         private System.Windows.Forms.Timer timer1;
-        private Button ClassesBtn;
         private Panel controlsPanel;
         private Label label1;
         private Label label2;

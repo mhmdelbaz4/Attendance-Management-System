@@ -41,8 +41,7 @@ namespace Attendance_Management_System.UserControls
 
         public void populateAttendanceGridView(string date, string trackName, string teacherId)
         {
-            if(!initialized)
-            {
+          
                 List<(string, string, bool)> StudentsInfo = TracksRepo.getTrackAttendance(date, trackName, teacherId);
 
                 AttendanceDataGridView.Rows.Clear();
@@ -61,7 +60,7 @@ namespace Attendance_Management_System.UserControls
                     AttendanceDataGridView.Rows.Add(row);
                 }
 
-            }
+          
         }
 
         private void populateTeacherComboBox(List<(string, string)> trackTeachers)
@@ -77,18 +76,19 @@ namespace Attendance_Management_System.UserControls
 
         private void getAttendance(object sender, EventArgs e)
         {
-         
-            string date = AttendanceDateTimePicker.Value.ToString("yyyy-MM-dd");
-            string trackName = TrackComboBox.SelectedItem.ToString();
-        
-            //Console.WriteLine(trackName);
-            string teacherID = ((KeyValuePair<string,string>)TeacherComboBox.SelectedItem).Key;
-            Console.WriteLine(teacherID);
+            if(initialized)
+            {
+                string date = AttendanceDateTimePicker.Value.ToString("yyyy-MM-dd");
+                string trackName = TrackComboBox.SelectedItem.ToString();
 
-            populateAttendanceGridView(date, trackName, teacherID);
-            Console.WriteLine("Hello World!");
+                //Console.WriteLine(trackName);
+                string teacherID = ((KeyValuePair<string, string>)TeacherComboBox.SelectedItem).Key;
+                Console.WriteLine(teacherID);
 
-
+                populateAttendanceGridView(date, trackName, teacherID);
+                Console.WriteLine("Hello World!");
+            }
+            
 
         }
     }
