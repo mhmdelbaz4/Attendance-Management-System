@@ -3,6 +3,11 @@ using Attendance_Management_System.Models;
 using Attendance_Management_System.Repos;
 
 
+
+using Admin = Attendance_Management_System.Forms.AdminForm;
+using Teacher = Attendance_Management_System.Forms.Teacher;
+
+
 internal static class Program
 {
     /// <summary>
@@ -16,7 +21,7 @@ internal static class Program
         ApplicationConfiguration.Initialize();
         // Application.Run(new Attendance_Management_System.Forms.Teacher());
         // Application.Run(new tryPdf());
-        Application.Run(new Attendance_Management_System.Forms.Admin());
+        Application.Run(new Attendance_Management_System.Forms.AdminForm());
        
       
     }

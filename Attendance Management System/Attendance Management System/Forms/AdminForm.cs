@@ -14,9 +14,9 @@ using System.Xml;
 
 namespace Attendance_Management_System.Forms
 {
-    public partial class Admin : Form
+    public partial class AdminForm : Form
     {
-        public Admin()
+        public AdminForm()
         {
             InitializeComponent();
             hideAllAdminControls();
@@ -28,6 +28,11 @@ namespace Attendance_Management_System.Forms
             //this.TopMost = true; // this will set it on top of everything, including the taskbar
             this.FormBorderStyle = FormBorderStyle.None; // remove the title bar
             this.WindowState = FormWindowState.Maximized; // maximize it to fill the entire screen.
+            hideAllAdminControls();// hide all the admin controls
+            adminMainDashboard1.Visible = true;// show the main dashboard
+            setDashboardNumbers();// set the dashboard numbers
+            adminName.Text = Session.currentUser?.Name;
+
 
         }
 
@@ -65,19 +70,25 @@ namespace Attendance_Management_System.Forms
             moveSideBarPanel(dashboardBtn);
             userControlAddStudent1.Visible = false; // hide add student user control
             userControlTry1.Visible = false;//hide reports user control
+
+            hideAllAdminControls();
+            setDashboardNumbers();
+            adminMainDashboard1.Visible = true;
+
         }
 
         private void attendanceBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(attendanceBtn);
-            userControlAddStudent1.Visible = false;
-            userControlTry1.Visible = false;//hide reports user control
+
+            hideAllAdminControls();
+            adminMarkAttendance.Visible = true;
         }
 
         private void TeacherBtn_Click(object sender, EventArgs e)
         {
-
             moveSideBarPanel(addTeacherBtn);
+            hideAllAdminControls();
             adminTeachercrud.Visible = true;
             userControlTry1.Visible = false;//hide reports user control
         }
@@ -85,8 +96,14 @@ namespace Attendance_Management_System.Forms
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(addStudentBtn);
+            hideAllAdminControls();
             userControlAddStudent1.Visible = true;
-            userControlTry1.Visible = false;//hide reports user control
+
+            //reset the track combobox for add student and edit student
+            userControlAddStudent1.trackComboBox.Items.Clear();
+            userControlAddStudent1.TrackEditComboBox.Items.Clear();
+
+            //get the tracks from the xml file
             XmlNodeList tracks = XMLControl.GetMultipleNodes("//tracks/track/name");
             foreach (XmlNode track in tracks)
             {
@@ -99,22 +116,24 @@ namespace Attendance_Management_System.Forms
                 userControlAddStudent1.trackComboBox.SelectedIndex = 0;
                 userControlAddStudent1.TrackEditComboBox.SelectedIndex = 0;
             }
+            userControlAddStudent1.tabStudent.SelectedIndex = 0;
         }
 
         private void addClassBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(addClassBtn);
-            userControlAddStudent1.Visible = false;
-            userControlTry1.Visible = false;//hide reports user control
+
+            hideAllAdminControls();
+            trackUserControl1.Visible = true;
         }
 
         private void reports_Click(object sender, EventArgs e)
         {
-          
-            userControlAddStudent1.Visible = false;
-            userControlTry1.Visible = true;
-                                         
+            
+            hideAllAdminControls();
+            userControlTry1.Visible = true;                          
             userControlTry1.ExecuteTab();
+            moveSideBarPanel(reports);
 
         }
         // moveSideBarPanel(reports);
@@ -122,6 +141,33 @@ namespace Attendance_Management_System.Forms
         private void hideAllAdminControls()
         {
             adminTeachercrud.Visible = false;
+            trackUserControl1.Visible = false;
+            adminMainDashboard1.Visible = false;
+            userControlAddStudent1.Visible = false;
+            adminMarkAttendance.Visible = false;
+            userControlTry1.Visible = false;//hide reports user control
+
         }
+
+
+        // set dashboard numbers
+        private void setDashboardNumbers()
+        {
+            // load the dashboard data
+            //get the total number of students
+            int totalStudents = XMLControl.GetMultipleNodes("//students/student").Count;
+            adminMainDashboard1.noStudents.Text = totalStudents.ToString();
+
+            //get the total number of teachers
+            int totalTeachers = XMLControl.GetMultipleNodes("//teachers/teacher").Count;
+            adminMainDashboard1.noTeachers.Text = totalTeachers.ToString();
+
+            //get the total number of tracks
+            int totalTracks = XMLControl.GetMultipleNodes("//tracks/track").Count;
+            adminMainDashboard1.noClasses.Text = totalTracks.ToString();
+        }
+       
+
+   
     }
 }

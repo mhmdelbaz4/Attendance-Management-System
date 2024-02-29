@@ -2,7 +2,7 @@
 
 public class Teacher :User
 {
-    public DateOnly HiringDate { get; set; }
+    public DateTime HiringDate { get; set; }
 
     public int Salary { get; set; }
 

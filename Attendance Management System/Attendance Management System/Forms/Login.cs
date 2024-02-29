@@ -1,5 +1,4 @@
-﻿﻿using System.Xml;
-using Attendance_Management_System.Repos;
+﻿ using System.Xml;
 using Attendance_Management_System.Models;
 
 namespace Attendance_Management_System.Forms
@@ -10,12 +9,13 @@ namespace Attendance_Management_System.Forms
         {
             InitializeComponent();
         }
+        public static int LoginUserId;
 
         private void loginBTN_Click(object sender, EventArgs e)
         {
             string? email = emailInput.Text;
             string? password = passwordInput.Text;
-
+            
             if (String.IsNullOrWhiteSpace(email))
             {
                 errorMsg.Text = "Email is required";
@@ -40,30 +40,71 @@ namespace Attendance_Management_System.Forms
                     return;
                 }
 
-                //create user (admin, teacher, student) object depending on the role node name
+                //get user data from xml
+                int id = int.Parse(userNode.SelectSingleNode("id").InnerText);
+                string name = userNode.SelectSingleNode("name").InnerText;
+
+                //convert birthdate from string to dateOnly and store it in birthDate DateTime object
+                // 15-4-2020 to DateTime object 
+                //string was not in the correct format
+                //DateTime birthDate = DateTime.ParseExact(userNode.SelectSingleNode("birthDate").InnerText, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                //string birthdateString = "15-4-2020";
+                //DateTime birthDate = DateTime.ParseExact(birthdateString, "dd-MM-yyyy", null);
+                //Console.WriteLine(birthDate);
+
+                string mobileNumber = userNode.SelectSingleNode("mobileNo").InnerText;
+
+
+                LoginUserId = id;
 
                 if (userNode.Name == "student")
                 {
                     // create student form
-                    StudentF student = new StudentF();
-                    student.Show();
+                    StudentF studentForm = new Forms.StudentF();
+                    // get student track name
+                    string trackName = userNode.SelectSingleNode("trackName").InnerText;
+                    // create student object
+                    Session.currentUser = new Student(){ ID = id, Name = name, Email = email, Password = password,MobileNumber = mobileNumber, TrackName = trackName };
+                    // set session details
+                    Session.currentUserRole = "student";
+                    // set login time
+                    Session.loginTime = DateTime.Now;
+                    // show student form
+                    studentForm.Show();
+                    // hide login form
                     this.Hide();
-
-
                 }
                 else if (userNode.Name == "teacher")
                 {
-                    // Login teacher
-                    Teacher teacher = new Teacher();
-                    teacher.Show();
+                    // create teacher form
+                    Teacher teacherForm = new Forms.Teacher();
+                    // create teacher object
+                    Session.currentUser = new Models.Teacher() { ID = id, Name = name, Email = email, Password = password, MobileNumber = mobileNumber };
+                    // set session details
+                    Session.currentUserRole = "teacher";
+                    // set login time
+                    Session.loginTime = DateTime.Now;
+                    // show teacher form
+                    teacherForm.Show();
+                    // hide login form
                     this.Hide();
 
                 }
                 else if (userNode.Name == "admin")
                 {
-                    // Login admin
-                    Admin admin = new Admin();
-                    admin.Show();
+                    // create admin form
+                    AdminForm adminForm = new AdminForm();
+
+                    // create admin object
+                    Session.currentUser = new Models.Admin() { ID = id, Name = name, Email = email, Password = password, MobileNumber = mobileNumber };
+
+                    // set session details
+                    Session.currentUserRole = "admin";
+                    Session.loginTime = DateTime.Now;
+
+                    // show admin form
+                    adminForm.Show();
+                    // hide login form
                     this.Hide();
                 }
 

@@ -38,7 +38,7 @@ namespace Attendance_Management_System.Forms
                 string name = StudentNameInput.Text.Trim().ToLower();
                 string password = passwordInput.Text.Trim();
                 string email = emailInput.Text.Trim().ToLower();
-                string track = trackComboBox.SelectedItem.ToString().Trim().ToLower();
+                string track = trackComboBox.SelectedItem.ToString().Trim();
                 // create unique id for the student based on time and date + random number + machine name
                 string id = DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(100, 999);
 
@@ -135,7 +135,6 @@ namespace Attendance_Management_System.Forms
         {
             //if selected is second tab then reload students from xml to display in the datagridview
 
-            Console.WriteLine(tabStudent.SelectedIndex);
             if (tabStudent.SelectedIndex == 0)
             {
                 //if there are tracks in the combobox then set the selected index to 0
@@ -167,6 +166,12 @@ namespace Attendance_Management_System.Forms
 
             if (tabStudent.SelectedIndex == 2)
             {
+                //check if there is student selected
+                if (selectedStudentId == "")
+                {
+                    MessageBox.Show("Please select a student to edit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tabStudent.SelectedIndex = 1;
+                }
                 // if there are tracks in the combobox then set the selected index to 0
                 if (TrackEditComboBox.Items.Count > 0)
                 {
@@ -178,7 +183,7 @@ namespace Attendance_Management_System.Forms
         private void search(object sender, EventArgs e)
         {
             // get the search value
-            string searchValue = searchInput.Text.Trim().ToLower();
+            string searchValue = searchInput.Text.Trim();
 
             // get the search by value
             string searchBy = searchByComboBox.SelectedItem.ToString();
@@ -186,11 +191,10 @@ namespace Attendance_Management_System.Forms
             if (searchBy == "track")
             {
                 searchBy = "trackName";
-                searchValue = searchValue.ToUpper();
             }
 
-            // get students from xml based on the search value and search by
-            XmlNodeList students = XMLControl.GetMultipleNodes($"//students/student[contains({searchBy},'{searchValue}')]");
+            // get students from xml based on the search value and search by case insensitive and contains search value using translate function
+            XmlNodeList students = XMLControl.GetMultipleNodes($"//students/student[contains(translate({searchBy}, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '{searchValue.ToLower()}')]");
 
             //clear the datagridview
             dataGridStudent.Rows.Clear();
@@ -222,7 +226,22 @@ namespace Attendance_Management_System.Forms
 
             nameEditInput.Text = name;
             emailEditInputt.Text = email;
-            TrackEditComboBox.SelectedItem = track;
+
+            //edit the track combobox by setting the selected item to the track of the student
+            //get the index of the track from the combobox and set it to the selected index
+            int index = TrackEditComboBox.Items.IndexOf(track);
+            TrackEditComboBox.SelectedIndex = index;
+            
+
+
+
+            //get password from xml
+            XmlDocument doc = XMLControl.ReadAllDocument();
+            string password = doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']/password").InnerText;
+            passwordEditInput.Text = password;
+
+            // switch to the edit tab
+            tabStudent.SelectedIndex = 2;
 
         }
 
@@ -233,7 +252,7 @@ namespace Attendance_Management_System.Forms
             // get the values from the input fields
             string name = nameEditInput.Text.Trim().ToLower();
             string email = emailEditInputt.Text.Trim().ToLower();
-            string track = TrackEditComboBox.SelectedItem.ToString().ToLower();
+            string track = TrackEditComboBox.SelectedItem.ToString();
             string password = passwordEditInput.Text.Trim();
 
             // validate the input fields
@@ -274,6 +293,9 @@ namespace Attendance_Management_System.Forms
                     TrackEditComboBox.SelectedIndex = -1;
                     tabStudent.SelectedIndex = 1;
 
+                    //  clear the selected student id
+                    selectedStudentId = "";
+
                 }
             }
 
@@ -309,10 +331,17 @@ namespace Attendance_Management_System.Forms
                     emailEditInputt.Text = "";
                     passwordEditInput.Text = "";
                     TrackEditComboBox.SelectedIndex = -1;
+
+                    // switch to the search tab
                     tabStudent.SelectedIndex = 1;
+
+                    //  clear the selected student id
+                    selectedStudentId = "";
                 }
             }
         }
+
+
     }
 }
 

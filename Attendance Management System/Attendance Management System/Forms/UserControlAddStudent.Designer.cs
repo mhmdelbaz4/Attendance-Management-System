@@ -90,6 +90,8 @@
             tabStudent.Controls.Add(addStudentTabPage);
             tabStudent.Controls.Add(searchStudent);
             tabStudent.Controls.Add(updateAndDeleteStudent);
+            tabStudent.Cursor = Cursors.Hand;
+            tabStudent.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabStudent.Location = new Point(0, 18);
             tabStudent.Name = "tabStudent";
             tabStudent.SelectedIndex = 0;
@@ -119,9 +121,9 @@
             addStudentTabPage.Location = new Point(4, 4);
             addStudentTabPage.Name = "addStudentTabPage";
             addStudentTabPage.Padding = new Padding(5);
-            addStudentTabPage.Size = new Size(1280, 629);
+            addStudentTabPage.Size = new Size(1280, 618);
             addStudentTabPage.TabIndex = 0;
-            addStudentTabPage.Text = "add student";
+            addStudentTabPage.Text = "   ➕";
             addStudentTabPage.UseVisualStyleBackColor = true;
             // 
             // errorMsg
@@ -174,6 +176,7 @@
             passwordInput.ForeColor = Color.FromArgb(38, 80, 115);
             passwordInput.Location = new Point(796, 263);
             passwordInput.Name = "passwordInput";
+            passwordInput.PlaceholderText = "  * * * * * * * * ";
             passwordInput.Size = new Size(335, 32);
             passwordInput.TabIndex = 15;
             // 
@@ -229,6 +232,7 @@
             emailInput.ForeColor = Color.FromArgb(38, 80, 115);
             emailInput.Location = new Point(789, 166);
             emailInput.Name = "emailInput";
+            emailInput.PlaceholderText = "email@gmail.com";
             emailInput.Size = new Size(335, 32);
             emailInput.TabIndex = 9;
             // 
@@ -262,6 +266,7 @@
             StudentNameInput.ForeColor = Color.FromArgb(38, 80, 115);
             StudentNameInput.Location = new Point(141, 166);
             StudentNameInput.Name = "StudentNameInput";
+            StudentNameInput.PlaceholderText = "name";
             StudentNameInput.Size = new Size(335, 32);
             StudentNameInput.TabIndex = 2;
             // 
@@ -314,9 +319,9 @@
             searchStudent.Location = new Point(4, 4);
             searchStudent.Name = "searchStudent";
             searchStudent.Padding = new Padding(3);
-            searchStudent.Size = new Size(1280, 629);
+            searchStudent.Size = new Size(1280, 618);
             searchStudent.TabIndex = 1;
-            searchStudent.Text = "search student";
+            searchStudent.Text = "   🔍";
             searchStudent.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
@@ -419,7 +424,7 @@
             dataGridStudent.ShowCellErrors = false;
             dataGridStudent.ShowEditingIcon = false;
             dataGridStudent.ShowRowErrors = false;
-            dataGridStudent.Size = new Size(1257, 455);
+            dataGridStudent.Size = new Size(1257, 444);
             dataGridStudent.TabIndex = 0;
             dataGridStudent.CellClick += selectStudent;
             // 
@@ -473,9 +478,9 @@
             updateAndDeleteStudent.ForeColor = Color.FromArgb(39, 55, 77);
             updateAndDeleteStudent.Location = new Point(4, 4);
             updateAndDeleteStudent.Name = "updateAndDeleteStudent";
-            updateAndDeleteStudent.Size = new Size(1280, 629);
+            updateAndDeleteStudent.Size = new Size(1280, 618);
             updateAndDeleteStudent.TabIndex = 2;
-            updateAndDeleteStudent.Text = "update and delete student";
+            updateAndDeleteStudent.Text = "♻️| 🗑️ ";
             // 
             // deleteBtn
             // 
@@ -519,7 +524,7 @@
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(226, 56);
             updateBtn.TabIndex = 33;
-            updateBtn.Text = "Upadte Student";
+            updateBtn.Text = "Update Student";
             updateBtn.UseVisualStyleBackColor = false;
             updateBtn.Click += updateBtn_Click;
             // 
@@ -543,6 +548,8 @@
             passwordEditInput.ForeColor = Color.FromArgb(38, 80, 115);
             passwordEditInput.Location = new Point(799, 276);
             passwordEditInput.Name = "passwordEditInput";
+            passwordEditInput.PasswordChar = '*';
+            passwordEditInput.PlaceholderText = "  * * * * * * * * ";
             passwordEditInput.Size = new Size(335, 32);
             passwordEditInput.TabIndex = 30;
             // 
@@ -598,6 +605,7 @@
             emailEditInputt.ForeColor = Color.FromArgb(38, 80, 115);
             emailEditInputt.Location = new Point(792, 179);
             emailEditInputt.Name = "emailEditInputt";
+            emailEditInputt.PlaceholderText = "email@gmail.com";
             emailEditInputt.Size = new Size(335, 32);
             emailEditInputt.TabIndex = 25;
             // 
@@ -631,6 +639,7 @@
             nameEditInput.ForeColor = Color.FromArgb(38, 80, 115);
             nameEditInput.Location = new Point(144, 179);
             nameEditInput.Name = "nameEditInput";
+            nameEditInput.PlaceholderText = "student name";
             nameEditInput.Size = new Size(335, 32);
             nameEditInput.TabIndex = 22;
             // 
@@ -679,7 +688,7 @@
         #endregion
 
         private string selectedStudentId = "";
-        private TabControl tabStudent;
+        public TabControl tabStudent;
         private TabPage addStudentTabPage;
         private TabPage searchStudent;
         private Label addStudentHeading;

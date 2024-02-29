@@ -337,7 +337,7 @@
         jpeD6RmiUPgLvm0tc3NRuD0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ClassesBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="attendanceBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAA1VJREFUWEfl
         mE9IVFEUxmcmFArUDCK0hUaUomNpWkopaREREpaRqZRNI6kgCmV/oBhLiTaBENYmXVVUG0F3Ldq2KkiI
@@ -355,24 +355,6 @@
         Qvu2pSvJmI52KtKVZEynKW7yhqpelWgt2sEaIzSDXaojumaNEfqxDQ1SYQlrjIDBrSeiJyPVsSrRVFAo
         hiurWSJ794lISfRXBAl+6oXUNXeEIujYtgo0IhHBoWMpKb7SIPIPFuk9Sj8l+mZ2kCISLs9xW0Li8hy/
         JOtdPt9vLL2uejSAH/MAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="attendanceBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAtpJREFUWEft
-        mM9qE1EUxlsFxY27ggiuhS4KM6mKCzeKwpTJpFAH25lE2mKsjRYktu6sUcSVK0F8AR/AB3CjvoFYwa1o
-        u1JE/IOKvd5z+53hzvVmEuJMGkp/8NE553y556MhySRD/0upXF12y7EgtVqtPWgPDhTs3fq6eL+xoUKi
-        XSylcvzUXEa1E0wfRplAfQrXt4C0xBau3XKeZXlyA0ueoVR0s9gN4lclP3qLsjg4CIfS9E0ZLBi+X2gX
-        Ay3BJS/+ytfHKtNH1ADQDB5xf74hrtcWkqCw6AzzrJ3gy0aZg+gaygTbAdST7yv/6MutVetC149aWYKt
-        Myqk1AkvPsjXUn8wVnDfFpBEM1iLgQOQRidmD6GdQP16dMkajmQGHPejCf3MTsLDeofeD/kwPdjP1dv5
-        LckDGeQDB2I5fnQX4112BqNhuI+fXlkOb3UHCAp2ttYQp+Mr/XtxyM/Wz+YyqsMw3IsygfrbcjfjlOMH
-        aCU9lCmoP7W4LKYaK8UH3AoS/UapyArHdOPJBV6Chd95sePNjSiDBfZAj9AuBlqCy9R/Bdc/1ACUgugJ
-        e0zBksLm0wVbNjDfQ5lgO4B6zbUXovnmZUrnHz+0LsTZbQVbR9R9m3yBvEadHIxSwT0zHMv05w4HgJ6j
-        nUD9U/UlazgSzWFVyC9hd7TzOgoP6x3Xj+t8mC1cLkvygMOYwniXncHJMDww0E8tBTt38ao4U13sX0i5
-        6JO5TNWWX6+ovz13M9p3C+6hTEH9yuWmmFy4UXxABNlEqUAvc3E3nlzgJfRXvvt/7Gax9C2xzw1mxtAu
-        Bj2MHk6/1kh+bxmvIKDdp9DnNsGWTTujrU+9zbWbQhiqNeasC6mXJdiycbxwhMxjQfUoWsnBKBWuP1Om
-        nhmO1fXCXvA8bz+HglIvGoL6F+qz1nAkmjtBPA+7vLmthdp5HYWH9Q79REcHHZ+sWsPlsiQPOIwpjHNg
-        aOgvizEnlfjudCkAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -561,5 +543,14 @@
   </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="StudentID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="StudentName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>

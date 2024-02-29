@@ -37,19 +37,33 @@ namespace Attendance_Management_System.Forms
             panel1 = new Panel();
             controlsPanel = new Panel();
             ReportsBtn = new Button();
+
             ClassesBtn = new Button();
+
             attendanceBtn = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             dateAndTimeLbl = new Label();
             hoverpanel = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
+
             userControlTry1 = new UserControlTry();
+            label1 = new Label();
+            label2 = new Label();
+            AttendanceDateTimePicker = new DateTimePicker();
+            tracksComboBox = new ComboBox();
+            AttendancedataGridView = new DataGridView();
+            StudentID = new DataGridViewTextBoxColumn();
+            StudentName = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)minimize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             panel1.SuspendLayout();
             controlsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+
+            ((System.ComponentModel.ISupportInitialize)AttendancedataGridView).BeginInit();
+
             SuspendLayout();
             // 
             // minimize
@@ -93,6 +107,7 @@ namespace Attendance_Management_System.Forms
             // 
             controlsPanel.BackColor = Color.FromArgb(82, 109, 130);
             controlsPanel.Controls.Add(ReportsBtn);
+
             controlsPanel.Controls.Add(ClassesBtn);
             controlsPanel.Controls.Add(attendanceBtn);
             controlsPanel.Location = new Point(3, 168);
@@ -109,7 +124,7 @@ namespace Attendance_Management_System.Forms
             ReportsBtn.ForeColor = SystemColors.ControlLightLight;
             ReportsBtn.Image = (Image)resources.GetObject("ReportsBtn.Image");
             ReportsBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            ReportsBtn.Location = new Point(3, 122);
+            ReportsBtn.Location = new Point(0, 55);
             ReportsBtn.Name = "ReportsBtn";
             ReportsBtn.Size = new Size(289, 67);
             ReportsBtn.TabIndex = 7;
@@ -117,6 +132,7 @@ namespace Attendance_Management_System.Forms
             ReportsBtn.UseVisualStyleBackColor = true;
             ReportsBtn.Click += ReportsBtn_Click;
             // 
+
             // ClassesBtn
             // 
             ClassesBtn.Dock = DockStyle.Top;
@@ -141,13 +157,16 @@ namespace Attendance_Management_System.Forms
             attendanceBtn.ForeColor = SystemColors.ControlLightLight;
             attendanceBtn.Image = (Image)resources.GetObject("attendanceBtn.Image");
             attendanceBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            attendanceBtn.Location = new Point(0, 60);
+
+            attendanceBtn.Location = new Point(-3, 0);
             attendanceBtn.Name = "attendanceBtn";
             attendanceBtn.Size = new Size(298, 67);
             attendanceBtn.TabIndex = 6;
             attendanceBtn.Text = "Attendance";
             attendanceBtn.UseVisualStyleBackColor = true;
+
             attendanceBtn.Click += attendanceBtn_Click;
+
             // 
             // panel2
             // 
@@ -201,6 +220,80 @@ namespace Attendance_Management_System.Forms
             userControlTry1.Size = new Size(958, 720);
             userControlTry1.TabIndex = 0;
             userControlTry1.Visible = false;
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(488, 182);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 20);
+            label1.TabIndex = 8;
+            label1.Text = "label1";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(817, 182);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 9;
+            label2.Text = "label2";
+            // 
+            // AttendanceDateTimePicker
+            // 
+            AttendanceDateTimePicker.Format = DateTimePickerFormat.Short;
+            AttendanceDateTimePicker.Location = new Point(433, 207);
+            AttendanceDateTimePicker.Name = "AttendanceDateTimePicker";
+            AttendanceDateTimePicker.Size = new Size(200, 27);
+            AttendanceDateTimePicker.TabIndex = 10;
+            // 
+            // tracksComboBox
+            // 
+            tracksComboBox.FormattingEnabled = true;
+            tracksComboBox.Location = new Point(773, 207);
+            tracksComboBox.Name = "tracksComboBox";
+            tracksComboBox.Size = new Size(151, 28);
+            tracksComboBox.TabIndex = 11;
+            // 
+            // AttendancedataGridView
+            // 
+            AttendancedataGridView.AllowUserToAddRows = false;
+            AttendancedataGridView.AllowUserToDeleteRows = false;
+            AttendancedataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AttendancedataGridView.BackgroundColor = Color.White;
+            AttendancedataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AttendancedataGridView.Columns.AddRange(new DataGridViewColumn[] { StudentID, StudentName, Status });
+            AttendancedataGridView.GridColor = Color.White;
+            AttendancedataGridView.Location = new Point(323, 250);
+            AttendancedataGridView.Name = "AttendancedataGridView";
+            AttendancedataGridView.ReadOnly = true;
+            AttendancedataGridView.RowHeadersWidth = 51;
+            AttendancedataGridView.Size = new Size(800, 400);
+            AttendancedataGridView.TabIndex = 12;
+            // 
+            // StudentID
+            // 
+            StudentID.FillWeight = 150F;
+            StudentID.HeaderText = "Student ID";
+            StudentID.MinimumWidth = 6;
+            StudentID.Name = "StudentID";
+            StudentID.ReadOnly = true;
+            StudentID.Width = 250;
+            // 
+            // StudentName
+            // 
+            StudentName.HeaderText = "Student Name";
+            StudentName.MinimumWidth = 6;
+            StudentName.Name = "StudentName";
+            StudentName.ReadOnly = true;
+            StudentName.Width = 350;
+            // 
+            // Status
+            // 
+            Status.HeaderText = "Status";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            Status.Width = 200;
             // 
             // Teacher
             // 
@@ -208,7 +301,14 @@ namespace Attendance_Management_System.Forms
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1256, 720);
             ControlBox = false;
+
             Controls.Add(userControlTry1);
+
+            Controls.Add(AttendancedataGridView);
+            Controls.Add(tracksComboBox);
+            Controls.Add(AttendanceDateTimePicker);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(hoverpanel);
             Controls.Add(dateAndTimeLbl);
             Controls.Add(panel1);
@@ -224,6 +324,8 @@ namespace Attendance_Management_System.Forms
             panel1.ResumeLayout(false);
             controlsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+
+            ((System.ComponentModel.ISupportInitialize)AttendancedataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -231,7 +333,6 @@ namespace Attendance_Management_System.Forms
         #endregion
 
         private PictureBox pictureBox1;
-        private PictureBox closePictureBox;
         private PictureBox minimize;
         private PictureBox logout;
         private Panel panel1;
@@ -241,9 +342,17 @@ namespace Attendance_Management_System.Forms
         private Button attendanceBtn;
         private Button ReportsBtn;
         private System.Windows.Forms.Timer timer1;
-        private Button ClassesBtn;
         private Panel controlsPanel;
+
         private UserControlTry userControlTry1;
      
+        private Label label1;
+        private Label label2;
+        private DateTimePicker AttendanceDateTimePicker;
+        private ComboBox tracksComboBox;
+        private DataGridView AttendancedataGridView;
+        private DataGridViewTextBoxColumn StudentID;
+        private DataGridViewTextBoxColumn StudentName;
+        private DataGridViewCheckBoxColumn Status;
     }
 }
