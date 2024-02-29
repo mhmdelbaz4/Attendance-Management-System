@@ -44,6 +44,8 @@ namespace Attendance_Management_System.Forms
             sidebarHeader = new Panel();
             adminLogo = new PictureBox();
             navbar = new Panel();
+            adminName = new Label();
+            welcomeLabel = new Label();
             minimize = new PictureBox();
             logout = new PictureBox();
             dateAndTime = new System.Windows.Forms.Timer(components);
@@ -52,8 +54,7 @@ namespace Attendance_Management_System.Forms
             panel1 = new Panel();
             adminTeachercrud = new AdminTeacherCRUD();
             adminMainDashboard1 = new AdminMainDashboard();
-            welcomeLabel = new Label();
-            adminName = new Label();
+            trackUserControl1 = new TrackUserControl();
             sidebar.SuspendLayout();
             sidebarHoverContainer.SuspendLayout();
             sidebarHeader.SuspendLayout();
@@ -226,6 +227,30 @@ namespace Attendance_Management_System.Forms
             navbar.Size = new Size(904, 85);
             navbar.TabIndex = 1;
             // 
+            // adminName
+            // 
+            adminName.AutoSize = true;
+            adminName.BackColor = Color.Transparent;
+            adminName.Font = new Font("Rockwell", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            adminName.ForeColor = Color.FromArgb(221, 230, 237);
+            adminName.Location = new Point(176, 28);
+            adminName.Name = "adminName";
+            adminName.Size = new Size(132, 28);
+            adminName.TabIndex = 3;
+            adminName.Text = "Welcome, ";
+            // 
+            // welcomeLabel
+            // 
+            welcomeLabel.AutoSize = true;
+            welcomeLabel.BackColor = Color.Transparent;
+            welcomeLabel.Font = new Font("Rockwell", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            welcomeLabel.ForeColor = Color.FromArgb(221, 230, 237);
+            welcomeLabel.Location = new Point(50, 28);
+            welcomeLabel.Name = "welcomeLabel";
+            welcomeLabel.Size = new Size(132, 28);
+            welcomeLabel.TabIndex = 2;
+            welcomeLabel.Text = "Welcome, ";
+            // 
             // minimize
             // 
             minimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -305,35 +330,21 @@ namespace Attendance_Management_System.Forms
             adminMainDashboard1.Size = new Size(902, 585);
             adminMainDashboard1.TabIndex = 5;
             // 
-            // welcomeLabel
+            // trackUserControl1
             // 
-            welcomeLabel.AutoSize = true;
-            welcomeLabel.BackColor = Color.Transparent;
-            welcomeLabel.Font = new Font("Rockwell", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            welcomeLabel.ForeColor = Color.FromArgb(221, 230, 237);
-            welcomeLabel.Location = new Point(50, 28);
-            welcomeLabel.Name = "welcomeLabel";
-            welcomeLabel.Size = new Size(132, 28);
-            welcomeLabel.TabIndex = 2;
-            welcomeLabel.Text = "Welcome, ";
-            // 
-            // adminName
-            // 
-            adminName.AutoSize = true;
-            adminName.BackColor = Color.Transparent;
-            adminName.Font = new Font("Rockwell", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            adminName.ForeColor = Color.FromArgb(221, 230, 237);
-            adminName.Location = new Point(176, 28);
-            adminName.Name = "adminName";
-            adminName.Size = new Size(132, 28);
-            adminName.TabIndex = 3;
-            adminName.Text = "Welcome, ";
+            trackUserControl1.BackColor = Color.FromArgb(221, 230, 237);
+            trackUserControl1.Dock = DockStyle.Fill;
+            trackUserControl1.Location = new Point(298, 135);
+            trackUserControl1.Name = "trackUserControl1";
+            trackUserControl1.Size = new Size(902, 585);
+            trackUserControl1.TabIndex = 6;
             // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
+            Controls.Add(trackUserControl1);
             Controls.Add(adminMainDashboard1);
             Controls.Add(userControlAddStudent1);
             Controls.Add(adminTeachercrud);
@@ -386,5 +397,6 @@ namespace Attendance_Management_System.Forms
         private AdminMainDashboard adminMainDashboard1;
         private Label welcomeLabel;
         public Label adminName;
+        private TrackUserControl trackUserControl1;
     }
 }
