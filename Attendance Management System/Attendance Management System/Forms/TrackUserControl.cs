@@ -37,6 +37,15 @@ namespace Attendance_Management_System.Forms
             // read the XML file
             XmlDocument doc = XMLControl.ReadAllDocument();
 
+            //check if the track name already exists case insensitive contains translate
+            XmlNode track = doc.SelectSingleNode($"/attendanceSystem/tracks/track[contains(translate(name, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '{trackName.ToLower()}')]");
+
+            if (track != null)
+            {
+                MessageBox.Show("Track name already exists");
+                return;
+            }
+
             // select the tracks node thats under the root node
             XmlNode tracksNode = doc.SelectSingleNode("/attendanceSystem/tracks");
 
@@ -155,6 +164,14 @@ namespace Attendance_Management_System.Forms
             // read the XML file
             XmlDocument doc = XMLControl.ReadAllDocument();
 
+            //check if the track name already exists case insensitive contains translate
+            XmlNode track = doc.SelectSingleNode($"/attendanceSystem/tracks/track[contains(translate(name, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '{newTrackName.ToLower()}')]");
+            if (track != null)
+            {
+                MessageBox.Show("Track name already exists");
+                return;
+            }
+
             // get the tracks node
             XmlNode tracksNode = doc.SelectSingleNode("/attendanceSystem/tracks");
 
@@ -163,6 +180,28 @@ namespace Attendance_Management_System.Forms
 
             // update the track name
             trackNode.SelectSingleNode("name").InnerText = newTrackName;
+
+            //update the track name in students
+            XmlNode studentsNode = doc.SelectSingleNode("/attendanceSystem/users/students");
+
+            // get the students that have the selected track name
+            XmlNodeList students = studentsNode.SelectNodes($"student[trackName='{selectedTrackName}']");
+
+            foreach (XmlNode student in students)
+            {
+                student.SelectSingleNode("trackName").InnerText = newTrackName;
+            }
+
+            //update the track name in teachers
+            XmlNode teachersNode = doc.SelectSingleNode("/attendanceSystem/users/teachers");
+
+            // get the teachers that have the selected track name
+            XmlNodeList teachers = teachersNode.SelectNodes($"teacher/tracks[trackName='{selectedTrackName}']");
+            foreach (XmlNode teacher in teachers)
+            {
+                teacher.SelectSingleNode("trackName").InnerText = newTrackName;
+            }
+
 
             // save the XML file
             doc.Save(XMLControl.GetXMLPath());
@@ -218,35 +257,7 @@ namespace Attendance_Management_System.Forms
             }
             // remove the track from teacher track 
 
-            /**
-             * <teachers>
-      <teacher>
-        <id>3</id>
-        <name>nasr</name>
-        <email>nasr@gmail.com</email>
-        <password>123456a@</password>
-        <birthDate>15-4-2020</birthDate>
-        <mobileNo>01141600900</mobileNo>
-        <hiringDate>4-7-2020</hiringDate>
-        <salary>10000</salary>
-        <tracks>
-          <trackName>PD</trackName>
-          <trackName>OS</trackName>
-        </tracks>
-      </teacher>
-      <teacher>
-        <id>4</id>
-        <name>ayman</name>
-        <email>ayman@gmail.com</email>
-        <password>123456a@</password>
-        <birthDate>15-4-2020</birthDate>
-        <mobileNo>01141600901</mobileNo>
-        <hiringDate>4-7-2020</hiringDate>
-        <salary>10000</salary>
-        <tracks>
-          <trackName>PD</trackName>
-          <trackName>OS</trackName>
-        </tracks>
+            /**      
              */
             XmlNode teachersNode = doc.SelectSingleNode("/attendanceSystem/users/teachers");
 
