@@ -64,6 +64,10 @@
             EmailCol = new DataGridViewTextBoxColumn();
             TrackCol = new DataGridViewTextBoxColumn();
             updateAndDeleteStudent = new TabPage();
+            dateTimePickerEdit = new DateTimePicker();
+            label1 = new Label();
+            label2 = new Label();
+            maskedTextBoxMobileNoEdit = new MaskedTextBox();
             deleteBtn = new Button();
             editErrorMsg = new Label();
             updateBtn = new Button();
@@ -79,10 +83,6 @@
             nameEditInput = new TextBox();
             panel9 = new Panel();
             nameEditLabel = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            label1 = new Label();
-            label2 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
             tabStudent.SuspendLayout();
             addStudentTabPage.SuspendLayout();
             searchStudent.SuspendLayout();
@@ -516,10 +516,10 @@
             // updateAndDeleteStudent
             // 
             updateAndDeleteStudent.BackColor = Color.Transparent;
-            updateAndDeleteStudent.Controls.Add(dateTimePicker1);
+            updateAndDeleteStudent.Controls.Add(dateTimePickerEdit);
             updateAndDeleteStudent.Controls.Add(label1);
             updateAndDeleteStudent.Controls.Add(label2);
-            updateAndDeleteStudent.Controls.Add(maskedTextBox1);
+            updateAndDeleteStudent.Controls.Add(maskedTextBoxMobileNoEdit);
             updateAndDeleteStudent.Controls.Add(deleteBtn);
             updateAndDeleteStudent.Controls.Add(editErrorMsg);
             updateAndDeleteStudent.Controls.Add(updateBtn);
@@ -542,6 +542,51 @@
             updateAndDeleteStudent.Size = new Size(1280, 618);
             updateAndDeleteStudent.TabIndex = 2;
             updateAndDeleteStudent.Text = "♻️| 🗑️ ";
+            // 
+            // dateTimePickerEdit
+            // 
+            dateTimePickerEdit.CalendarMonthBackground = Color.White;
+            dateTimePickerEdit.CalendarTitleBackColor = Color.DarkGray;
+            dateTimePickerEdit.CalendarTrailingForeColor = Color.DarkGray;
+            dateTimePickerEdit.Format = DateTimePickerFormat.Short;
+            dateTimePickerEdit.Location = new Point(145, 371);
+            dateTimePickerEdit.MaxDate = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            dateTimePickerEdit.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
+            dateTimePickerEdit.Name = "dateTimePickerEdit";
+            dateTimePickerEdit.Size = new Size(336, 39);
+            dateTimePickerEdit.TabIndex = 37;
+            dateTimePickerEdit.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(144, 328);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 40);
+            label1.TabIndex = 39;
+            label1.Text = "BirthDate";
+            // 
+            // label2
+            // 
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(800, 328);
+            label2.Name = "label2";
+            label2.Size = new Size(184, 29);
+            label2.TabIndex = 38;
+            label2.Text = "Mobile No";
+            // 
+            // maskedTextBoxMobileNoEdit
+            // 
+            maskedTextBoxMobileNoEdit.BackColor = Color.White;
+            maskedTextBoxMobileNoEdit.ForeColor = Color.Black;
+            maskedTextBoxMobileNoEdit.Location = new Point(800, 371);
+            maskedTextBoxMobileNoEdit.Name = "maskedTextBoxMobileNoEdit";
+            maskedTextBoxMobileNoEdit.Size = new Size(333, 39);
+            maskedTextBoxMobileNoEdit.TabIndex = 36;
             // 
             // deleteBtn
             // 
@@ -726,51 +771,6 @@
             nameEditLabel.TabIndex = 21;
             nameEditLabel.Text = "Name:";
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.CalendarMonthBackground = Color.White;
-            dateTimePicker1.CalendarTitleBackColor = Color.DarkGray;
-            dateTimePicker1.CalendarTrailingForeColor = Color.DarkGray;
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(145, 371);
-            dateTimePicker1.MaxDate = new DateTime(2024, 2, 22, 0, 0, 0, 0);
-            dateTimePicker1.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(336, 39);
-            dateTimePicker1.TabIndex = 37;
-            dateTimePicker1.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
-            // 
-            // label1
-            // 
-            label1.BackColor = Color.White;
-            label1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(144, 328);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 40);
-            label1.TabIndex = 39;
-            label1.Text = "BirthDate";
-            // 
-            // label2
-            // 
-            label2.BackColor = Color.White;
-            label2.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(800, 328);
-            label2.Name = "label2";
-            label2.Size = new Size(184, 29);
-            label2.TabIndex = 38;
-            label2.Text = "Mobile No";
-            // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.BackColor = Color.White;
-            maskedTextBox1.ForeColor = Color.Black;
-            maskedTextBox1.Location = new Point(800, 371);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(333, 39);
-            maskedTextBox1.TabIndex = 36;
-            // 
             // UserControlAddStudent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -844,9 +844,9 @@
         private Label BDlabel;
         private Label Mobilelabel;
         private MaskedTextBox MobileNomaskedTextBox;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePickerEdit;
         private Label label1;
         private Label label2;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox maskedTextBoxMobileNoEdit;
     }
 }

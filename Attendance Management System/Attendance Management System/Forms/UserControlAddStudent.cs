@@ -30,7 +30,7 @@ namespace Attendance_Management_System.Forms
             // validate the input fields
             if (string.IsNullOrEmpty(StudentNameInput.Text) || string.IsNullOrEmpty(emailInput.Text) ||
                  string.IsNullOrEmpty(passwordInput.Text) ||
-                  trackComboBox.SelectedIndex == -1)
+                  trackComboBox.SelectedIndex == -1 || string.IsNullOrEmpty(BirthDateDateTimePicker.Text) || string.IsNullOrEmpty(MobileNomaskedTextBox.Text))
 
             {
                 errorMsg.Text = "Please fill all the fields";
@@ -158,6 +158,7 @@ namespace Attendance_Management_System.Forms
             StudentNameInput.Text = "";
             passwordInput.Text = "";
             emailInput.Text = "";
+            Mobilelabel.Text = "";
             trackComboBox.SelectedIndex = -1;
         }
 
@@ -265,10 +266,18 @@ namespace Attendance_Management_System.Forms
 
 
 
-            //get password from xml
+
+
             XmlDocument doc = XMLControl.ReadAllDocument();
-            string password = doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']/password").InnerText;
-            passwordEditInput.Text = password;
+            //get student node by id to set the password and birthdate and mobileNo
+            XmlNode student = doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']");
+            if (student != null)
+            {
+                passwordEditInput.Text = student.SelectSingleNode("password").InnerText;
+                maskedTextBoxMobileNoEdit.Text = student.SelectSingleNode("mobileNo").InnerText;
+                // turn the birthdate to the format of the datetimepicker
+                dateTimePickerEdit.Value = Convert.ToDateTime(student.SelectSingleNode("birthDate").InnerText);
+            }
 
             // switch to the edit tab
             tabStudent.SelectedIndex = 2;
@@ -277,6 +286,11 @@ namespace Attendance_Management_System.Forms
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            string msg;
+
+            // hide the error message
+            editErrorMsg.Visible = false;
+
             if (selectedStudentId == "") return;
 
             // get the values from the input fields
@@ -285,50 +299,112 @@ namespace Attendance_Management_System.Forms
             string track = TrackEditComboBox.SelectedItem.ToString();
             string password = passwordEditInput.Text.Trim();
 
+            string birthDate = dateTimePickerEdit.Text;
+            string MobileNo = maskedTextBoxMobileNoEdit.Text.Trim();
+
+
 
             // validate the input fields
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
-                track == "")
+                track == "" || string.IsNullOrEmpty(birthDate) || string.IsNullOrEmpty(MobileNo))
             {
-                MessageBox.Show("Please fill all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                editErrorMsg.Text = "Please fill all the fields";
+                editErrorMsg.Visible = true;
+                return;
+
             }
 
-            else
+
+
+            //read the xml
+            XmlDocument doc = XMLControl.ReadAllDocument();
+
+            //check if the email is already exists
+            if (!email.Equals(doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']/email").InnerText))
             {
-
-                //read the xml
-                XmlDocument doc = XMLControl.ReadAllDocument();
-
-                // get the student node from the xml
-                XmlNode? student = doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']");
-
-                if (student != null)
+                if (!Validations.IsValidEmail(email, out msg))
                 {
-                    // update the values
-                    student.SelectSingleNode("name").InnerText = name;
-                    student.SelectSingleNode("email").InnerText = email;
-                    student.SelectSingleNode("trackName").InnerText = track;
-                    student.SelectSingleNode("password").InnerText = password;
-
-                    // save the document
-                    doc.Save(XMLControl.GetXMLPath());
-
-
-                    // show success message
-                    MessageBox.Show("Student updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // clear the input fields
-                    nameEditInput.Text = "";
-                    emailEditInputt.Text = "";
-                    passwordEditInput.Text = "";
-                    TrackEditComboBox.SelectedIndex = -1;
-                    tabStudent.SelectedIndex = 1;
-
-                    //  clear the selected student id
-                    selectedStudentId = "";
-
+                    editErrorMsg.Text = msg;
+                    editErrorMsg.Visible = true;
+                    return;
                 }
             }
+
+            // validate password 
+            if (!Validations.IsValidPassword(password, out msg))
+            {
+                editErrorMsg.Text = msg;
+                editErrorMsg.Visible = true;
+                return;
+            }
+
+            if (!Validations.isValidUserName(name, out msg))
+            {
+                editErrorMsg.Text = msg;
+                editErrorMsg.Visible = true;
+                return;
+            }
+
+            if (!Validations.isValidStudentBirthDate(birthDate, out msg))
+            {
+                editErrorMsg.Text = msg;
+                editErrorMsg.Visible = true;
+                return;
+            }
+
+            if (track == "")
+            {
+                editErrorMsg.Text = "Please select a track";
+                editErrorMsg.Visible = true;
+                return;
+            }
+
+            if (!Validations.IsValidMobileNo(MobileNo, out msg))
+            {
+                editErrorMsg.Text = msg;
+                editErrorMsg.Visible = true;
+                return;
+            }
+
+
+
+            // get the student node from the xml
+            XmlNode? student = doc.SelectSingleNode($"//students/student[id='{selectedStudentId}']");
+
+            if (student != null)
+            {
+                // update the values
+                student.SelectSingleNode("name").InnerText = name;
+                student.SelectSingleNode("email").InnerText = email;
+                student.SelectSingleNode("trackName").InnerText = track;
+                student.SelectSingleNode("password").InnerText = password;
+
+                student.SelectSingleNode("birthDate").InnerText = Convert.ToDateTime(birthDate).ToString("yyyy-MM-dd");
+                student.SelectSingleNode("mobileNo").InnerText = MobileNo;
+
+                // save the document
+                doc.Save(XMLControl.GetXMLPath());
+
+
+                // show success message
+                MessageBox.Show("Student updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // clear the input fields
+                nameEditInput.Text = "";
+                emailEditInputt.Text = "";
+                passwordEditInput.Text = "";
+                maskedTextBoxMobileNoEdit.Text = "";
+
+
+                
+                TrackEditComboBox.SelectedIndex = -1;
+                tabStudent.SelectedIndex = 1;
+                
+                //  clear the selected student id
+                selectedStudentId = "";
+
+            }
+
 
         }
 
