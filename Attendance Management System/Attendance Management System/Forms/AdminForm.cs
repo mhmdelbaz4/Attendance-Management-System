@@ -92,6 +92,7 @@ namespace Attendance_Management_System.Forms
             moveSideBarPanel(addStudentBtn);
             hideAllAdminControls();
             userControlAddStudent1.Visible = true;
+
             //reset the track combobox for add student and edit student
             userControlAddStudent1.trackComboBox.Items.Clear();
             userControlAddStudent1.TrackEditComboBox.Items.Clear();
@@ -109,12 +110,14 @@ namespace Attendance_Management_System.Forms
                 userControlAddStudent1.trackComboBox.SelectedIndex = 0;
                 userControlAddStudent1.TrackEditComboBox.SelectedIndex = 0;
             }
+            userControlAddStudent1.tabStudent.SelectedIndex = 0;
         }
 
         private void addClassBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(addClassBtn);
             hideAllAdminControls();
+            trackUserControl1.Visible = true;
         }
 
         private void reports_Click(object sender, EventArgs e)
@@ -128,6 +131,7 @@ namespace Attendance_Management_System.Forms
         private void hideAllAdminControls()
         {
             adminTeachercrud.Visible = false;
+            trackUserControl1.Visible = false;
             adminMainDashboard1.Visible = false;
             userControlAddStudent1.Visible = false;
             adminMarkAttendance.Visible = false;    

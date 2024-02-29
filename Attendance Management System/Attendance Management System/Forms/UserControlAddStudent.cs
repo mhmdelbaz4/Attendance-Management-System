@@ -183,7 +183,7 @@ namespace Attendance_Management_System.Forms
         private void search(object sender, EventArgs e)
         {
             // get the search value
-            string searchValue = searchInput.Text.Trim().ToLower();
+            string searchValue = searchInput.Text.Trim();
 
             // get the search by value
             string searchBy = searchByComboBox.SelectedItem.ToString();
@@ -191,11 +191,10 @@ namespace Attendance_Management_System.Forms
             if (searchBy == "track")
             {
                 searchBy = "trackName";
-                searchValue = searchValue.ToUpper();
             }
 
-            // get students from xml based on the search value and search by
-            XmlNodeList students = XMLControl.GetMultipleNodes($"//students/student[contains({searchBy},'{searchValue}')]");
+            // get students from xml based on the search value and search by case insensitive and contains search value using translate function
+            XmlNodeList students = XMLControl.GetMultipleNodes($"//students/student[contains(translate({searchBy}, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '{searchValue.ToLower()}')]");
 
             //clear the datagridview
             dataGridStudent.Rows.Clear();
@@ -332,6 +331,8 @@ namespace Attendance_Management_System.Forms
                     emailEditInputt.Text = "";
                     passwordEditInput.Text = "";
                     TrackEditComboBox.SelectedIndex = -1;
+
+                    // switch to the search tab
                     tabStudent.SelectedIndex = 1;
 
                     //  clear the selected student id

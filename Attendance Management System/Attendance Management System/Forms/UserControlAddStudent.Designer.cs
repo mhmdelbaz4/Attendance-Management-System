@@ -524,7 +524,7 @@
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(226, 56);
             updateBtn.TabIndex = 33;
-            updateBtn.Text = "Upadte Student";
+            updateBtn.Text = "Update Student";
             updateBtn.UseVisualStyleBackColor = false;
             updateBtn.Click += updateBtn_Click;
             // 
@@ -688,7 +688,7 @@
         #endregion
 
         private string selectedStudentId = "";
-        private TabControl tabStudent;
+        public TabControl tabStudent;
         private TabPage addStudentTabPage;
         private TabPage searchStudent;
         private Label addStudentHeading;
