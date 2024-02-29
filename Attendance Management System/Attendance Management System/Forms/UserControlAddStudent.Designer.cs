@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlAddStudent));
             tabStudent = new TabControl();
             addStudentTabPage = new TabPage();
+            BirthDateDateTimePicker = new DateTimePicker();
+            BDlabel = new Label();
+            Mobilelabel = new Label();
+            MobileNomaskedTextBox = new MaskedTextBox();
             errorMsg = new Label();
             addStudentBtn = new Button();
             trackComboBox = new ComboBox();
@@ -75,6 +79,10 @@
             nameEditInput = new TextBox();
             panel9 = new Panel();
             nameEditLabel = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            label1 = new Label();
+            label2 = new Label();
+            maskedTextBox1 = new MaskedTextBox();
             tabStudent.SuspendLayout();
             addStudentTabPage.SuspendLayout();
             searchStudent.SuspendLayout();
@@ -101,6 +109,10 @@
             // 
             // addStudentTabPage
             // 
+            addStudentTabPage.Controls.Add(BirthDateDateTimePicker);
+            addStudentTabPage.Controls.Add(BDlabel);
+            addStudentTabPage.Controls.Add(Mobilelabel);
+            addStudentTabPage.Controls.Add(MobileNomaskedTextBox);
             addStudentTabPage.Controls.Add(errorMsg);
             addStudentTabPage.Controls.Add(addStudentBtn);
             addStudentTabPage.Controls.Add(trackComboBox);
@@ -126,6 +138,51 @@
             addStudentTabPage.Text = "   ➕";
             addStudentTabPage.UseVisualStyleBackColor = true;
             // 
+            // BirthDateDateTimePicker
+            // 
+            BirthDateDateTimePicker.CalendarMonthBackground = Color.White;
+            BirthDateDateTimePicker.CalendarTitleBackColor = Color.DarkGray;
+            BirthDateDateTimePicker.CalendarTrailingForeColor = Color.DarkGray;
+            BirthDateDateTimePicker.Format = DateTimePickerFormat.Short;
+            BirthDateDateTimePicker.Location = new Point(146, 371);
+            BirthDateDateTimePicker.MaxDate = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            BirthDateDateTimePicker.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
+            BirthDateDateTimePicker.Name = "BirthDateDateTimePicker";
+            BirthDateDateTimePicker.Size = new Size(336, 39);
+            BirthDateDateTimePicker.TabIndex = 21;
+            BirthDateDateTimePicker.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            // 
+            // BDlabel
+            // 
+            BDlabel.BackColor = Color.White;
+            BDlabel.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BDlabel.ForeColor = Color.Black;
+            BDlabel.Location = new Point(145, 328);
+            BDlabel.Name = "BDlabel";
+            BDlabel.Size = new Size(139, 40);
+            BDlabel.TabIndex = 23;
+            BDlabel.Text = "BirthDate";
+            // 
+            // Mobilelabel
+            // 
+            Mobilelabel.BackColor = Color.White;
+            Mobilelabel.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Mobilelabel.ForeColor = Color.Black;
+            Mobilelabel.Location = new Point(801, 328);
+            Mobilelabel.Name = "Mobilelabel";
+            Mobilelabel.Size = new Size(184, 29);
+            Mobilelabel.TabIndex = 22;
+            Mobilelabel.Text = "Mobile No";
+            // 
+            // MobileNomaskedTextBox
+            // 
+            MobileNomaskedTextBox.BackColor = Color.White;
+            MobileNomaskedTextBox.ForeColor = Color.Black;
+            MobileNomaskedTextBox.Location = new Point(801, 371);
+            MobileNomaskedTextBox.Name = "MobileNomaskedTextBox";
+            MobileNomaskedTextBox.Size = new Size(333, 39);
+            MobileNomaskedTextBox.TabIndex = 20;
+            // 
             // errorMsg
             // 
             errorMsg.Anchor = AnchorStyles.Top;
@@ -133,7 +190,7 @@
             errorMsg.BackColor = Color.LightGray;
             errorMsg.Font = new Font("Rockwell", 12F);
             errorMsg.ForeColor = Color.Red;
-            errorMsg.Location = new Point(565, 358);
+            errorMsg.Location = new Point(565, 452);
             errorMsg.Name = "errorMsg";
             errorMsg.Size = new Size(151, 22);
             errorMsg.TabIndex = 19;
@@ -148,7 +205,7 @@
             addStudentBtn.FlatStyle = FlatStyle.Flat;
             addStudentBtn.Font = new Font("Rockwell", 16.2F);
             addStudentBtn.ForeColor = Color.AliceBlue;
-            addStudentBtn.Location = new Point(527, 426);
+            addStudentBtn.Location = new Point(513, 529);
             addStudentBtn.Name = "addStudentBtn";
             addStudentBtn.Size = new Size(226, 56);
             addStudentBtn.TabIndex = 18;
@@ -163,7 +220,7 @@
             trackComboBox.Font = new Font("Rockwell", 16.2F);
             trackComboBox.ForeColor = Color.FromArgb(39, 55, 77);
             trackComboBox.FormattingEnabled = true;
-            trackComboBox.Location = new Point(148, 258);
+            trackComboBox.Location = new Point(145, 258);
             trackComboBox.Name = "trackComboBox";
             trackComboBox.Size = new Size(337, 39);
             trackComboBox.TabIndex = 17;
@@ -174,7 +231,7 @@
             passwordInput.BorderStyle = BorderStyle.None;
             passwordInput.Font = new Font("Rockwell Condensed", 16F);
             passwordInput.ForeColor = Color.FromArgb(38, 80, 115);
-            passwordInput.Location = new Point(796, 263);
+            passwordInput.Location = new Point(799, 263);
             passwordInput.Name = "passwordInput";
             passwordInput.PlaceholderText = "  * * * * * * * * ";
             passwordInput.Size = new Size(335, 32);
@@ -185,7 +242,7 @@
             panel2.Anchor = AnchorStyles.Top;
             panel2.BackColor = SystemColors.Window;
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Location = new Point(796, 297);
+            panel2.Location = new Point(799, 297);
             panel2.Name = "panel2";
             panel2.Size = new Size(337, 2);
             panel2.TabIndex = 16;
@@ -196,7 +253,7 @@
             passwordLabel.AutoSize = true;
             passwordLabel.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             passwordLabel.ForeColor = Color.FromArgb(39, 55, 77);
-            passwordLabel.Location = new Point(798, 217);
+            passwordLabel.Location = new Point(801, 217);
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new Size(147, 31);
             passwordLabel.TabIndex = 14;
@@ -207,7 +264,7 @@
             panel3.Anchor = AnchorStyles.Top;
             panel3.BackColor = SystemColors.Window;
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Location = new Point(148, 297);
+            panel3.Location = new Point(144, 297);
             panel3.Name = "panel3";
             panel3.Size = new Size(337, 2);
             panel3.TabIndex = 13;
@@ -218,7 +275,7 @@
             trackLabel.AutoSize = true;
             trackLabel.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             trackLabel.ForeColor = Color.FromArgb(39, 55, 77);
-            trackLabel.Location = new Point(150, 217);
+            trackLabel.Location = new Point(144, 217);
             trackLabel.Name = "trackLabel";
             trackLabel.Size = new Size(96, 31);
             trackLabel.TabIndex = 11;
@@ -230,7 +287,7 @@
             emailInput.BorderStyle = BorderStyle.None;
             emailInput.Font = new Font("Rockwell Condensed", 16F);
             emailInput.ForeColor = Color.FromArgb(38, 80, 115);
-            emailInput.Location = new Point(789, 166);
+            emailInput.Location = new Point(792, 166);
             emailInput.Name = "emailInput";
             emailInput.PlaceholderText = "email@gmail.com";
             emailInput.Size = new Size(335, 32);
@@ -241,7 +298,7 @@
             panel1.Anchor = AnchorStyles.Top;
             panel1.BackColor = SystemColors.Window;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Location = new Point(789, 200);
+            panel1.Location = new Point(792, 200);
             panel1.Name = "panel1";
             panel1.Size = new Size(337, 2);
             panel1.TabIndex = 10;
@@ -252,7 +309,7 @@
             emailLabel.AutoSize = true;
             emailLabel.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             emailLabel.ForeColor = Color.FromArgb(39, 55, 77);
-            emailLabel.Location = new Point(791, 120);
+            emailLabel.Location = new Point(794, 120);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(95, 31);
             emailLabel.TabIndex = 8;
@@ -264,7 +321,7 @@
             StudentNameInput.BorderStyle = BorderStyle.None;
             StudentNameInput.Font = new Font("Rockwell Condensed", 16F);
             StudentNameInput.ForeColor = Color.FromArgb(38, 80, 115);
-            StudentNameInput.Location = new Point(141, 166);
+            StudentNameInput.Location = new Point(144, 166);
             StudentNameInput.Name = "StudentNameInput";
             StudentNameInput.PlaceholderText = "name";
             StudentNameInput.Size = new Size(335, 32);
@@ -275,7 +332,7 @@
             namePanel.Anchor = AnchorStyles.Top;
             namePanel.BackColor = SystemColors.Window;
             namePanel.BorderStyle = BorderStyle.FixedSingle;
-            namePanel.Location = new Point(141, 200);
+            namePanel.Location = new Point(144, 200);
             namePanel.Name = "namePanel";
             namePanel.Size = new Size(337, 2);
             namePanel.TabIndex = 7;
@@ -286,7 +343,7 @@
             nameLabel.AutoSize = true;
             nameLabel.Font = new Font("Rockwell", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             nameLabel.ForeColor = Color.FromArgb(39, 55, 77);
-            nameLabel.Location = new Point(143, 120);
+            nameLabel.Location = new Point(146, 120);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new Size(97, 31);
             nameLabel.TabIndex = 1;
@@ -459,6 +516,10 @@
             // updateAndDeleteStudent
             // 
             updateAndDeleteStudent.BackColor = Color.Transparent;
+            updateAndDeleteStudent.Controls.Add(dateTimePicker1);
+            updateAndDeleteStudent.Controls.Add(label1);
+            updateAndDeleteStudent.Controls.Add(label2);
+            updateAndDeleteStudent.Controls.Add(maskedTextBox1);
             updateAndDeleteStudent.Controls.Add(deleteBtn);
             updateAndDeleteStudent.Controls.Add(editErrorMsg);
             updateAndDeleteStudent.Controls.Add(updateBtn);
@@ -490,7 +551,7 @@
             deleteBtn.FlatStyle = FlatStyle.Flat;
             deleteBtn.Font = new Font("Rockwell", 16.2F);
             deleteBtn.ForeColor = Color.AliceBlue;
-            deleteBtn.Location = new Point(697, 434);
+            deleteBtn.Location = new Point(690, 502);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(226, 56);
             deleteBtn.TabIndex = 35;
@@ -505,7 +566,7 @@
             editErrorMsg.BackColor = Color.LightGray;
             editErrorMsg.Font = new Font("Rockwell", 12F);
             editErrorMsg.ForeColor = Color.Red;
-            editErrorMsg.Location = new Point(568, 371);
+            editErrorMsg.Location = new Point(565, 440);
             editErrorMsg.Name = "editErrorMsg";
             editErrorMsg.Size = new Size(151, 22);
             editErrorMsg.TabIndex = 34;
@@ -520,7 +581,7 @@
             updateBtn.FlatStyle = FlatStyle.Flat;
             updateBtn.Font = new Font("Rockwell", 16.2F);
             updateBtn.ForeColor = Color.AliceBlue;
-            updateBtn.Location = new Point(387, 434);
+            updateBtn.Location = new Point(380, 502);
             updateBtn.Name = "updateBtn";
             updateBtn.Size = new Size(226, 56);
             updateBtn.TabIndex = 33;
@@ -665,6 +726,51 @@
             nameEditLabel.TabIndex = 21;
             nameEditLabel.Text = "Name:";
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CalendarMonthBackground = Color.White;
+            dateTimePicker1.CalendarTitleBackColor = Color.DarkGray;
+            dateTimePicker1.CalendarTrailingForeColor = Color.DarkGray;
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+            dateTimePicker1.Location = new Point(145, 371);
+            dateTimePicker1.MaxDate = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            dateTimePicker1.MinDate = new DateTime(1950, 1, 1, 0, 0, 0, 0);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(336, 39);
+            dateTimePicker1.TabIndex = 37;
+            dateTimePicker1.Value = new DateTime(2024, 2, 22, 0, 0, 0, 0);
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(144, 328);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 40);
+            label1.TabIndex = 39;
+            label1.Text = "BirthDate";
+            // 
+            // label2
+            // 
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(800, 328);
+            label2.Name = "label2";
+            label2.Size = new Size(184, 29);
+            label2.TabIndex = 38;
+            label2.Text = "Mobile No";
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.BackColor = Color.White;
+            maskedTextBox1.ForeColor = Color.Black;
+            maskedTextBox1.Location = new Point(800, 371);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(333, 39);
+            maskedTextBox1.TabIndex = 36;
+            // 
             // UserControlAddStudent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -734,5 +840,13 @@
         private Panel panel9;
         private Label nameEditLabel;
         private Button deleteBtn;
+        private DateTimePicker BirthDateDateTimePicker;
+        private Label BDlabel;
+        private Label Mobilelabel;
+        private MaskedTextBox MobileNomaskedTextBox;
+        private DateTimePicker dateTimePicker1;
+        private Label label1;
+        private Label label2;
+        private MaskedTextBox maskedTextBox1;
     }
 }
