@@ -27,7 +27,6 @@ public static class StudentsRepo
 
         // Get all student nodes
         XmlNodeList studentList = doc.SelectNodes("//students/student");
-        MessageBox.Show((studentList.Count).ToString());
 
         // Iterate through each student
         foreach (XmlNode studentNode in studentList)
@@ -73,7 +72,7 @@ public static class StudentsRepo
         {
             if (student.ID == id)
             {
-                MessageBox.Show(student.ID.ToString());
+                
                 return student;
             }
         }

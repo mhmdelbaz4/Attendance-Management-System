@@ -82,11 +82,6 @@
 					<item>
 						<date>2024-02-24</date>
 						<state>attendant</state>
-						<teacherID>4</teacherID>
-					</item>
-					<item>
-						<date>2020-12-11</date>
-						<state>attendant</state>
 						<teacherID>3</teacherID>
 					</item>
 				</attendance>

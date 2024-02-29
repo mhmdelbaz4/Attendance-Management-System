@@ -22,34 +22,33 @@ namespace Attendance_Management_System.Forms
         }
         private void Studentff_Load(object sender, EventArgs e)
         {
+
+
+            // Load student list from XML file
             var studentList = StudentsRepo.GetStudents(@"../../../../../xml/attendance.xml");
 
+            // Get the ID of the logged-in student
+            int studentId = Session.currentUser.ID;
 
-            int studentId = 49; // Example student ID
+            // Find the logged-in student in the list
             Student student = StudentsRepo.getStudentByID(studentId, studentList);
 
-
+            // Check if the student exists
             if (student != null)
             {
                 // Bind student data to the DataGridView
                 foreach (var attendanceItem in student.AttendaceHistory)
                 {
                     dataGridView1.Rows.Add(student.ID, student.Name, student.TrackName, attendanceItem.TeacherID, attendanceItem.Date, attendanceItem.State);
-                    labelNotFound.Visible = false;
+                  
                 }
             }
             else
             {
-
-                // Clear existing rows
+                // If the student is not found, clear existing rows and display a message
                 dataGridView1.Visible = false;
-
-                // Show a message or perform any other actions as needed
-                labelNotFound.Visible = true;
-              var teachers =TeachersRepo.GetTeachers2(@"../../../../../xml/attendance.xml");
-                Attendance_Management_System.Models.Teacher  teacher  = TeachersRepo.getTeacherByID(3, teachers);
-
-
+              
+                MessageBox.Show("not found");
             }
         }
 

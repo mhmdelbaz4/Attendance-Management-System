@@ -140,7 +140,7 @@ namespace Attendance_Management_System.UserControls
 
                 // Load student data based on the selected track, teacher, and date
                 LoadStudents(selectedTrack, selectedDate, selectedTeacher);
-                MessageBox.Show("filter");
+               
             }
             else
             {
@@ -156,7 +156,7 @@ namespace Attendance_Management_System.UserControls
             // Load the students based on the selected track, teacher, and date
             string path = @"../../../../../xml/attendance.xml"; // Assuming this is the correct path
             var students = StudentsRepo.GetStudents(path);
-            MessageBox.Show("load");
+        
 
             // Filter the students based on the selected track, teacher, and date
             List<Student> filteredStudents = FilterStudentsByTrackAndDateAndTeacher(students, trackName, date, teacherId);
@@ -193,14 +193,14 @@ namespace Attendance_Management_System.UserControls
         private void DisplayStudents(List<Student> students, string selectedTeacherId, DateOnly selectedDate)
         {
             dataGridView_reports.Rows.Clear();
-            MessageBox.Show("display");
+       
 
             foreach (var student in students)
             {
                 // Filter the attendance items for the current student by selected teacher ID and date
                 var filteredAttendance = student.AttendaceHistory.Where(attendance =>
                     attendance.TeacherID == int.Parse(selectedTeacherId) && attendance.Date == selectedDate);
-                MessageBox.Show("addedbefore");
+         
 
                 // If there are no attendance items for this student with the selected teacher ID and date, continue to the next student
                 if (filteredAttendance.Count() == 0)
@@ -276,22 +276,17 @@ namespace Attendance_Management_System.UserControls
 
                                 // Add HTML content
                                 // Add image
-                                string imagePath = "../../../../assets/universty logo.jpg";
+                                string imagePath = "../../../../assets/universty 2.png";
                                 iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imagePath);
                                 image.Alignment = Element.ALIGN_CENTER;
                                 document.Add(image);
 
+                                document.Add(new Paragraph(""));
+                               
                                 string trackName = comboBox_tRACK.SelectedItem?.ToString();
-                                string htmlContent = $"<h1>ITI</h1><p>Track Name: <span style='color: blue;margin-bootom:30px;'>{trackName}</span></p>";
                                 StyleSheet styles = new StyleSheet();
-                                styles.LoadTagStyle(HtmlTags.H1, "font", "Courier");
-                                styles.LoadTagStyle(HtmlTags.P, "font-size", "12px");
-                                List<IElement> htmlElements = iTextSharp.text.html.simpleparser.HTMLWorker.ParseToList(new StringReader(htmlContent), styles);
-                                foreach (IElement element in htmlElements)
-                                {
-                                    document.Add(element);
-                                }
 
+                                document.Add(new Paragraph(""));
                                 // Add data table
                                 PdfPTable pTable = new PdfPTable(dataGridView_reports.Columns.Count);
                                 pTable.DefaultCell.Padding = 2;
@@ -318,7 +313,7 @@ namespace Attendance_Management_System.UserControls
                                         }
                                         else
                                         {
-                                            pTable.AddCell("amira"); // or any default value you prefer
+                                            pTable.AddCell("Student"); // or any default value you prefer
                                         }
                                     }
 
@@ -348,127 +343,7 @@ namespace Attendance_Management_System.UserControls
                 MessageBox.Show("No Records Found", "Info");
             }
         }
-        //================= student tab ==========================================
-        /*
-        public void student_Tab()
-        {
-            //tabControl1
-            tabControlReport.SelectedTab = tabPS_Reports; // Select the desired tab
 
-            // Check if there's a selected item in the comboBox_Student
-            if (comboBox_Student.SelectedItem != null)
-            {
-                // Get the selected student and date
-                string selectedStudent = comboBox_Student.SelectedItem.ToString();
-                // Convert DateTime to DateOnly
-                DateOnly selectedDate = new DateOnly(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day);
-
-                // Load student data based on the selected ID and date
-                LoadStudentsByID(selectedStudent, selectedDate);
-            }
-            else
-            {
-                // If no student is selected
-                MessageBox.Show("Please select a student.");
-            }
-        }
-
-        private void LoadStudentsByID(string studentId, DateOnly date)
-        {
-            string selectedTeacherId = comboBoxTeachers_students.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(selectedTeacherId))
-            {
-                MessageBox.Show("Please select a teacher.");
-                return;
-            }
-
-            // Load the students based on the selected student ID, teacher ID, and date
-            string path = @"../../../../../xml/attendance.xml"; // Assuming this is the correct path
-            var students = StudentsRepo.GetStudents(path);
-
-            // Filter the students based on the selected student ID, teacher ID, and date
-            List<Student> filteredStudents = FilterStudentsByStudentIDAndTeacherID(students, studentId, selectedTeacherId, date);
-
-            // Display the filtered students
-            DisplayStudents(filteredStudents);
-        }
-
-        private List<Student> FilterStudentsByStudentIDAndTeacherID(List<Student> students, string studentId, string teacherId, DateOnly date)
-        {
-            List<Student> filteredStudents = new List<Student>();
-
-            foreach (Student student in students)
-            {
-                if (student.ID == int.Parse(studentId))
-                {
-                    foreach (AttendanceItem attendance in student.AttendaceHistory)
-                    {
-                        if (attendance.Date == date && attendance.TeacherID == int.Parse(teacherId))
-                        {
-                            filteredStudents.Add(student);
-                            break; // No need to continue checking attendance for this student once a match is found
-                        }
-                    }
-                }
-            }
-
-            return filteredStudents;
-        }
-
-        private void DisplayStudents(List<Student> students)
-        {
-            dataGridView1_Students.Rows.Clear();
-
-            foreach (var student in students)
-            {
-                foreach (var attendanceItem in student.AttendaceHistory)
-                {
-                    dataGridView1_Students.Rows.Add(student.Name, student.TrackName, attendanceItem.TeacherID, attendanceItem.Date, attendanceItem.State);
-                }
-            }
-        }
-
-        private void comboBoxTeachers_students_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedStudentId = comboBox_Student.SelectedItem?.ToString();
-            DateOnly selectedDate = new DateOnly(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month, dateTimePicker2.Value.Day);
-            string selectedTeacherId = comboBoxTeachers_students.SelectedItem?.ToString();
-
-            if (!string.IsNullOrEmpty(selectedStudentId) && !string.IsNullOrEmpty(selectedTeacherId))
-            {
-                LoadStudentsByID(selectedStudentId, selectedDate);
-            }
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-            string selectedStudentId = comboBox_Student.SelectedItem?.ToString();
-            string selectedTeacherId = comboBoxTeachers_students.SelectedItem?.ToString();
-            DateOnly selectedDate = new DateOnly(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month, dateTimePicker2.Value.Day);
-
-            if (!string.IsNullOrEmpty(selectedStudentId) && !string.IsNullOrEmpty(selectedTeacherId))
-            {
-                LoadStudentsByID(selectedStudentId, selectedDate);
-            }
-        }
-
-        private void comboBox_Student_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedStudentId = comboBox_Student.SelectedItem?.ToString();
-            string selectedTeacherId = comboBoxTeachers_students.SelectedItem?.ToString();
-            DateOnly selectedDate = new DateOnly(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month, dateTimePicker2.Value.Day);
-
-            if (!string.IsNullOrEmpty(selectedStudentId) && !string.IsNullOrEmpty(selectedTeacherId))
-            {
-                LoadStudentsByID(selectedStudentId, selectedDate);
-            }
-        }
-
-
-        private void dataGridView_reports_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }*/
         public void student_Tab()
         {
             tabControlReport.SelectedTab = tabPS_Reports; // Select the desired tab
@@ -634,15 +509,10 @@ namespace Attendance_Management_System.UserControls
                                 document.Add(image);
 
                                 string StudentID = comboBox_Student.SelectedItem?.ToString();
-                                string htmlContent = $"<h1>ITI</h1>";
-                                StyleSheet styles = new StyleSheet();
-                                styles.LoadTagStyle(HtmlTags.H1, "font", "Courier");
-                                styles.LoadTagStyle(HtmlTags.P, "font-size", "12px");
-                                List<IElement> htmlElements = iTextSharp.text.html.simpleparser.HTMLWorker.ParseToList(new StringReader(htmlContent), styles);
-                                foreach (IElement element in htmlElements)
-                                {
-                                    document.Add(element);
-                                }
+
+                                document.Add(new Paragraph(""));
+                                document.Add(new Paragraph(""));
+
 
                                 // Add data table
                                 PdfPTable pTable = new PdfPTable(dataGridView1_Students.Columns.Count);
@@ -669,7 +539,7 @@ namespace Attendance_Management_System.UserControls
                                         }
                                         else
                                         {
-                                            pTable.AddCell("amira"); // or any default value you prefer
+                                            pTable.AddCell("student"); // or any default value you prefer
                                         }
                                     }
 
