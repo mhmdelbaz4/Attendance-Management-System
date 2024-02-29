@@ -51,6 +51,7 @@ namespace Attendance_Management_System.Forms
             userControlAddStudent1 = new UserControlAddStudent();
             panel1 = new Panel();
             adminTeachercrud = new AdminTeacherCRUD();
+            userControlTry1 = new UserControlTry();
             sidebar.SuspendLayout();
             sidebarHoverContainer.SuspendLayout();
             sidebarHeader.SuspendLayout();
@@ -263,9 +264,9 @@ namespace Attendance_Management_System.Forms
             // 
             userControlAddStudent1.BackColor = Color.FromArgb(221, 230, 237);
             userControlAddStudent1.Dock = DockStyle.Fill;
-            userControlAddStudent1.Location = new Point(298, 136);
+            userControlAddStudent1.Location = new Point(298, 135);
             userControlAddStudent1.Name = "userControlAddStudent1";
-            userControlAddStudent1.Size = new Size(902, 584);
+            userControlAddStudent1.Size = new Size(902, 585);
             userControlAddStudent1.TabIndex = 4;
             userControlAddStudent1.Visible = false;
             // 
@@ -289,11 +290,22 @@ namespace Attendance_Management_System.Forms
             adminTeachercrud.TabIndex = 4;
             adminTeachercrud.Visible = false;
             // 
+            // userControlTry1
+            // 
+            userControlTry1.AutoSize = true;
+            userControlTry1.Dock = DockStyle.Fill;
+            userControlTry1.Location = new Point(298, 135);
+            userControlTry1.Name = "userControlTry1";
+            userControlTry1.Size = new Size(902, 585);
+            userControlTry1.TabIndex = 0;
+            userControlTry1.Visible = false;
+            // 
             // Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
+            Controls.Add(userControlTry1);
             Controls.Add(userControlAddStudent1);
             Controls.Add(adminTeachercrud);
             Controls.Add(navbar);
@@ -340,5 +352,6 @@ namespace Attendance_Management_System.Forms
         private AdminTeacherCRUD adminTeacherCRUD;
         private Panel panel1;
         private AdminTeacherCRUD adminTeachercrud;
+        private UserControlTry userControlTry1;
     }
 }

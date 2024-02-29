@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Attendance_Management_System.UserControls;
+using Attendance_Management_System.Models;
 
 namespace Attendance_Management_System.Forms
 {
@@ -15,9 +17,12 @@ namespace Attendance_Management_System.Forms
         public Teacher()
         {
             InitializeComponent();
+         // sidebarHover = new Panel(); // Initialize the sidebarHover control
         }
-
-
+        public Teacher(Panel hoverpanel)
+        {
+            this.hoverpanel = hoverpanel;
+        }
 
 
         private void logout_Click(object sender, EventArgs e)
@@ -50,13 +55,25 @@ namespace Attendance_Management_System.Forms
             DateTime now = DateTime.Now;
             dateAndTimeLbl.Text = now.ToString("f");
         }
+    
 
-        private void ReportsBtn_Click(object sender, EventArgs e)
+        private void ReportsBtn_Click(object sender, EventArgs e)//
+        {
+            userControlTry1.Visible = true;
+            userControlTry1.ExecuteTab();
+        }
+
+        private void controlsPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void controlsPanel_Paint(object sender, PaintEventArgs e)
+        private void attendanceBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void teacherUserControlReport1_Load(object sender, EventArgs e)
         {
 
         }

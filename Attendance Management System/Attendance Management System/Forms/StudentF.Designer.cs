@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             Name = new DataGridViewTextBoxColumn();
@@ -35,7 +36,7 @@
             TeacherID = new DataGridViewTextBoxColumn();
             Date = new DataGridViewTextBoxColumn();
             State = new DataGridViewTextBoxColumn();
-            labelNotFound = new Label(); // Add label for "Student not found" message
+            labelNotFound = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             colorDialog1 = new ColorDialog();
@@ -45,9 +46,18 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.BackgroundColor = SystemColors.Info;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Blue;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Name, Attendance, TeacherID, Date, State });
             dataGridView1.Location = new Point(189, 12);
@@ -97,14 +107,15 @@
             // labelNotFound
             // 
             labelNotFound.AutoSize = true;
-            labelNotFound.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
-            labelNotFound.Location = new Point(500, 200); // Adjust the location as needed
-            labelNotFound.Name = "labelNotFound";
-            labelNotFound.Size = new Size(200, 40);
+            labelNotFound.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Italic, GraphicsUnit.Point, 0);
             labelNotFound.ForeColor = Color.Blue;
+            labelNotFound.Location = new Point(594, 187);
+            labelNotFound.Name = "labelNotFound";
+            labelNotFound.Size = new Size(284, 39);
+            labelNotFound.TabIndex = 0;
             labelNotFound.Text = "Student not found";
-            labelNotFound.Visible = false; // Initially hide the label
-            Controls.Add(labelNotFound);
+            labelNotFound.Visible = false;
+            labelNotFound.Click += labelNotFound_Click;
             // 
             // label1
             // 
@@ -119,22 +130,24 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.None;
-            //pictureBox1.Image = Properties.Resources.studentF;edit this picture
-            pictureBox1.Location = new Point(3, 143);
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox1.Image = Properties.Resources.StudentForm;
+            pictureBox1.Location = new Point(12, 69);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(171, 207);
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
-            // Studentff
+            // StudentF
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1349, 623);
+            ClientSize = new Size(1363, 623);
+            Controls.Add(labelNotFound);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-            //Name = "Studentff";
+        
             Text = "Student";
             Load += Studentff_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -148,7 +161,7 @@
         private Label label1;
         private PictureBox pictureBox1;
         private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn Name;
+        private new DataGridViewTextBoxColumn Name;
         private DataGridViewTextBoxColumn Attendance;
         private DataGridViewTextBoxColumn TeacherID;
         private DataGridViewTextBoxColumn Date;

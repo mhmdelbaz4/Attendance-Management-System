@@ -22,51 +22,38 @@ namespace Attendance_Management_System.Forms
         }
         private void Studentff_Load(object sender, EventArgs e)
         {
-            var studentList = StudentsRepo.GetStudents(@"../../../../attendance.xml");
+            var studentList = StudentsRepo.GetStudents(@"../../../../../xml/attendance.xml");
 
-         
-                int studentId = 30; // Example student ID
-                Student student = StudentsRepo.getStudentByID(studentId, studentList);
-            
+
+            int studentId = 49; // Example student ID
+            Student student = StudentsRepo.getStudentByID(studentId, studentList);
+
 
             if (student != null)
+            {
+                // Bind student data to the DataGridView
+                foreach (var attendanceItem in student.AttendaceHistory)
                 {
-                    // Bind student data to the DataGridView
-                    foreach (var attendanceItem in student.AttendaceHistory)
-                    {
-                        dataGridView1.Rows.Add(student.ID, student.Name, student.TrackName, attendanceItem.TeacherID, attendanceItem.Date, attendanceItem.State);
-                    }
+                    dataGridView1.Rows.Add(student.ID, student.Name, student.TrackName, attendanceItem.TeacherID, attendanceItem.Date, attendanceItem.State);
+                    labelNotFound.Visible = false;
                 }
-                else
-                {
-                dataGridView1.Rows.Add("Student not found.", "", "", "", "", "");
+            }
+            else
+            {
 
-                /* MessageBox.Show("Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 using (Form messageForm = new Form())
-                 {
-                     messageForm.Size = new Size(400, 200);
-                     messageForm.StartPosition = FormStartPosition.CenterScreen;
-                     Label label = new Label();
-                     label.Text = "Student not found.";
-                     label.Location = new Point(20, 20);
-                     messageForm.Controls.Add(label);
-                     messageForm.ShowDialog();
-                 }
-                 this.Close();*/
                 // Clear existing rows
                 dataGridView1.Visible = false;
 
                 // Show a message or perform any other actions as needed
                 labelNotFound.Visible = true;
+              var teachers =TeachersRepo.GetTeachers(@"../../../../../xml/attendance.xml");
+                Attendance_Management_System.Models.Teacher  teacher  = TeachersRepo.getTeacherByID(3, teachers);
+                MessageBox.Show(teacher.ToString());
+
+
 
             }
-            }
-          
-    
-
-
-
-
+        }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -83,7 +70,10 @@ namespace Attendance_Management_System.Forms
 
         }
 
-       
+        private void labelNotFound_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

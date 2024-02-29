@@ -53,7 +53,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="passwordType">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[A-Za-z][A-Za-z0-9]{5,}"/>
+			<xs:pattern value="[A-Za-z0-9]{8,}"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Global elements -->
@@ -65,14 +65,14 @@
 	<xs:element name="birthDate" type="xs:date"/>
 	<xs:element name="mobileNo" type="mobileType"/>
 	<!-- Definition of user data group -->
-	<xs:group name="userData">
+	<!--<xs:group name="userData">
 		<xs:sequence>
 			<xs:element ref="name"/>
 			<xs:element ref="birthDate"/>
 		</xs:sequence>
-	</xs:group>
+	</xs:group>-->
 	<!-- Definition of the XML schema -->
-	<xs:element name="AttendanceSystem">
+	<xs:element name="attendanceSystem">
 		<xs:complexType>
 			<xs:sequence>
 				<!-- Users -->
@@ -87,9 +87,10 @@
 											<xs:complexType>
 												<xs:sequence>
 													<xs:element ref="id"/>
-													<xs:group ref="userData"/>
+													<xs:element ref="name"/>
 													<xs:element ref="email"/>
 													<xs:element ref="password"/>
+													<xs:element ref="birthDate"/>
 													<xs:element ref="mobileNo"/>
 													<xs:element ref="trackName"/>
 													<xs:element name="attendance">
@@ -98,9 +99,9 @@
 																<xs:element name="item" maxOccurs="unbounded">
 																	<xs:complexType>
 																		<xs:sequence>
-																			<xs:element name="teacherID" type="xs:integer"/>
 																			<xs:element name="date" type="xs:date"/>
 																			<xs:element name="state" type="stateType"/>
+																			<xs:element name="teacherID" type="xs:integer"/>
 																		</xs:sequence>
 																	</xs:complexType>
 																</xs:element>
@@ -127,9 +128,10 @@
 											<xs:complexType>
 												<xs:sequence>
 													<xs:element ref="id"/>
-													<xs:group ref="userData"/>
+													<xs:element ref="name"/>
 													<xs:element ref="email"/>
 													<xs:element ref="password"/>
+													<xs:element ref="birthDate"/>
 													<xs:element ref="mobileNo"/>
 													<xs:element name="hiringDate" type="xs:date"/>
 													<xs:element name="salary" type="xs:integer"/>
@@ -165,12 +167,12 @@
 											<xs:complexType>
 												<xs:sequence>
 													<xs:element ref="id"/>
-													<xs:group ref="userData"/>
+													<xs:element ref="name"/>
 													<xs:element ref="email"/>
 													<xs:element ref="password"/>
+													<xs:element ref="birthDate"/>
 													<xs:element ref="mobileNo"/>
 													<xs:element name="startDate" type="xs:date"/>
-													<xs:element name="role" type="adminRole"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -192,7 +194,7 @@
 						<xs:selector xpath=".//mobileNo"/>
 						<xs:field xpath="."/>
 					</xs:unique>
-						<xs:unique name="uniqueUserPassword">
+					<xs:unique name="uniqueUserPassword">
 						<xs:selector xpath=".//password"/>
 						<xs:field xpath="."/>
 					</xs:unique>
@@ -204,7 +206,7 @@
 							<xs:element name="track" maxOccurs="3">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="trackName" type="trackType"/>
+										<xs:element name="name" type="trackType"/>
 										<xs:element name="teachers">
 											<xs:complexType>
 												<xs:sequence>

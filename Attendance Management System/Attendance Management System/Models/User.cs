@@ -10,7 +10,7 @@ public class User
 
     public string Password { get; set; }
 
-    public DateTime BirthDate { get; set; }
+    public DateOnly BirthDate { get; set; }
 
     public string? MobileNumber { get; set; }
 

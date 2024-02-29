@@ -14,6 +14,9 @@
     <Compile Update="Forms\Teacher.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\tryPdf.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\UserControlAddStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -21,6 +24,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\TeacherMarkAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\UserControlTry.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

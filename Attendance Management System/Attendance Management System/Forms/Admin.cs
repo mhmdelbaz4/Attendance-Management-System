@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
+
 namespace Attendance_Management_System.Forms
 {
     public partial class Admin : Form
@@ -63,12 +64,14 @@ namespace Attendance_Management_System.Forms
         {
             moveSideBarPanel(dashboardBtn);
             userControlAddStudent1.Visible = false; // hide add student user control
+            userControlTry1.Visible = false;//hide reports user control
         }
 
         private void attendanceBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(attendanceBtn);
             userControlAddStudent1.Visible = false;
+            userControlTry1.Visible = false;//hide reports user control
         }
 
         private void TeacherBtn_Click(object sender, EventArgs e)
@@ -76,12 +79,14 @@ namespace Attendance_Management_System.Forms
 
             moveSideBarPanel(addTeacherBtn);
             adminTeachercrud.Visible = true;
+            userControlTry1.Visible = false;//hide reports user control
         }
 
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(addStudentBtn);
             userControlAddStudent1.Visible = true;
+            userControlTry1.Visible = false;//hide reports user control
             XmlNodeList tracks = XMLControl.GetMultipleNodes("//tracks/track/name");
             foreach (XmlNode track in tracks)
             {
@@ -100,15 +105,19 @@ namespace Attendance_Management_System.Forms
         {
             moveSideBarPanel(addClassBtn);
             userControlAddStudent1.Visible = false;
+            userControlTry1.Visible = false;//hide reports user control
         }
 
         private void reports_Click(object sender, EventArgs e)
         {
-            moveSideBarPanel(reports);
+          
             userControlAddStudent1.Visible = false;
+            userControlTry1.Visible = true;
+                                         
+            userControlTry1.ExecuteTab();
+
         }
-
-
+        // moveSideBarPanel(reports);
         // add admin controls here
         private void hideAllAdminControls()
         {
