@@ -102,7 +102,6 @@ namespace Attendance_Management_System.Forms
                     //students in users by document we have
                     int noStudents = doc.SelectNodes($"//users/students/student[trackName='{trackName}']").Count;
 
-                    Console.WriteLine(noStudents);
                     // add the track to the grid view
                     dataGridTrack.Rows.Add(trackName, noStudents, noTeachers);
 
@@ -216,6 +215,48 @@ namespace Attendance_Management_System.Forms
             foreach (XmlNode student in students)
             {
                 studentsNode.RemoveChild(student);
+            }
+            // remove the track from teacher track 
+
+            /**
+             * <teachers>
+      <teacher>
+        <id>3</id>
+        <name>nasr</name>
+        <email>nasr@gmail.com</email>
+        <password>123456a@</password>
+        <birthDate>15-4-2020</birthDate>
+        <mobileNo>01141600900</mobileNo>
+        <hiringDate>4-7-2020</hiringDate>
+        <salary>10000</salary>
+        <tracks>
+          <trackName>PD</trackName>
+          <trackName>OS</trackName>
+        </tracks>
+      </teacher>
+      <teacher>
+        <id>4</id>
+        <name>ayman</name>
+        <email>ayman@gmail.com</email>
+        <password>123456a@</password>
+        <birthDate>15-4-2020</birthDate>
+        <mobileNo>01141600901</mobileNo>
+        <hiringDate>4-7-2020</hiringDate>
+        <salary>10000</salary>
+        <tracks>
+          <trackName>PD</trackName>
+          <trackName>OS</trackName>
+        </tracks>
+             */
+            XmlNode teachersNode = doc.SelectSingleNode("/attendanceSystem/users/teachers");
+
+            // get the teachers that have the selected track name
+            XmlNodeList teachers = teachersNode.SelectNodes($"teacher/tracks[trackName='{selectedTrackName}']");
+
+            // remove trackName node from tracks 
+            foreach (XmlNode teacher in teachers)
+            {
+                teacher.RemoveChild(teacher.SelectSingleNode($"trackName[text()='{selectedTrackName}']"));
             }
 
 
