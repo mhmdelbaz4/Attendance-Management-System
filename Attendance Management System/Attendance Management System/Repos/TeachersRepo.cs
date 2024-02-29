@@ -1,4 +1,5 @@
 ﻿using Attendance_Management_System.Models;
+using System.Buffers;
 using System.Xml;
 
 namespace Attendance_Management_System.Repos;
@@ -76,10 +77,45 @@ public class TeachersRepo
     }
 
 
-    public static IEnumerable<Teacher> GetTeachers(string searchBy ,string searchText)
+    public static IEnumerable<Teacher> GetTeachers(string searchBy ,string searchValue)
     {
-        IEnumerable<Teacher> teachers = new List<Teacher>();
-        
+        List<Teacher> teachers = new List<Teacher>();
+
+        XmlDocument xmlDoc = new XmlDocument();
+        try
+        {
+            xmlDoc.Load(path);
+
+            XmlNodeList teacherNodes;
+
+
+            if (searchBy == null && searchValue == null)
+            {
+                teacherNodes = xmlDoc.SelectNodes($"//teachers/teacher']");
+
+            }
+            else
+            {
+                teacherNodes = xmlDoc.SelectNodes($"//teachers/teacher[{searchBy}='{searchValue}']");
+            }
+
+            if (teacherNodes != null)
+            {
+                foreach (XmlNode teacherNode in teacherNodes)
+                {
+                    Teacher teacher = new Teacher();
+                    teacher.ID = int.Parse(teacherNode.SelectSingleNode("id").InnerText);
+                    teacher.Name = teacherNode.SelectSingleNode("name").InnerText;
+                    teacher.Email = teacherNode.SelectSingleNode("email").InnerText;
+                    teachers.Add(teacher);
+                }
+            }
+        }
+        finally
+        {
+            xmlDoc = null;
+        }
+
         return teachers;
     }
 }

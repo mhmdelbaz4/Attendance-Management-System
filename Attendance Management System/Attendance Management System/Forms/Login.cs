@@ -1,6 +1,4 @@
-﻿﻿using System.Globalization;
- using System.Xml;
-using Attendance_Management_System.Repos;
+﻿ using System.Xml;
 using Attendance_Management_System.Models;
 
 namespace Attendance_Management_System.Forms
@@ -11,12 +9,13 @@ namespace Attendance_Management_System.Forms
         {
             InitializeComponent();
         }
+        public static int LoginUserId;
 
         private void loginBTN_Click(object sender, EventArgs e)
         {
             string? email = emailInput.Text;
             string? password = passwordInput.Text;
-
+            
             if (String.IsNullOrWhiteSpace(email))
             {
                 errorMsg.Text = "Email is required";
@@ -53,12 +52,10 @@ namespace Attendance_Management_System.Forms
                 //DateTime birthDate = DateTime.ParseExact(birthdateString, "dd-MM-yyyy", null);
                 //Console.WriteLine(birthDate);
 
-
-
-
                 string mobileNumber = userNode.SelectSingleNode("mobileNo").InnerText;
 
 
+                LoginUserId = id;
 
                 if (userNode.Name == "student")
                 {
@@ -76,8 +73,6 @@ namespace Attendance_Management_System.Forms
                     studentForm.Show();
                     // hide login form
                     this.Hide();
-
-
                 }
                 else if (userNode.Name == "teacher")
                 {

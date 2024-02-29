@@ -32,22 +32,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Teacher));
             minimize = new PictureBox();
             logout = new PictureBox();
-            admin = new AdminForm();
             panel1 = new Panel();
-            panel2 = new Panel();
+            controlsPanel = new Panel();
             ReportsBtn = new Button();
-            attendanceBtn = new Button();
-            pictureBox1 = new PictureBox();
             ClassesBtn = new Button();
+            attendanceBtn = new Button();
+            panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             dateAndTimeLbl = new Label();
             hoverpanel = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
-            controlsPanel = new Panel();
+            label1 = new Label();
+            label2 = new Label();
+            AttendanceDateTimePicker = new DateTimePicker();
+            tracksComboBox = new ComboBox();
+            AttendancedataGridView = new DataGridView();
+            StudentID = new DataGridViewTextBoxColumn();
+            StudentName = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)minimize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             controlsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AttendancedataGridView).BeginInit();
             SuspendLayout();
             // 
             // minimize
@@ -74,18 +82,6 @@
             logout.TabStop = false;
             logout.Click += logout_Click;
             // 
-            // admin
-            // 
-            admin.ClientSize = new Size(0, 0);
-            admin.FormBorderStyle = FormBorderStyle.None;
-            admin.Icon = (Icon)resources.GetObject("admin.Icon");
-            admin.Location = new Point(-32000, -32000);
-            admin.Name = "admin";
-            admin.Text = "Admin";
-            admin.TopMost = true;
-            admin.Visible = false;
-            admin.WindowState = FormWindowState.Minimized;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(82, 109, 130);
@@ -99,13 +95,17 @@
             panel1.Size = new Size(298, 720);
             panel1.TabIndex = 4;
             // 
-            // panel2
+            // controlsPanel
             // 
-            panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 220);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(298, 500);
-            panel2.TabIndex = 1;
+            controlsPanel.BackColor = Color.FromArgb(82, 109, 130);
+            controlsPanel.Controls.Add(ReportsBtn);
+            controlsPanel.Controls.Add(ClassesBtn);
+            controlsPanel.Controls.Add(attendanceBtn);
+            controlsPanel.Location = new Point(3, 168);
+            controlsPanel.Name = "controlsPanel";
+            controlsPanel.Size = new Size(298, 350);
+            controlsPanel.TabIndex = 6;
+            controlsPanel.Paint += controlsPanel_Paint;
             // 
             // ReportsBtn
             // 
@@ -123,6 +123,22 @@
             ReportsBtn.UseVisualStyleBackColor = true;
             ReportsBtn.Click += ReportsBtn_Click;
             // 
+            // ClassesBtn
+            // 
+            ClassesBtn.Dock = DockStyle.Top;
+            ClassesBtn.FlatAppearance.BorderSize = 0;
+            ClassesBtn.FlatStyle = FlatStyle.Flat;
+            ClassesBtn.Font = new Font("Rockwell", 13.8F);
+            ClassesBtn.ForeColor = SystemColors.ControlLightLight;
+            ClassesBtn.Image = (Image)resources.GetObject("ClassesBtn.Image");
+            ClassesBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            ClassesBtn.Location = new Point(0, 0);
+            ClassesBtn.Name = "ClassesBtn";
+            ClassesBtn.Size = new Size(298, 67);
+            ClassesBtn.TabIndex = 5;
+            ClassesBtn.Text = "Details";
+            ClassesBtn.UseVisualStyleBackColor = true;
+            // 
             // attendanceBtn
             // 
             attendanceBtn.FlatAppearance.BorderSize = 0;
@@ -138,6 +154,14 @@
             attendanceBtn.Text = "Attendance";
             attendanceBtn.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 220);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(298, 500);
+            panel2.TabIndex = 1;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -147,22 +171,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // ClassesBtn
-            // 
-            ClassesBtn.Dock = DockStyle.Top;
-            ClassesBtn.FlatAppearance.BorderSize = 0;
-            ClassesBtn.FlatStyle = FlatStyle.Flat;
-            ClassesBtn.Font = new Font("Rockwell", 13.8F);
-            ClassesBtn.ForeColor = SystemColors.ControlLightLight;
-            ClassesBtn.Image = (Image)resources.GetObject("ClassesBtn.Image");
-            ClassesBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            ClassesBtn.Location = new Point(0, 0);
-            ClassesBtn.Name = "ClassesBtn";
-            ClassesBtn.Size = new Size(298, 67);
-            ClassesBtn.TabIndex = 5;
-            ClassesBtn.Text = "Classes";
-            ClassesBtn.UseVisualStyleBackColor = true;
             // 
             // dateAndTimeLbl
             // 
@@ -190,17 +198,80 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
-            // controlsPanel
+            // label1
             // 
-            controlsPanel.BackColor = Color.FromArgb(82, 109, 130);
-            controlsPanel.Controls.Add(ReportsBtn);
-            controlsPanel.Controls.Add(ClassesBtn);
-            controlsPanel.Controls.Add(attendanceBtn);
-            controlsPanel.Location = new Point(3, 168);
-            controlsPanel.Name = "controlsPanel";
-            controlsPanel.Size = new Size(298, 350);
-            controlsPanel.TabIndex = 6;
-            controlsPanel.Paint += controlsPanel_Paint;
+            label1.AutoSize = true;
+            label1.Location = new Point(488, 182);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 20);
+            label1.TabIndex = 8;
+            label1.Text = "label1";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(817, 182);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 9;
+            label2.Text = "label2";
+            // 
+            // AttendanceDateTimePicker
+            // 
+            AttendanceDateTimePicker.Format = DateTimePickerFormat.Short;
+            AttendanceDateTimePicker.Location = new Point(433, 207);
+            AttendanceDateTimePicker.Name = "AttendanceDateTimePicker";
+            AttendanceDateTimePicker.Size = new Size(200, 27);
+            AttendanceDateTimePicker.TabIndex = 10;
+            // 
+            // tracksComboBox
+            // 
+            tracksComboBox.FormattingEnabled = true;
+            tracksComboBox.Location = new Point(773, 207);
+            tracksComboBox.Name = "tracksComboBox";
+            tracksComboBox.Size = new Size(151, 28);
+            tracksComboBox.TabIndex = 11;
+            // 
+            // AttendancedataGridView
+            // 
+            AttendancedataGridView.AllowUserToAddRows = false;
+            AttendancedataGridView.AllowUserToDeleteRows = false;
+            AttendancedataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AttendancedataGridView.BackgroundColor = Color.White;
+            AttendancedataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AttendancedataGridView.Columns.AddRange(new DataGridViewColumn[] { StudentID, StudentName, Status });
+            AttendancedataGridView.GridColor = Color.White;
+            AttendancedataGridView.Location = new Point(323, 250);
+            AttendancedataGridView.Name = "AttendancedataGridView";
+            AttendancedataGridView.ReadOnly = true;
+            AttendancedataGridView.RowHeadersWidth = 51;
+            AttendancedataGridView.Size = new Size(800, 400);
+            AttendancedataGridView.TabIndex = 12;
+            // 
+            // StudentID
+            // 
+            StudentID.FillWeight = 150F;
+            StudentID.HeaderText = "Student ID";
+            StudentID.MinimumWidth = 6;
+            StudentID.Name = "StudentID";
+            StudentID.ReadOnly = true;
+            StudentID.Width = 250;
+            // 
+            // StudentName
+            // 
+            StudentName.HeaderText = "Student Name";
+            StudentName.MinimumWidth = 6;
+            StudentName.Name = "StudentName";
+            StudentName.ReadOnly = true;
+            StudentName.Width = 350;
+            // 
+            // Status
+            // 
+            Status.HeaderText = "Status";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            Status.Width = 200;
             // 
             // Teacher
             // 
@@ -208,6 +279,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
             ControlBox = false;
+            Controls.Add(AttendancedataGridView);
+            Controls.Add(tracksComboBox);
+            Controls.Add(AttendanceDateTimePicker);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(hoverpanel);
             Controls.Add(dateAndTimeLbl);
             Controls.Add(panel1);
@@ -221,8 +297,9 @@
             ((System.ComponentModel.ISupportInitialize)minimize).EndInit();
             ((System.ComponentModel.ISupportInitialize)logout).EndInit();
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             controlsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AttendancedataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,7 +310,6 @@
         private PictureBox closePictureBox;
         private PictureBox minimize;
         private PictureBox logout;
-        private AdminForm admin;
         private Panel panel1;
         private Panel panel2;
         private Label dateAndTimeLbl;
@@ -243,5 +319,13 @@
         private System.Windows.Forms.Timer timer1;
         private Button ClassesBtn;
         private Panel controlsPanel;
+        private Label label1;
+        private Label label2;
+        private DateTimePicker AttendanceDateTimePicker;
+        private ComboBox tracksComboBox;
+        private DataGridView AttendancedataGridView;
+        private DataGridViewTextBoxColumn StudentID;
+        private DataGridViewTextBoxColumn StudentName;
+        private DataGridViewCheckBoxColumn Status;
     }
 }

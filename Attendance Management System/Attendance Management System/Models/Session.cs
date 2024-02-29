@@ -12,7 +12,6 @@ namespace Attendance_Management_System.Models
         public static User? currentUser;
         public static string currentUserRole;
         public static DateTime loginTime;
-        
-
+       
     }
 }

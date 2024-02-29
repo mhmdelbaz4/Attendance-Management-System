@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Attendance_Management_System.Models;
+using Attendance_Management_System.Repos;
 using System.Windows.Forms;
 
 namespace Attendance_Management_System.Forms
@@ -15,10 +9,8 @@ namespace Attendance_Management_System.Forms
         public Teacher()
         {
             InitializeComponent();
+            //InitializeAttendance();
         }
-
-
-
 
         private void logout_Click(object sender, EventArgs e)
         {
@@ -45,6 +37,48 @@ namespace Attendance_Management_System.Forms
 
         }
 
+        public void InitializeAttendance()
+        {
+            AttendanceDateTimePicker.Value = DateTime.Now.Date;
+
+            tracksComboBox.Items.AddRange(TracksRepo.GetTrackNames().ToArray());
+            tracksComboBox.SelectedItem = TracksRepo.GetTrackNames().ToArray()[0];
+
+            List<(string, string, string)> result = new List<(string, string, string)>();
+
+            //TracksRepo.getTrackAttendance(DateTime.Now.Date.ToString("yyyy-MM-dd"), TracksRepo.GetTrackNames().ToArray()[0], Session.currentUser.ID.ToString());
+            //fillDataGridView(result);
+
+        }
+
+
+        public void fillDataGridView(List<Tuple<string,string,string>> result)
+        {
+            foreach (var attendance in result)
+            {
+                // Create a new row
+                DataGridViewRow row = new DataGridViewRow();
+
+                // Add cells to the row
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = attendance.Item1 });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = attendance.Item2 });
+
+                // Create a checkbox cell for attendance status
+                DataGridViewCheckBoxCell checkboxCell = new DataGridViewCheckBoxCell();
+
+                checkboxCell.Value = attendance.Item3 == "attendant";
+                row.Cells.Add(checkboxCell);
+
+                // Add the row to the DataGridView
+                AttendancedataGridView.Rows.Add(row);
+            }
+        }
+
+        private void listen()
+        {
+
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
@@ -57,6 +91,11 @@ namespace Attendance_Management_System.Forms
         }
 
         private void controlsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ClassesBtn_Click(object sender, EventArgs e)
         {
 
         }

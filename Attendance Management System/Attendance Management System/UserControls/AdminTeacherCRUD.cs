@@ -152,6 +152,8 @@ namespace Attendance_Management_System.UserControls
             string searchValue = SearchtextBox.Text.Trim().ToLower();
             string searchBy = searchByComboBox.SelectedItem.ToString();
 
+
+
             if (searchBy == "track")
             {
                 searchBy = "trackName";
