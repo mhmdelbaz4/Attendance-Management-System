@@ -46,10 +46,8 @@ namespace Attendance_Management_System.Forms
 
                 // Show a message or perform any other actions as needed
                 labelNotFound.Visible = true;
-              var teachers =TeachersRepo.GetTeachers(@"../../../../../xml/attendance.xml");
+              var teachers =TeachersRepo.GetTeachers2(@"../../../../../xml/attendance.xml");
                 Attendance_Management_System.Models.Teacher  teacher  = TeachersRepo.getTeacherByID(3, teachers);
-                MessageBox.Show(teacher.ToString());
-
 
 
             }

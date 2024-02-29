@@ -105,6 +105,9 @@ namespace Attendance_Management_System.Forms
         }
 
         private void teacherUserControlReport1_Load(object sender, EventArgs e)
+        {
+
+        }
         private void ClassesBtn_Click(object sender, EventArgs e)
         {
 

@@ -37,9 +37,6 @@ namespace Attendance_Management_System.Forms
             panel1 = new Panel();
             controlsPanel = new Panel();
             ReportsBtn = new Button();
-
-            ClassesBtn = new Button();
-
             attendanceBtn = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
@@ -107,8 +104,6 @@ namespace Attendance_Management_System.Forms
             // 
             controlsPanel.BackColor = Color.FromArgb(82, 109, 130);
             controlsPanel.Controls.Add(ReportsBtn);
-
-            controlsPanel.Controls.Add(ClassesBtn);
             controlsPanel.Controls.Add(attendanceBtn);
             controlsPanel.Location = new Point(3, 168);
             controlsPanel.Name = "controlsPanel";
@@ -133,21 +128,6 @@ namespace Attendance_Management_System.Forms
             ReportsBtn.Click += ReportsBtn_Click;
             // 
 
-            // ClassesBtn
-            // 
-            ClassesBtn.Dock = DockStyle.Top;
-            ClassesBtn.FlatAppearance.BorderSize = 0;
-            ClassesBtn.FlatStyle = FlatStyle.Flat;
-            ClassesBtn.Font = new Font("Rockwell", 13.8F);
-            ClassesBtn.ForeColor = SystemColors.ControlLightLight;
-            ClassesBtn.Image = (Image)resources.GetObject("ClassesBtn.Image");
-            ClassesBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            ClassesBtn.Location = new Point(0, 0);
-            ClassesBtn.Name = "ClassesBtn";
-            ClassesBtn.Size = new Size(298, 67);
-            ClassesBtn.TabIndex = 5;
-            ClassesBtn.Text = "Classes";
-            ClassesBtn.UseVisualStyleBackColor = true;
             // 
             // attendanceBtn
             // 

@@ -33,9 +33,9 @@ public class TeachersRepo
                 Name = TeacherNode.SelectSingleNode("name").InnerText,
                 Email = TeacherNode.SelectSingleNode("email").InnerText,
                 Password = TeacherNode.SelectSingleNode("password").InnerText,
-                BirthDate = DateOnly.ParseExact(TeacherNode.SelectSingleNode("birthDate").InnerText, "yyyy-MM-dd", null), // Parsing using specific format
+                BirthDate = DateTime.ParseExact(TeacherNode.SelectSingleNode("birthDate").InnerText, "yyyy-MM-dd", null), // Parsing using specific format
                 MobileNumber = TeacherNode.SelectSingleNode("mobileNo").InnerText,
-                HiringDate = DateOnly.ParseExact(TeacherNode.SelectSingleNode("hiringDate").InnerText, "yyyy-MM-dd", null),
+                HiringDate = DateTime.ParseExact(TeacherNode.SelectSingleNode("hiringDate").InnerText, "yyyy-MM-dd", null),
                 Salary = int.Parse(TeacherNode.SelectSingleNode("salary").InnerText),
             };
 

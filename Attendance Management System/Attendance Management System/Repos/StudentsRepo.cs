@@ -40,7 +40,7 @@ public static class StudentsRepo
                 Name = studentNode.SelectSingleNode("name").InnerText,
                 Email = studentNode.SelectSingleNode("email").InnerText,
                 Password = studentNode.SelectSingleNode("password").InnerText,
-                BirthDate = DateOnly.ParseExact(studentNode.SelectSingleNode("birthDate").InnerText, "yyyy-MM-dd", null), // Parsing using specific format
+                BirthDate =DateTime.ParseExact(studentNode.SelectSingleNode("birthDate").InnerText, "yyyy-MM-dd", null), // Parsing using specific format
                 MobileNumber = studentNode.SelectSingleNode("mobileNo").InnerText,
                 TrackName = studentNode.SelectSingleNode("trackName").InnerText,
 
