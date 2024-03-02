@@ -1,4 +1,6 @@
-﻿namespace Attendance_Management_System.Forms
+﻿using Attendance_Management_System.UserControls;
+
+namespace Attendance_Management_System.Forms
 {
     partial class Teacher
     {
@@ -41,6 +43,8 @@
             dateAndTimeLbl = new Label();
             hoverpanel = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
+
+            userControlTry1 = new UserControlTry();
             label1 = new Label();
             label2 = new Label();
             AttendanceDateTimePicker = new DateTimePicker();
@@ -54,14 +58,16 @@
             panel1.SuspendLayout();
             controlsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)AttendancedataGridView).BeginInit();
+
             SuspendLayout();
             // 
             // minimize
             // 
             minimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             minimize.Image = (Image)resources.GetObject("minimize.Image");
-            minimize.Location = new Point(1093, 0);
+            minimize.Location = new Point(1149, 0);
             minimize.Name = "minimize";
             minimize.Size = new Size(50, 50);
             minimize.SizeMode = PictureBoxSizeMode.Zoom;
@@ -73,7 +79,7 @@
             // 
             logout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             logout.Image = Properties.Resources.logout;
-            logout.Location = new Point(1149, 0);
+            logout.Location = new Point(1205, 0);
             logout.Name = "logout";
             logout.Size = new Size(50, 50);
             logout.SizeMode = PictureBoxSizeMode.Zoom;
@@ -115,11 +121,13 @@
             ReportsBtn.ImageAlign = ContentAlignment.MiddleLeft;
             ReportsBtn.Location = new Point(0, 55);
             ReportsBtn.Name = "ReportsBtn";
-            ReportsBtn.Size = new Size(298, 67);
+            ReportsBtn.Size = new Size(289, 67);
             ReportsBtn.TabIndex = 7;
             ReportsBtn.Text = "Reports";
             ReportsBtn.UseVisualStyleBackColor = true;
             ReportsBtn.Click += ReportsBtn_Click;
+            // 
+
             // 
             // attendanceBtn
             // 
@@ -129,12 +137,16 @@
             attendanceBtn.ForeColor = SystemColors.ControlLightLight;
             attendanceBtn.Image = (Image)resources.GetObject("attendanceBtn.Image");
             attendanceBtn.ImageAlign = ContentAlignment.MiddleLeft;
+
             attendanceBtn.Location = new Point(-3, 0);
             attendanceBtn.Name = "attendanceBtn";
             attendanceBtn.Size = new Size(298, 67);
             attendanceBtn.TabIndex = 6;
             attendanceBtn.Text = "Attendance";
             attendanceBtn.UseVisualStyleBackColor = true;
+
+            attendanceBtn.Click += attendanceBtn_Click;
+
             // 
             // panel2
             // 
@@ -173,13 +185,21 @@
             hoverpanel.BackColor = Color.FromArgb(39, 55, 77);
             hoverpanel.Location = new Point(298, 50);
             hoverpanel.Name = "hoverpanel";
-            hoverpanel.Size = new Size(902, 120);
+            hoverpanel.Size = new Size(958, 120);
             hoverpanel.TabIndex = 7;
             // 
             // timer1
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // userControlTry1
+            // 
+            userControlTry1.Dock = DockStyle.Fill;
+            userControlTry1.Location = new Point(298, 0);
+            userControlTry1.Name = "userControlTry1";
+            userControlTry1.Size = new Size(958, 720);
+            userControlTry1.TabIndex = 0;
+            userControlTry1.Visible = false;
             // label1
             // 
             label1.AutoSize = true;
@@ -259,8 +279,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 720);
+            ClientSize = new Size(1256, 720);
             ControlBox = false;
+
+            Controls.Add(userControlTry1);
+
             Controls.Add(AttendancedataGridView);
             Controls.Add(tracksComboBox);
             Controls.Add(AttendanceDateTimePicker);
@@ -281,6 +304,7 @@
             panel1.ResumeLayout(false);
             controlsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)AttendancedataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -289,7 +313,6 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private PictureBox closePictureBox;
         private PictureBox minimize;
         private PictureBox logout;
         private Panel panel1;
@@ -300,6 +323,9 @@
         private Button ReportsBtn;
         private System.Windows.Forms.Timer timer1;
         private Panel controlsPanel;
+
+        private UserControlTry userControlTry1;
+     
         private Label label1;
         private Label label2;
         private DateTimePicker AttendanceDateTimePicker;

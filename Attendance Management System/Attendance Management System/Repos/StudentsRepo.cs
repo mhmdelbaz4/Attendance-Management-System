@@ -1,4 +1,8 @@
-﻿using Attendance_Management_System.Models;
+﻿
+//using Attendance_Management_System.Forms;
+//using Attendance_Management_System.Forms;
+using Attendance_Management_System.Models;
+using System.Reflection.Metadata.Ecma335;
 using System.Xml;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -10,7 +14,7 @@ public static class StudentsRepo
     //private static XmlReader xmlReader;
     static StudentsRepo()
     {
-       // path = @"C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\attendance.xml";
+        // path = @"C:\Users\T.B\Desktop\c# pathes\Attendance-Management-System\Attendance Management System\attendance.xml";
         //xmlReader = XmlReader.Create(path);
     }
     public static List<Student> GetStudents(string path)
@@ -29,13 +33,15 @@ public static class StudentsRepo
         {
             Student s1 = new Student()
             {
+                // int.Parse(studentNode.SelectSingleNode("id").InnerText)
+                //ID = int.Parse(studentNode.SelectSingleNode("id").InnerText),
                 ID = int.Parse(studentNode.SelectSingleNode("id").InnerText),
                 Name = studentNode.SelectSingleNode("name").InnerText,
-                BirthDate = DateTime.ParseExact(studentNode.SelectSingleNode("birthDate").InnerText, "yyyy-MM-dd", null), // Parsing using specific format
                 Email = studentNode.SelectSingleNode("email").InnerText,
+                Password = studentNode.SelectSingleNode("password").InnerText,
+                BirthDate =DateTime.ParseExact(studentNode.SelectSingleNode("birthDate").InnerText, "yyyy-MM-dd", null), // Parsing using specific format
                 MobileNumber = studentNode.SelectSingleNode("mobileNo").InnerText,
-                TrackName = studentNode.SelectSingleNode("trackName").InnerText
-
+                TrackName = studentNode.SelectSingleNode("trackName").InnerText,
 
             };
 
@@ -50,8 +56,8 @@ public static class StudentsRepo
                     Date = DateOnly.Parse(attendanceNode.SelectSingleNode("date").InnerText),
                     State = (AttendanceState)Enum.Parse(typeof(AttendanceState), attendanceNode.SelectSingleNode("state").InnerText, ignoreCase: true)
 
-      
-            };
+
+                };
                 s1.AttendaceHistory.Add(attendance);
             }//end of second foreach
             students.Add(s1);
@@ -65,10 +71,11 @@ public static class StudentsRepo
         foreach (Student student in studentList)
         {
             if (student.ID == id)
-            { return student; }
+            {
+                
+                return student;
+            }
         }
         return null;
-
     }
-
-}//end of StudentsRepo
+}

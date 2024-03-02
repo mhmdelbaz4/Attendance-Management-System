@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
+
 namespace Attendance_Management_System.Forms
 {
     public partial class AdminForm : Form
@@ -67,6 +68,9 @@ namespace Attendance_Management_System.Forms
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(dashboardBtn);
+            userControlAddStudent1.Visible = false; // hide add student user control
+            userControlTry1.Visible = false;//hide reports user control
+
             hideAllAdminControls();
             setDashboardNumbers();
             adminMainDashboard1.Visible = true;
@@ -76,6 +80,7 @@ namespace Attendance_Management_System.Forms
         private void attendanceBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(attendanceBtn);
+
             hideAllAdminControls();
             adminMarkAttendance.Visible = true;
         }
@@ -85,6 +90,7 @@ namespace Attendance_Management_System.Forms
             moveSideBarPanel(addTeacherBtn);
             hideAllAdminControls();
             adminTeachercrud.Visible = true;
+            userControlTry1.Visible = false;//hide reports user control
         }
 
         private void addStudentBtn_Click(object sender, EventArgs e)
@@ -116,17 +122,21 @@ namespace Attendance_Management_System.Forms
         private void addClassBtn_Click(object sender, EventArgs e)
         {
             moveSideBarPanel(addClassBtn);
+
             hideAllAdminControls();
             trackUserControl1.Visible = true;
         }
 
         private void reports_Click(object sender, EventArgs e)
         {
-            moveSideBarPanel(reports);
+            
             hideAllAdminControls();
+            userControlTry1.Visible = true;                          
+            userControlTry1.ExecuteTab();
+            moveSideBarPanel(reports);
+
         }
-
-
+        // moveSideBarPanel(reports);
         // add admin controls here
         private void hideAllAdminControls()
         {
@@ -134,7 +144,9 @@ namespace Attendance_Management_System.Forms
             trackUserControl1.Visible = false;
             adminMainDashboard1.Visible = false;
             userControlAddStudent1.Visible = false;
-            adminMarkAttendance.Visible = false;    
+            adminMarkAttendance.Visible = false;
+            userControlTry1.Visible = false;//hide reports user control
+
         }
 
 

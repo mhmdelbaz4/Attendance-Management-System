@@ -20,13 +20,19 @@
     <Compile Update="Forms\TrackUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Forms\tryPdf.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\UserControlAddStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\AdminMarkAttendance.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\AdminTeacherCRUD.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\AdminMarkAttendance.cs">
+    <Compile Update="UserControls\UserControlTry.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

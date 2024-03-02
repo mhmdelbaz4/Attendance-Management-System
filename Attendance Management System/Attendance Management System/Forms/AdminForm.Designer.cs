@@ -53,6 +53,7 @@ namespace Attendance_Management_System.Forms
             userControlAddStudent1 = new UserControlAddStudent();
             panel1 = new Panel();
             adminTeachercrud = new AdminTeacherCRUD();
+            userControlTry1 = new UserControlTry();
             adminMainDashboard1 = new AdminMainDashboard();
             adminMarkAttendance = new AdminMarkAttendance();
             trackUserControl1 = new TrackUserControl();
@@ -321,6 +322,18 @@ namespace Attendance_Management_System.Forms
             adminTeachercrud.TabIndex = 4;
             adminTeachercrud.Visible = false;
             // 
+            // userControlTry1
+            // 
+            userControlTry1.AutoSize = true;
+            userControlTry1.Dock = DockStyle.Fill;
+            userControlTry1.Location = new Point(298, 135);
+            userControlTry1.Name = "userControlTry1";
+            userControlTry1.Size = new Size(902, 585);
+            userControlTry1.TabIndex = 0;
+            userControlTry1.Visible = false;
+            // 
+            // Admin
+
             // adminMainDashboard1
             // 
             adminMainDashboard1.BackColor = Color.FromArgb(221, 230, 237);
@@ -353,6 +366,8 @@ namespace Attendance_Management_System.Forms
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 720);
+            Controls.Add(userControlTry1);
+
             Controls.Add(adminMarkAttendance);
             Controls.Add(trackUserControl1);
             Controls.Add(adminMainDashboard1);
@@ -404,6 +419,8 @@ namespace Attendance_Management_System.Forms
         private AdminTeacherCRUD adminTeacherCRUD;
         private Panel panel1;
         private AdminTeacherCRUD adminTeachercrud;
+        private UserControlTry userControlTry1;
+
         private AdminMainDashboard adminMainDashboard1;
         private Label welcomeLabel;
         public Label adminName;

@@ -2,8 +2,12 @@
 
 public class Track
 {
-    public string? Name { get; set; }
+    public TrackNAme? Name { get; set; }
 
     public List<int> TeachersIDs { get; set; }
 
+}
+public enum TrackNAme
+{
+    AI,OS,PD
 }
