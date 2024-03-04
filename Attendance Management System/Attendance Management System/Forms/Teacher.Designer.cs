@@ -36,15 +36,13 @@ namespace Attendance_Management_System.Forms
             logout = new PictureBox();
             panel1 = new Panel();
             controlsPanel = new Panel();
-            ReportsBtn = new Button();
+            new_reports = new Button();
             attendanceBtn = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             dateAndTimeLbl = new Label();
             hoverpanel = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
-
-            userControlTry1 = new UserControlTry();
             label1 = new Label();
             label2 = new Label();
             AttendanceDateTimePicker = new DateTimePicker();
@@ -53,14 +51,13 @@ namespace Attendance_Management_System.Forms
             StudentID = new DataGridViewTextBoxColumn();
             StudentName = new DataGridViewTextBoxColumn();
             Status = new DataGridViewCheckBoxColumn();
+            userControlTry2 = new UserControlTry();
             ((System.ComponentModel.ISupportInitialize)minimize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             panel1.SuspendLayout();
             controlsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-
             ((System.ComponentModel.ISupportInitialize)AttendancedataGridView).BeginInit();
-
             SuspendLayout();
             // 
             // minimize
@@ -103,7 +100,7 @@ namespace Attendance_Management_System.Forms
             // controlsPanel
             // 
             controlsPanel.BackColor = Color.FromArgb(82, 109, 130);
-            controlsPanel.Controls.Add(ReportsBtn);
+            controlsPanel.Controls.Add(new_reports);
             controlsPanel.Controls.Add(attendanceBtn);
             controlsPanel.Location = new Point(3, 168);
             controlsPanel.Name = "controlsPanel";
@@ -111,23 +108,21 @@ namespace Attendance_Management_System.Forms
             controlsPanel.TabIndex = 6;
             controlsPanel.Paint += controlsPanel_Paint;
             // 
-            // ReportsBtn
+            // new_reports
             // 
-            ReportsBtn.FlatAppearance.BorderSize = 0;
-            ReportsBtn.FlatStyle = FlatStyle.Flat;
-            ReportsBtn.Font = new Font("Rockwell", 13.8F);
-            ReportsBtn.ForeColor = SystemColors.ControlLightLight;
-            ReportsBtn.Image = (Image)resources.GetObject("ReportsBtn.Image");
-            ReportsBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            ReportsBtn.Location = new Point(0, 55);
-            ReportsBtn.Name = "ReportsBtn";
-            ReportsBtn.Size = new Size(289, 67);
-            ReportsBtn.TabIndex = 7;
-            ReportsBtn.Text = "Reports";
-            ReportsBtn.UseVisualStyleBackColor = true;
-            ReportsBtn.Click += ReportsBtn_Click;
-            // 
-
+            new_reports.FlatAppearance.BorderSize = 0;
+            new_reports.FlatStyle = FlatStyle.Flat;
+            new_reports.Font = new Font("Rockwell", 13.8F);
+            new_reports.ForeColor = SystemColors.ControlLightLight;
+            new_reports.Image = (Image)resources.GetObject("new_reports.Image");
+            new_reports.ImageAlign = ContentAlignment.MiddleLeft;
+            new_reports.Location = new Point(-3, 73);
+            new_reports.Name = "new_reports";
+            new_reports.Size = new Size(289, 67);
+            new_reports.TabIndex = 8;
+            new_reports.Text = "Reports";
+            new_reports.UseVisualStyleBackColor = true;
+            new_reports.Click += new_reports_Click;
             // 
             // attendanceBtn
             // 
@@ -137,16 +132,13 @@ namespace Attendance_Management_System.Forms
             attendanceBtn.ForeColor = SystemColors.ControlLightLight;
             attendanceBtn.Image = (Image)resources.GetObject("attendanceBtn.Image");
             attendanceBtn.ImageAlign = ContentAlignment.MiddleLeft;
-
             attendanceBtn.Location = new Point(-3, 0);
             attendanceBtn.Name = "attendanceBtn";
             attendanceBtn.Size = new Size(298, 67);
             attendanceBtn.TabIndex = 6;
             attendanceBtn.Text = "Attendance";
             attendanceBtn.UseVisualStyleBackColor = true;
-
             attendanceBtn.Click += attendanceBtn_Click;
-
             // 
             // panel2
             // 
@@ -192,14 +184,6 @@ namespace Attendance_Management_System.Forms
             // 
             timer1.Tick += timer1_Tick;
             // 
-            // userControlTry1
-            // 
-            userControlTry1.Dock = DockStyle.Fill;
-            userControlTry1.Location = new Point(298, 0);
-            userControlTry1.Name = "userControlTry1";
-            userControlTry1.Size = new Size(958, 720);
-            userControlTry1.TabIndex = 0;
-            userControlTry1.Visible = false;
             // label1
             // 
             label1.AutoSize = true;
@@ -243,7 +227,7 @@ namespace Attendance_Management_System.Forms
             AttendancedataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AttendancedataGridView.Columns.AddRange(new DataGridViewColumn[] { StudentID, StudentName, Status });
             AttendancedataGridView.GridColor = Color.White;
-            AttendancedataGridView.Location = new Point(323, 250);
+            AttendancedataGridView.Location = new Point(335, 250);
             AttendancedataGridView.Name = "AttendancedataGridView";
             AttendancedataGridView.ReadOnly = true;
             AttendancedataGridView.RowHeadersWidth = 51;
@@ -275,16 +259,22 @@ namespace Attendance_Management_System.Forms
             Status.ReadOnly = true;
             Status.Width = 200;
             // 
+            // userControlTry2
+            // 
+            userControlTry2.AutoSize = true;
+            userControlTry2.Location = new Point(298, 168);
+            userControlTry2.Name = "userControlTry2";
+            userControlTry2.Size = new Size(1542, 788);
+            userControlTry2.TabIndex = 13;
+            userControlTry2.Load += userControlTry2_Load;
+            // 
             // Teacher
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1256, 720);
             ControlBox = false;
-
-            Controls.Add(userControlTry1);
-
-            Controls.Add(AttendancedataGridView);
+            Controls.Add(userControlTry2);
             Controls.Add(tracksComboBox);
             Controls.Add(AttendanceDateTimePicker);
             Controls.Add(label2);
@@ -294,17 +284,16 @@ namespace Attendance_Management_System.Forms
             Controls.Add(panel1);
             Controls.Add(logout);
             Controls.Add(minimize);
+            Controls.Add(AttendancedataGridView);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Teacher";
             StartPosition = FormStartPosition.CenterScreen;
-            WindowState = FormWindowState.Maximized;
             Load += Teacher_Load;
             ((System.ComponentModel.ISupportInitialize)minimize).EndInit();
             ((System.ComponentModel.ISupportInitialize)logout).EndInit();
             panel1.ResumeLayout(false);
             controlsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-
             ((System.ComponentModel.ISupportInitialize)AttendancedataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -320,7 +309,6 @@ namespace Attendance_Management_System.Forms
         private Label dateAndTimeLbl;
         private Panel hoverpanel;
         private Button attendanceBtn;
-        private Button ReportsBtn;
         private System.Windows.Forms.Timer timer1;
         private Panel controlsPanel;
 
@@ -334,5 +322,7 @@ namespace Attendance_Management_System.Forms
         private DataGridViewTextBoxColumn StudentID;
         private DataGridViewTextBoxColumn StudentName;
         private DataGridViewCheckBoxColumn Status;
+        private Button new_reports;
+        private UserControlTry userControlTry2;
     }
 }

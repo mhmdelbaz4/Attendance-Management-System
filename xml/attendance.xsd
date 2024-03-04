@@ -31,7 +31,6 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="OS"/>
 			<xs:enumeration value="PD"/>
-			<xs:enumeration value="AI"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="trackIDType">

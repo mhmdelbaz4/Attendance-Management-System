@@ -53,17 +53,17 @@
             comboBoxTeachers_students = new ComboBox();
             pictureBox_print2 = new PictureBox();
             dataGridView1_Students = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            Teacher_ID = new DataGridViewTextBoxColumn();
+            Att_Date = new DataGridViewTextBoxColumn();
+            state = new DataGridViewTextBoxColumn();
             comboBox_Student = new ComboBox();
             dateTimePicker2 = new DateTimePicker();
             label2_Student = new Label();
             label2_Date = new Label();
             labl_student = new Label();
             toolTip1 = new ToolTip(components);
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            Teacher_ID = new DataGridViewTextBoxColumn();
-            Att_Date = new DataGridViewTextBoxColumn();
-            state = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tabp_TReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_reports).BeginInit();
@@ -147,7 +147,6 @@
             dataGridView_reports.RowHeadersWidth = 51;
             dataGridView_reports.Size = new Size(1101, 439);
             dataGridView_reports.TabIndex = 7;
-          
             // 
             // Student_Name
             // 
@@ -210,7 +209,7 @@
             // comboBox_tRACK
             // 
             comboBox_tRACK.FormattingEnabled = true;
-            comboBox_tRACK.Items.AddRange(new object[] { "OS", "PD", "AI" });
+            comboBox_tRACK.Items.AddRange(new object[] { "OS", "PD" });
             comboBox_tRACK.Location = new Point(865, 122);
             comboBox_tRACK.Name = "comboBox_tRACK";
             comboBox_tRACK.Size = new Size(320, 34);
@@ -317,6 +316,36 @@
             dataGridView1_Students.Size = new Size(1101, 439);
             dataGridView1_Students.TabIndex = 8;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.HeaderText = "Student_Name";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "Track_Name";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // Teacher_ID
+            // 
+            Teacher_ID.HeaderText = "Teacher_ID";
+            Teacher_ID.MinimumWidth = 6;
+            Teacher_ID.Name = "Teacher_ID";
+            // 
+            // Att_Date
+            // 
+            Att_Date.HeaderText = "Date";
+            Att_Date.MinimumWidth = 6;
+            Att_Date.Name = "Att_Date";
+            // 
+            // state
+            // 
+            state.HeaderText = "Status";
+            state.MinimumWidth = 6;
+            state.Name = "state";
+            // 
             // comboBox_Student
             // 
             comboBox_Student.AutoCompleteCustomSource.AddRange(new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
@@ -374,36 +403,6 @@
             labl_student.Size = new Size(153, 26);
             labl_student.TabIndex = 2;
             labl_student.Text = "Student Report";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Student_Name";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Track_Name";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // Teacher_ID
-            // 
-            Teacher_ID.HeaderText = "Teacher_ID";
-            Teacher_ID.MinimumWidth = 6;
-            Teacher_ID.Name = "Teacher_ID";
-            // 
-            // Att_Date
-            // 
-            Att_Date.HeaderText = "Date";
-            Att_Date.MinimumWidth = 6;
-            Att_Date.Name = "Att_Date";
-            // 
-            // state
-            // 
-            state.HeaderText = "Status";
-            state.MinimumWidth = 6;
-            state.Name = "state";
             // 
             // UserControlTry
             // 

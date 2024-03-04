@@ -21,7 +21,7 @@ internal static class Program
         ApplicationConfiguration.Initialize();
         // Application.Run(new Attendance_Management_System.Forms.Teacher());
         // Application.Run(new tryPdf());
-        Application.Run(new Attendance_Management_System.Forms.AdminForm());
+        Application.Run(new Attendance_Management_System.Forms.Teacher());
        
       
     }

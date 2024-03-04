@@ -321,7 +321,7 @@
         WjxbPO97XvMe/PneZ/lJzznH1Tf8lK/jJyJ7RUX/D9fLGnNO2MwIAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="ReportsBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="new_reports.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAmhJREFUWEft
         lj9LHFEQwM9vIBLByk9gbxELDXcRUqRILPX0CwghRUCL5ECENClSxCroHUiqgJ0gFhamSRXCpci5hCRH
@@ -552,5 +552,8 @@
   </metadata>
   <metadata name="Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
   </metadata>
 </root>

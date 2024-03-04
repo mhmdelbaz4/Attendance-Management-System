@@ -36,6 +36,7 @@ namespace Attendance_Management_System.Forms
             this.TopMost = true; // this will set it on top of everything, including the taskbar
             this.FormBorderStyle = FormBorderStyle.None; // remove the title bar
             this.WindowState = FormWindowState.Maximized; // maximize it to fill the entire screen.
+            userControlTry2.Hide();
 
         }
 
@@ -54,7 +55,7 @@ namespace Attendance_Management_System.Forms
         }
 
 
-        public void fillDataGridView(List<Tuple<string,string,string>> result)
+        public void fillDataGridView(List<Tuple<string, string, string>> result)
         {
             foreach (var attendance in result)
             {
@@ -86,22 +87,25 @@ namespace Attendance_Management_System.Forms
             DateTime now = DateTime.Now;
             dateAndTimeLbl.Text = now.ToString("f");
         }
-    
 
-        private void ReportsBtn_Click(object sender, EventArgs e)//
-        {
-            userControlTry1.Visible = true;
-            userControlTry1.ExecuteTab();
-        }
+
+
 
         private void controlsPanel_Paint(object sender, PaintEventArgs e)
         {
-
+            //Console.WriteLine("enter");
+            //MessageBox.Show("enter");
+            //userControlTry2.Visible = true;
+            //MessageBox.Show("after");
+            //Console.WriteLine("after");
+            //userControlTry1.ExecuteTab();
+            //MessageBox.Show("execute");
+            //Console.WriteLine("execute");
         }
 
         private void attendanceBtn_Click(object sender, EventArgs e)
         {
-
+            userControlTry2.Hide();
         }
 
         private void teacherUserControlReport1_Load(object sender, EventArgs e)
@@ -109,6 +113,19 @@ namespace Attendance_Management_System.Forms
 
         }
         private void ClassesBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void new_reports_Click(object sender, EventArgs e)
+        {
+
+            userControlTry2.Show();
+            userControlTry2.ExecuteTab();
+
+        }
+
+        private void userControlTry2_Load(object sender, EventArgs e)
         {
 
         }

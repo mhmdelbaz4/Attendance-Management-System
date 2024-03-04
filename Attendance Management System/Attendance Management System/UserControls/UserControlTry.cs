@@ -518,7 +518,7 @@ namespace Attendance_Management_System.UserControls
                                 PdfPTable pTable = new PdfPTable(dataGridView1_Students.Columns.Count);
                                 pTable.DefaultCell.Padding = 2;
                                 pTable.WidthPercentage = 100;
-                                pTable.HorizontalAlignment = Element.ALIGN_LEFT;
+                                pTable.HorizontalAlignment = Element.ALIGN_CENTER;
 
                                 // Add headers to PDF table
                                 foreach (DataGridViewColumn col in dataGridView1_Students.Columns)
